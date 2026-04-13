@@ -7,35 +7,46 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2E;min-height:100vh;}
-.top-nav{background:#1A1A2E;color:#fff;padding:0 24px;display:flex;align-items:center;gap:16px;height:52px;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,0.3);}
+
+/* ── Nav ── */
+.top-nav{background:#1A1A2E;color:#fff;padding:0 24px;display:flex;align-items:center;gap:12px;height:52px;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,0.3);}
 .nav-title{font-size:15px;font-weight:600;letter-spacing:0.02em;flex-shrink:0;}
 .nav-title span{color:#60A5FA;}
-.nav-tabs{display:flex;gap:2px;margin-left:16px;}
-.nav-tab{padding:6px 16px;font-size:13px;border-radius:6px;cursor:pointer;color:rgba(255,255,255,0.65);transition:all 0.15s;border:none;background:transparent;}
+.nav-tabs{display:flex;gap:2px;margin-left:12px;}
+.nav-tab{padding:6px 14px;font-size:13px;border-radius:6px;cursor:pointer;color:rgba(255,255,255,0.65);transition:all 0.15s;border:none;background:transparent;}
 .nav-tab.active,.nav-tab:hover{background:rgba(255,255,255,0.12);color:#fff;}
 .nav-tab.active{background:rgba(96,165,250,0.25);color:#93C5FD;}
-.search-bar{margin-left:auto;display:flex;align-items:center;gap:8px;}
-.search-bar input{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);border-radius:8px;padding:6px 12px;font-size:13px;color:#fff;width:220px;outline:none;}
+.nav-actions{margin-left:auto;display:flex;align-items:center;gap:8px;}
+.search-bar input{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);border-radius:8px;padding:6px 12px;font-size:13px;color:#fff;width:200px;outline:none;}
 .search-bar input::placeholder{color:rgba(255,255,255,0.4);}
 .search-bar input:focus{background:rgba(255,255,255,0.15);border-color:rgba(96,165,250,0.5);}
+.nav-btn{padding:5px 12px;font-size:12px;font-weight:500;border-radius:6px;border:1px solid rgba(255,255,255,0.25);background:transparent;color:rgba(255,255,255,0.8);cursor:pointer;white-space:nowrap;transition:all 0.15s;}
+.nav-btn:hover{background:rgba(255,255,255,0.12);color:#fff;}
+.nav-btn.finder-btn{background:rgba(96,165,250,0.2);border-color:rgba(96,165,250,0.4);color:#93C5FD;}
+.nav-btn.finder-btn:hover{background:rgba(96,165,250,0.3);}
 
+/* ── Main layout ── */
 .main{padding:20px 24px;}
 .tab-panel{display:none;}
 .tab-panel.active{display:block;}
 
-/* Filter chips */
-.filter-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;}
+/* ── Filter chips ── */
+.filter-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;align-items:center;}
 .chip{font-size:12px;padding:5px 12px;border-radius:20px;border:1px solid #D1D5DB;cursor:pointer;background:#fff;color:#6B7280;transition:all 0.15s;font-weight:500;}
 .chip:hover{border-color:#93C5FD;color:#1D4ED8;}
 .chip.active{background:#EFF6FF;color:#1D4ED8;border-color:#93C5FD;}
+.filter-count{font-size:12px;color:#9CA3AF;margin-left:4px;}
 
-/* Carrier grid */
+/* ── Carrier grid ── */
 .carrier-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px;}
-.card{background:#fff;border:1px solid #E5E7EB;border-radius:12px;overflow:hidden;transition:box-shadow 0.15s;}
+.card{background:#fff;border:1px solid #E5E7EB;border-radius:12px;overflow:hidden;transition:box-shadow 0.15s;position:relative;}
 .card:hover{box-shadow:0 4px 16px rgba(0,0,0,0.1);}
-.card-header{padding:14px 16px 12px;border-bottom:1px solid #F3F4F6;display:flex;justify-content:space-between;align-items:flex-start;}
+.card.favorited{border-color:#F59E0B;box-shadow:0 0 0 2px rgba(245,158,11,0.15);}
+.card-header{padding:14px 16px 12px;border-bottom:1px solid #F3F4F6;display:flex;justify-content:space-between;align-items:flex-start;gap:8px;}
+.card-header-left{flex:1;min-width:0;}
 .carrier-name{font-size:15px;font-weight:600;color:#111827;}
 .carrier-sub{font-size:11px;color:#9CA3AF;margin-top:2px;}
+.card-header-right{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0;}
 .carrier-badge{font-size:10px;padding:3px 8px;border-radius:20px;font-weight:600;letter-spacing:0.03em;white-space:nowrap;}
 .badge-property{background:#FEF3C7;color:#92400E;}
 .badge-wc{background:#D1FAE5;color:#065F46;}
@@ -43,6 +54,11 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
 .badge-cyber{background:#DBEAFE;color:#1E40AF;}
 .badge-liability{background:#FCE7F3;color:#9D174D;}
 .badge-commercial{background:#E0F2FE;color:#0369A1;}
+.updated-badge{font-size:10px;color:#9CA3AF;white-space:nowrap;}
+.updated-badge.stale{color:#F59E0B;font-weight:500;}
+.fav-btn{background:none;border:none;cursor:pointer;font-size:16px;line-height:1;padding:0;color:#D1D5DB;transition:color 0.15s;}
+.fav-btn:hover,.fav-btn.active{color:#F59E0B;}
+
 .card-body{padding:12px 16px;}
 .section-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:#9CA3AF;margin:10px 0 6px;}
 .section-lbl:first-child{margin-top:0;}
@@ -61,7 +77,81 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
 .portal-link:hover{background:#DBEAFE;}
 .portals{margin-top:6px;}
 
-/* Contacts Tab */
+/* ── Submission checklist ── */
+.checklist-toggle{display:flex;align-items:center;gap:6px;font-size:11px;color:#6B7280;cursor:pointer;margin-top:10px;padding:6px 0;border-top:1px solid #F3F4F6;user-select:none;}
+.checklist-toggle:hover{color:#374151;}
+.checklist-toggle .arrow{transition:transform 0.2s;display:inline-block;}
+.checklist-toggle.open .arrow{transform:rotate(90deg);}
+.checklist-body{display:none;margin-top:8px;padding:10px 12px;background:#F9FAFB;border-radius:8px;border:1px solid #E5E7EB;}
+.checklist-body.open{display:block;}
+.checklist-item{display:flex;align-items:flex-start;gap:8px;margin-bottom:6px;font-size:12px;color:#374151;cursor:pointer;}
+.checklist-item:last-child{margin-bottom:0;}
+.checklist-item input[type=checkbox]{margin-top:1px;accent-color:#1D4ED8;flex-shrink:0;}
+.checklist-item span.done{text-decoration:line-through;color:#9CA3AF;}
+
+/* ── Internal notes ── */
+.internal-notes-wrap{margin-top:10px;padding-top:10px;border-top:1px solid #F3F4F6;}
+.internal-notes-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:#9CA3AF;margin-bottom:5px;display:flex;align-items:center;justify-content:space-between;}
+.internal-notes-label button{font-size:10px;color:#6B7280;background:none;border:none;cursor:pointer;text-transform:none;letter-spacing:0;font-weight:400;padding:0;}
+.internal-notes-label button:hover{color:#1D4ED8;}
+.internal-notes-text{font-size:12px;color:#374151;font-style:italic;line-height:1.5;min-height:20px;}
+.internal-notes-text.empty{color:#D1D5DB;font-style:italic;}
+.notes-textarea{width:100%;font-size:12px;border:1px solid #D1D5DB;border-radius:6px;padding:6px 8px;resize:vertical;font-family:inherit;color:#111827;min-height:60px;outline:none;}
+.notes-textarea:focus{border-color:#93C5FD;}
+.notes-save-btn{margin-top:4px;padding:4px 10px;font-size:11px;background:#1A1A2E;color:#fff;border:none;border-radius:5px;cursor:pointer;}
+
+/* ── Comparison view ── */
+.compare-bar{display:none;position:fixed;bottom:0;left:0;right:0;background:#1A1A2E;color:#fff;padding:10px 24px;z-index:150;align-items:center;gap:12px;box-shadow:0 -4px 16px rgba(0,0,0,0.2);}
+.compare-bar.open{display:flex;}
+.compare-bar-label{font-size:13px;font-weight:500;flex-shrink:0;}
+.compare-slots{display:flex;gap:8px;flex:1;flex-wrap:wrap;}
+.compare-slot{font-size:12px;background:rgba(255,255,255,0.1);border-radius:6px;padding:4px 10px;display:flex;align-items:center;gap:6px;}
+.compare-slot button{background:none;border:none;color:rgba(255,255,255,0.5);cursor:pointer;font-size:14px;line-height:1;padding:0;}
+.compare-slot button:hover{color:#fff;}
+.compare-go-btn{padding:7px 16px;font-size:13px;font-weight:500;border-radius:7px;background:#2563EB;color:#fff;border:none;cursor:pointer;white-space:nowrap;flex-shrink:0;}
+.compare-go-btn:hover{background:#1D4ED8;}
+.compare-clear-btn{padding:7px 12px;font-size:13px;border-radius:7px;border:1px solid rgba(255,255,255,0.2);background:transparent;color:rgba(255,255,255,0.7);cursor:pointer;flex-shrink:0;}
+.add-compare-btn{font-size:11px;padding:3px 10px;border-radius:6px;background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.15);cursor:pointer;font-weight:500;margin-top:6px;width:100%;text-align:center;}
+.add-compare-btn:hover{background:rgba(255,255,255,0.12);}
+.add-compare-btn.active{background:rgba(37,99,235,0.25);border-color:#93C5FD;color:#93C5FD;}
+
+/* ── Compare modal ── */
+.compare-table-wrap{overflow-x:auto;margin-top:12px;}
+.compare-table{width:100%;border-collapse:collapse;font-size:12px;}
+.compare-table th{background:#F9FAFB;padding:8px 12px;text-align:left;font-weight:600;color:#374151;border-bottom:2px solid #E5E7EB;white-space:nowrap;}
+.compare-table td{padding:8px 12px;border-bottom:1px solid #F3F4F6;vertical-align:top;color:#6B7280;}
+.compare-table tr:hover td{background:#F9FAFB;}
+.compare-table .row-label{font-weight:500;color:#374151;white-space:nowrap;}
+.ct-yes{color:#065F46;font-weight:600;}
+.ct-no{color:#991B1B;}
+.ct-partial{color:#92400E;}
+
+/* ── Best fit finder modal ── */
+.finder-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:300;align-items:flex-start;justify-content:center;padding-top:60px;}
+.finder-overlay.open{display:flex;}
+.finder-modal{background:#fff;border-radius:16px;padding:28px;width:100%;max-width:560px;box-shadow:0 20px 60px rgba(0,0,0,0.3);max-height:80vh;overflow-y:auto;}
+.finder-modal h3{font-size:17px;font-weight:600;margin-bottom:6px;color:#111827;}
+.finder-modal p{font-size:13px;color:#6B7280;margin-bottom:20px;}
+.finder-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;}
+.finder-field label{display:block;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:#6B7280;margin-bottom:5px;}
+.finder-field select,.finder-field input{width:100%;padding:9px 12px;font-size:13px;border:1px solid #D1D5DB;border-radius:8px;outline:none;color:#111827;background:#fff;}
+.finder-field select:focus,.finder-field input:focus{border-color:#93C5FD;}
+.finder-results{margin-top:16px;}
+.finder-results h4{font-size:13px;font-weight:600;color:#374151;margin-bottom:10px;}
+.finder-match{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;border-radius:8px;background:#F9FAFB;border:1px solid #E5E7EB;margin-bottom:8px;}
+.finder-match.best{background:#EFF6FF;border-color:#BFDBFE;}
+.finder-match .match-badge{font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;white-space:nowrap;flex-shrink:0;margin-top:1px;}
+.match-badge.great{background:#D1FAE5;color:#065F46;}
+.match-badge.good{background:#EFF6FF;color:#1D4ED8;}
+.match-badge.possible{background:#FEF3C7;color:#92400E;}
+.finder-match-name{font-weight:600;font-size:13px;color:#111827;}
+.finder-match-why{font-size:12px;color:#6B7280;margin-top:2px;}
+.finder-search-btn{width:100%;padding:10px;font-size:14px;font-weight:500;border-radius:8px;background:#1A1A2E;color:#fff;border:none;cursor:pointer;margin-top:4px;}
+.finder-search-btn:hover{background:#2D2D4A;}
+.finder-close{position:absolute;top:16px;right:16px;background:none;border:none;font-size:20px;cursor:pointer;color:#9CA3AF;}
+.finder-close:hover{color:#374151;}
+
+/* ── Contacts Tab ── */
 .contacts-toolbar{display:flex;gap:8px;align-items:center;margin-bottom:16px;flex-wrap:wrap;}
 .contacts-toolbar input{flex:1;min-width:200px;padding:8px 12px;font-size:13px;border:1px solid #D1D5DB;border-radius:8px;outline:none;}
 .contacts-toolbar input:focus{border-color:#93C5FD;}
@@ -91,10 +181,10 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
 .delete-btn:hover{color:#EF4444;}
 .c-carrier-tag{font-size:10px;padding:2px 7px;border-radius:10px;background:#F3F4F6;color:#6B7280;margin-top:4px;display:inline-block;}
 
-/* Modal */
+/* ── Modals ── */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:200;align-items:center;justify-content:center;}
 .modal-overlay.open{display:flex;}
-.modal{background:#fff;border-radius:16px;padding:24px;width:100%;max-width:440px;box-shadow:0 20px 60px rgba(0,0,0,0.3);}
+.modal{background:#fff;border-radius:16px;padding:24px;width:100%;max-width:440px;box-shadow:0 20px 60px rgba(0,0,0,0.3);max-height:90vh;overflow-y:auto;}
 .modal h3{font-size:16px;font-weight:600;margin-bottom:16px;color:#111827;}
 .form-group{margin-bottom:14px;}
 .form-group label{display:block;font-size:12px;font-weight:600;color:#6B7280;margin-bottom:5px;text-transform:uppercase;letter-spacing:0.04em;}
@@ -104,7 +194,16 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
 .btn-cancel{padding:8px 16px;font-size:13px;border:1px solid #D1D5DB;border-radius:8px;background:#fff;cursor:pointer;color:#374151;}
 .btn-save{padding:8px 20px;font-size:13px;border:none;border-radius:8px;background:#1A1A2E;color:#fff;cursor:pointer;font-weight:500;}
 
+/* ── Compare full modal ── */
+.compare-modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:300;align-items:flex-start;justify-content:center;padding:40px 20px;}
+.compare-modal-overlay.open{display:flex;}
+.compare-modal{background:#fff;border-radius:16px;padding:28px;width:100%;max-width:900px;box-shadow:0 20px 60px rgba(0,0,0,0.3);max-height:85vh;overflow-y:auto;position:relative;}
+.compare-modal h3{font-size:16px;font-weight:600;margin-bottom:16px;color:#111827;}
+.close-modal-btn{position:absolute;top:16px;right:16px;background:none;border:none;font-size:20px;cursor:pointer;color:#9CA3AF;}
+.close-modal-btn:hover{color:#374151;}
+
 .no-results{text-align:center;padding:40px;color:#9CA3AF;font-size:14px;display:none;}
+@media print{.top-nav,.compare-bar,.finder-overlay,.modal-overlay,.compare-modal-overlay,.fav-btn,.add-compare-btn,.checklist-toggle,.internal-notes-label button,.delete-btn,.notes-textarea,.notes-save-btn{display:none!important;}.card{break-inside:avoid;box-shadow:none!important;border:1px solid #ccc!important;}.main{padding:8px!important;}.carrier-grid{grid-template-columns:repeat(2,1fr)!important;gap:8px!important;}}
 </style>
 </head>
 <body>
@@ -115,8 +214,103 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
     <button class="nav-tab active" onclick="showTab('markets',this)">Markets</button>
     <button class="nav-tab" onclick="showTab('contacts',this)">Contacts</button>
   </div>
-  <div class="search-bar">
-    <input type="text" id="global-search" placeholder="Search carriers, classes..." oninput="filterCards()">
+  <div class="nav-actions">
+    <div class="search-bar"><input type="text" id="global-search" placeholder="Search carriers, classes..." oninput="filterCards()"></div>
+    <button class="nav-btn finder-btn" onclick="openFinder()">🔍 Best Fit</button>
+    <button class="nav-btn" onclick="toggleFavFilter(this)">⭐ Favorites</button>
+    <button class="nav-btn" onclick="window.print()">🖨 Print / PDF</button>
+  </div>
+</div>
+
+<!-- Compare bar (fixed bottom) -->
+<div class="compare-bar" id="compare-bar">
+  <span class="compare-bar-label">Compare:</span>
+  <div class="compare-slots" id="compare-slots"></div>
+  <button class="compare-go-btn" onclick="openCompare()">Compare Selected</button>
+  <button class="compare-clear-btn" onclick="clearCompare()">Clear</button>
+</div>
+
+<!-- Best Fit Finder Modal -->
+<div class="finder-overlay" id="finder-overlay" onclick="if(event.target===this)closeFinder()">
+  <div class="finder-modal" style="position:relative;">
+    <button class="close-modal-btn" onclick="closeFinder()">×</button>
+    <h3>🔍 Best Fit Finder</h3>
+    <p>Tell us about your client and we'll highlight the carriers most likely to have appetite.</p>
+    <div class="finder-row">
+      <div class="finder-field">
+        <label>Business Type</label>
+        <select id="ff-type">
+          <option value="">— Select —</option>
+          <option value="restaurant">Restaurant / Food Service</option>
+          <option value="fitness">Fitness / Gym</option>
+          <option value="retail">Retail Store</option>
+          <option value="habitational">Apartments / Habitational</option>
+          <option value="lro">Lessor's Risk / Building Owner</option>
+          <option value="contractor">Contractor / Construction</option>
+          <option value="manufacturing">Manufacturing</option>
+          <option value="healthcare">Healthcare / Medical Office</option>
+          <option value="technology">Technology Company</option>
+          <option value="professional">Professional Services / Office</option>
+          <option value="nonprofit">Nonprofit / Association</option>
+          <option value="hospitality">Hotel / Resort / Country Club</option>
+          <option value="auto_dealer">Automobile Dealership</option>
+          <option value="trucking">Trucking / Transportation</option>
+          <option value="agribusiness">Agribusiness / Farming</option>
+          <option value="special_events">Special Events</option>
+          <option value="habitational_hard">Hard-to-Place Habitational</option>
+          <option value="education">Education / School</option>
+          <option value="large_complex">Large / Complex National Account</option>
+        </select>
+      </div>
+      <div class="finder-field">
+        <label>Coverage Needed</label>
+        <select id="ff-coverage">
+          <option value="">— Select —</option>
+          <option value="gl">General Liability / BOP</option>
+          <option value="property">Property</option>
+          <option value="wc">Workers Comp</option>
+          <option value="cyber">Cyber</option>
+          <option value="mgmt">Management Liability (D&O / EPL)</option>
+          <option value="umbrella">Umbrella / Excess</option>
+          <option value="liquor">Liquor Liability</option>
+          <option value="equipment_breakdown">Equipment Breakdown</option>
+          <option value="professional">Professional Liability / E&O</option>
+        </select>
+      </div>
+    </div>
+    <div class="finder-row">
+      <div class="finder-field">
+        <label>Approximate Revenue</label>
+        <select id="ff-revenue">
+          <option value="">— Any —</option>
+          <option value="small">Under $1M</option>
+          <option value="medium">$1M – $10M</option>
+          <option value="large">$10M – $50M</option>
+          <option value="xlarge">Over $50M</option>
+        </select>
+      </div>
+      <div class="finder-field">
+        <label>State</label>
+        <select id="ff-state">
+          <option value="">— Any —</option>
+          <option value="FL">Florida</option>
+          <option value="TX">Texas</option>
+          <option value="GA">Georgia</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+    </div>
+    <button class="finder-search-btn" onclick="runFinder()">Find Best Markets</button>
+    <div class="finder-results" id="finder-results" style="display:none;"></div>
+  </div>
+</div>
+
+<!-- Compare Table Modal -->
+<div class="compare-modal-overlay" id="compare-modal-overlay" onclick="if(event.target===this)closeCompare()">
+  <div class="compare-modal">
+    <button class="close-modal-btn" onclick="closeCompare()">×</button>
+    <h3>Side-by-Side Comparison</h3>
+    <div class="compare-table-wrap" id="compare-table-wrap"></div>
   </div>
 </div>
 
@@ -132,6 +326,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
     <button class="chip" onclick="setFilter('cyber',this)">Cyber</button>
     <button class="chip" onclick="setFilter('liability',this)">Liability</button>
     <button class="chip" onclick="setFilter('mgmt',this)">Mgmt Liability</button>
+    <span class="filter-count" id="filter-count"></span>
   </div>
   <div class="carrier-grid" id="carrier-grid">
 
@@ -646,7 +841,535 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
 </div>
 
 <script>
-// ── Tab switching ──
+// ─────────────────────────────────────────────────────────────
+// DATA: Card metadata (updated dates, checklists, initial notes)
+// ─────────────────────────────────────────────────────────────
+var cardMeta = {
+  'AMERISAFE': {
+    updated: '2024-01-01',
+    checklist: ['ACORD 130', 'Loss runs (years covered by exp mod)', 'Current Experience Mod Worksheet', 'Submit 120 days in advance of expiration'],
+    note: ''
+  },
+  'Ascendant': {
+    updated: '2025-01-01',
+    checklist: ['Minimum 2 coverages required (e.g. Property + GL)', 'Property schedule (TIV per location)', 'Loss runs (3 years)', 'ACORD application'],
+    note: ''
+  },
+  'Authentic-Commercial': {
+    updated: '2025-11-01',
+    checklist: ['ACORD application', 'Loss runs (3 years)', 'Revenue per location confirmation', 'No serious OSHA violations confirmation'],
+    note: ''
+  },
+  'Authentic-Fitness': {
+    updated: '2025-11-01',
+    checklist: ['ACORD application', 'Loss runs (3 years)', 'Revenue per location confirmation', 'List of activities offered'],
+    note: ''
+  },
+  'Authentic-LRO': {
+    updated: '2025-11-01',
+    checklist: ['ACORD application', 'Loss runs (1 or fewer per location, none over $50K for small commercial)', 'Tenant schedule / occupancy list', 'Revenue confirmation'],
+    note: ''
+  },
+  'Authentic-Restaurants': {
+    updated: '2025-11-01',
+    checklist: ['ACORD application', 'Loss runs (3 years)', 'Revenue per location', 'Liquor sales % of total revenue (if liquor liability needed)'],
+    note: ''
+  },
+  'Bass': {
+    updated: '2025-01-01',
+    checklist: ['ACORD application', 'Loss runs (3–5 years)', 'Property schedule with # of stories and units', 'Crime score / best places score for firearm coverage'],
+    note: ''
+  },
+  'Berkley': {
+    updated: '2025-01-01',
+    checklist: ['Email to quotes@berkleymarketplace.com', 'ACORD application', 'Loss runs (3–5 years)', 'Statement of values / property schedule'],
+    note: ''
+  },
+  'CNA': {
+    updated: '2025-10-16',
+    checklist: ['Statement of values / TIV schedule', 'Loss runs (5 years preferred)', 'Expiring program details / current coverage', 'Engineering / inspection reports if available', 'Contact regional underwriter first to pre-qualify'],
+    note: 'CNA is actively looking to grow with HUB. Call Josh Schlachter (SE/Mid-Atl) or Tripp Lemieux (SE Structured Risk) to discuss appetite before submitting.'
+  },
+  'Chubb-Cyber': {
+    updated: '2024-01-01',
+    checklist: ['ACORD application or online via Cyber Central / Marketplace', 'Revenue confirmation (under $100M)', 'Industry / class code', 'Batch upload available for 10+ accounts'],
+    note: ''
+  },
+  'Chubb-Middle': {
+    updated: '2024-01-01',
+    checklist: ['ACORD application', 'Loss runs (3–5 years)', 'Financial statements (if required)', 'Submit to commerciallinessubmissions@chubb.com'],
+    note: ''
+  },
+  'Chubb-Small': {
+    updated: '2026-01-01',
+    checklist: ['Quote online via Chubb Marketplace (no signed app required)', 'Revenue under $50M, employees under 250', 'Cross-sell available 1-click for Cyber, Crime, Umbrella, EPLI, Fiduciary'],
+    note: ''
+  },
+  'MEMIC': {
+    updated: '2025-01-01',
+    checklist: ['ACORD 130', 'Loss runs (3 years)', 'Experience mod worksheet', 'Pre-loss control survey required for accounts over $50K premium'],
+    note: ''
+  },
+  'Tower-Hill': {
+    updated: '2026-02-01',
+    checklist: ['Use Pre-Eligibility Portal at THIG.com for risk eligibility and clearance', 'ACORD application', 'Property schedule / statement of values', 'Loss runs (3–5 years)', 'Inspection ordered on all new business'],
+    note: ''
+  },
+  'USLI': {
+    updated: '2024-06-01',
+    checklist: ['Quote online 24/7 at snap.usli.com or call 888-773-8754', 'ACORD application (varies by line)', 'For E&O: description of operations', 'For NPO D&O: revenue under $2M, list of directors'],
+    note: ''
+  }
+};
+
+// Map card element to meta key
+function getMetaKey(card) {
+  var name = card.querySelector('.carrier-name');
+  if (!name) return null;
+  var t = name.textContent.trim();
+  if (t.includes('AMERISAFE')) return 'AMERISAFE';
+  if (t.includes('Ascendant')) return 'Ascendant';
+  if (t.includes('Authentic — Commercial')) return 'Authentic-Commercial';
+  if (t.includes('Gym & Fitness')) return 'Authentic-Fitness';
+  if (t.includes("Lessor's Risk")) return 'Authentic-LRO';
+  if (t.includes('Authentic — Restaurants')) return 'Authentic-Restaurants';
+  if (t.includes('Bass')) return 'Bass';
+  if (t.includes('Berkley')) return 'Berkley';
+  if (t.includes('CNA')) return 'CNA';
+  if (t.includes('Chubb Cyber')) return 'Chubb-Cyber';
+  if (t.includes('Middle Market')) return 'Chubb-Middle';
+  if (t.includes('Chubb Small')) return 'Chubb-Small';
+  if (t.includes('MEMIC')) return 'MEMIC';
+  if (t.includes('Tower Hill')) return 'Tower-Hill';
+  if (t.includes('USLI')) return 'USLI';
+  return null;
+}
+
+// ─────────────────────────────────────────────────────────────
+// STATE
+// ─────────────────────────────────────────────────────────────
+var favorites = {};      // metaKey -> bool
+var compareList = [];    // array of metaKeys (max 4)
+var favFilterOn = false;
+var currentFilter = 'all';
+var internalNotes = {};  // metaKey -> string (loaded from meta)
+
+function loadState() {
+  // Load favorites
+  try { favorites = JSON.parse(localStorage.getItem('im_favs') || '{}'); } catch(e){}
+  // Load internal notes
+  try {
+    var saved = JSON.parse(localStorage.getItem('im_notes') || '{}');
+    Object.keys(cardMeta).forEach(function(k) {
+      internalNotes[k] = saved[k] !== undefined ? saved[k] : cardMeta[k].note;
+    });
+  } catch(e) {
+    Object.keys(cardMeta).forEach(function(k){ internalNotes[k] = cardMeta[k].note; });
+  }
+}
+
+function saveNotes() {
+  try { localStorage.setItem('im_notes', JSON.stringify(internalNotes)); } catch(e){}
+}
+function saveFavs() {
+  try { localStorage.setItem('im_favs', JSON.stringify(favorites)); } catch(e){}
+}
+
+// ─────────────────────────────────────────────────────────────
+// CARD ENHANCEMENT: inject fav, compare, updated, checklist, notes into each card
+// ─────────────────────────────────────────────────────────────
+function enhanceCards() {
+  document.querySelectorAll('#carrier-grid .card').forEach(function(card) {
+    var key = getMetaKey(card);
+    if (!key || card.dataset.enhanced) return;
+    card.dataset.enhanced = '1';
+    card.dataset.metakey = key;
+    var meta = cardMeta[key] || {};
+
+    // ── Restructure header to add fav + updated badge ──
+    var header = card.querySelector('.card-header');
+    if (header) {
+      var badge = header.querySelector('.carrier-badge');
+      var nameDiv = header.querySelector('.carrier-name')?.parentElement;
+      header.innerHTML = '';
+      var left = document.createElement('div');
+      left.className = 'card-header-left';
+      if (nameDiv) left.appendChild(nameDiv);
+      var right = document.createElement('div');
+      right.className = 'card-header-right';
+      if (badge) right.appendChild(badge);
+
+      // Updated badge
+      if (meta.updated) {
+        var ub = document.createElement('span');
+        ub.className = 'updated-badge' + (isStale(meta.updated) ? ' stale' : '');
+        ub.title = isStale(meta.updated) ? 'May need review' : 'Recently verified';
+        ub.textContent = (isStale(meta.updated) ? '⚠ ' : '✓ ') + formatDate(meta.updated);
+        right.appendChild(ub);
+      }
+
+      // Fav button
+      var fb = document.createElement('button');
+      fb.className = 'fav-btn' + (favorites[key] ? ' active' : '');
+      fb.title = 'Favorite';
+      fb.textContent = favorites[key] ? '⭐' : '☆';
+      fb.onclick = function(e) { e.stopPropagation(); toggleFav(key, fb); };
+      right.appendChild(fb);
+
+      header.appendChild(left);
+      header.appendChild(right);
+    }
+
+    // ── Add compare button to card body ──
+    var body = card.querySelector('.card-body');
+    if (body) {
+      // Compare button
+      var cmpBtn = document.createElement('button');
+      cmpBtn.className = 'add-compare-btn' + (compareList.indexOf(key) > -1 ? ' active' : '');
+      cmpBtn.textContent = compareList.indexOf(key) > -1 ? '✓ Added to Compare' : '+ Add to Compare';
+      cmpBtn.onclick = function() { toggleCompare(key, cmpBtn); };
+      body.appendChild(cmpBtn);
+
+      // Submission checklist
+      if (meta.checklist && meta.checklist.length) {
+        var toggle = document.createElement('div');
+        toggle.className = 'checklist-toggle';
+        toggle.innerHTML = '<span class="arrow">▶</span><span>Submission Checklist (' + meta.checklist.length + ' items)</span>';
+        var cl = document.createElement('div');
+        cl.className = 'checklist-body';
+        meta.checklist.forEach(function(item, i) {
+          var row = document.createElement('label');
+          row.className = 'checklist-item';
+          var cb = document.createElement('input');
+          cb.type = 'checkbox';
+          cb.onchange = function() { span.className = cb.checked ? 'done' : ''; };
+          var span = document.createElement('span');
+          span.textContent = item;
+          row.appendChild(cb);
+          row.appendChild(span);
+          cl.appendChild(row);
+        });
+        toggle.onclick = function() {
+          toggle.classList.toggle('open');
+          cl.classList.toggle('open');
+        };
+        body.appendChild(toggle);
+        body.appendChild(cl);
+      }
+
+      // Internal notes
+      var nw = document.createElement('div');
+      nw.className = 'internal-notes-wrap';
+      var nl = document.createElement('div');
+      nl.className = 'internal-notes-label';
+      nl.innerHTML = '<span>📝 Internal Notes</span><button onclick="editNote(\''+key+'\',this)">Edit</button>';
+      var nt = document.createElement('div');
+      nt.className = 'internal-notes-text' + (internalNotes[key] ? '' : ' empty');
+      nt.id = 'note-text-' + key;
+      nt.textContent = internalNotes[key] || 'No notes yet. Click Edit to add.';
+      nw.appendChild(nl);
+      nw.appendChild(nt);
+      body.appendChild(nw);
+    }
+  });
+}
+
+function isStale(dateStr) {
+  if (!dateStr) return false;
+  var d = new Date(dateStr);
+  var now = new Date();
+  return (now - d) > 1000 * 60 * 60 * 24 * 365; // > 1 year old
+}
+function formatDate(dateStr) {
+  var d = new Date(dateStr);
+  return d.toLocaleDateString('en-US', {month:'short', year:'numeric'});
+}
+
+// ─────────────────────────────────────────────────────────────
+// FAVORITES
+// ─────────────────────────────────────────────────────────────
+function toggleFav(key, btn) {
+  favorites[key] = !favorites[key];
+  btn.classList.toggle('active', favorites[key]);
+  btn.textContent = favorites[key] ? '⭐' : '☆';
+  var card = btn.closest('.card');
+  if (card) card.classList.toggle('favorited', favorites[key]);
+  saveFavs();
+  if (favFilterOn) filterCards();
+}
+
+function toggleFavFilter(btn) {
+  favFilterOn = !favFilterOn;
+  btn.style.background = favFilterOn ? 'rgba(245,158,11,0.3)' : '';
+  btn.style.borderColor = favFilterOn ? '#F59E0B' : '';
+  btn.style.color = favFilterOn ? '#FCD34D' : '';
+  filterCards();
+}
+
+// ─────────────────────────────────────────────────────────────
+// COMPARE
+// ─────────────────────────────────────────────────────────────
+function toggleCompare(key, btn) {
+  var idx = compareList.indexOf(key);
+  if (idx > -1) {
+    compareList.splice(idx, 1);
+    btn.classList.remove('active');
+    btn.textContent = '+ Add to Compare';
+  } else {
+    if (compareList.length >= 4) { alert('You can compare up to 4 carriers at a time.'); return; }
+    compareList.push(key);
+    btn.classList.add('active');
+    btn.textContent = '✓ Added to Compare';
+  }
+  renderCompareBar();
+}
+
+function renderCompareBar() {
+  var bar = document.getElementById('compare-bar');
+  var slots = document.getElementById('compare-slots');
+  if (compareList.length === 0) { bar.classList.remove('open'); return; }
+  bar.classList.add('open');
+  slots.innerHTML = '';
+  compareList.forEach(function(key) {
+    var s = document.createElement('div');
+    s.className = 'compare-slot';
+    s.innerHTML = '<span>' + key.replace('-',' ') + '</span><button onclick="toggleCompare(\''+key+'\',getCompareBtn(\''+key+'\'))">×</button>';
+    slots.appendChild(s);
+  });
+}
+
+function getCompareBtn(key) {
+  var cards = document.querySelectorAll('#carrier-grid .card');
+  for (var i = 0; i < cards.length; i++) {
+    if (cards[i].dataset.metakey === key) {
+      return cards[i].querySelector('.add-compare-btn');
+    }
+  }
+  return {classList:{remove:function(){},add:function(){}},textContent:''};
+}
+
+function clearCompare() {
+  compareList.slice().forEach(function(k){ toggleCompare(k, getCompareBtn(k)); });
+}
+
+function openCompare() {
+  if (compareList.length < 2) { alert('Select at least 2 carriers to compare.'); return; }
+  var rows = [
+    {label:'Coverage Type', fn: function(k){ var c=getCard(k); return c?c.querySelector('.carrier-badge')?.textContent.trim():'—'; }},
+    {label:'Min Premium', fn: function(k){ return extractDetail(k, ['min premium','minimum premium','100k','50,000','5,000']); }},
+    {label:'States', fn: function(k){ return extractDetail(k, ['50 states','27 states','18 states','al, fl','fl, tx','nationwide','all 50']); }},
+    {label:'Property', fn: function(k){ return hasType(k,'property')?'✓':'—'; }},
+    {label:'GL / BOP', fn: function(k){ return hasType(k,'bop')?'✓':'—'; }},
+    {label:'Workers Comp', fn: function(k){ return hasType(k,'wc')?'✓':'—'; }},
+    {label:'Cyber', fn: function(k){ return hasType(k,'cyber')?'✓':'—'; }},
+    {label:'Mgmt Liability', fn: function(k){ return hasType(k,'mgmt')||(getCardText(k).indexOf('d&o')>-1||getCardText(k).indexOf('epli')>-1)?'✓':'—'; }},
+    {label:'Online Quoting', fn: function(k){ return getCardText(k).indexOf('instant quote')>-1||getCardText(k).indexOf('marketplace')>-1||getCardText(k).indexOf('online')>-1?'✓':'—'; }},
+    {label:'Last Updated', fn: function(k){ return cardMeta[k]?formatDate(cardMeta[k].updated):'—'; }},
+  ];
+
+  var html = '<table class="compare-table"><thead><tr><th>Feature</th>';
+  compareList.forEach(function(k){
+    var card = getCard(k);
+    html += '<th>'+(card?card.querySelector('.carrier-name').textContent:'')+'</th>';
+  });
+  html += '</tr></thead><tbody>';
+  rows.forEach(function(row){
+    html += '<tr><td class="row-label">'+row.label+'</td>';
+    compareList.forEach(function(k){ html += '<td>'+row.fn(k)+'</td>'; });
+    html += '</tr>';
+  });
+  html += '</tbody></table>';
+  document.getElementById('compare-table-wrap').innerHTML = html;
+  document.getElementById('compare-modal-overlay').classList.add('open');
+}
+
+function closeCompare() {
+  document.getElementById('compare-modal-overlay').classList.remove('open');
+}
+
+function getCard(key) {
+  return document.querySelector('#carrier-grid .card[data-metakey="'+key+'"]');
+}
+function getCardText(key) {
+  var c = getCard(key); return c ? (c.dataset.text||'').toLowerCase() : '';
+}
+function hasType(key, type) {
+  var c = getCard(key); return c ? (c.dataset.types||'').indexOf(type)>-1 : false;
+}
+function extractDetail(key, hints) {
+  var text = getCardText(key);
+  for (var i=0;i<hints.length;i++) {
+    if (text.indexOf(hints[i])>-1) {
+      var idx = text.indexOf(hints[i]);
+      return '...' + text.substring(Math.max(0,idx-5), idx+hints[i].length+30).trim().split('.')[0];
+    }
+  }
+  return '—';
+}
+
+// ─────────────────────────────────────────────────────────────
+// INTERNAL NOTES
+// ─────────────────────────────────────────────────────────────
+function editNote(key, btn) {
+  var wrap = btn.closest('.internal-notes-wrap');
+  var textEl = document.getElementById('note-text-' + key);
+  var existing = wrap.querySelector('.notes-textarea');
+  if (existing) {
+    // Save
+    var val = existing.value.trim();
+    internalNotes[key] = val;
+    saveNotes();
+    textEl.textContent = val || 'No notes yet. Click Edit to add.';
+    textEl.className = 'internal-notes-text' + (val ? '' : ' empty');
+    textEl.style.display = '';
+    existing.nextSibling && existing.nextSibling.remove && existing.nextSibling.remove();
+    existing.remove();
+    btn.textContent = 'Edit';
+  } else {
+    // Open editor
+    textEl.style.display = 'none';
+    var ta = document.createElement('textarea');
+    ta.className = 'notes-textarea';
+    ta.value = internalNotes[key] || '';
+    ta.placeholder = 'Add internal notes, relationship tips, deal history...';
+    var sb = document.createElement('button');
+    sb.className = 'notes-save-btn';
+    sb.textContent = 'Save';
+    sb.onclick = function(){ editNote(key, btn); };
+    wrap.appendChild(ta);
+    wrap.appendChild(sb);
+    ta.focus();
+    btn.textContent = 'Save';
+  }
+}
+
+// ─────────────────────────────────────────────────────────────
+// BEST FIT FINDER
+// ─────────────────────────────────────────────────────────────
+var finderRules = {
+  restaurant: {
+    gl:       [{key:'Authentic-Restaurants',match:'great',why:'Purpose-built restaurant program, full/fine dining, fast casual'},{key:'Authentic-Commercial',match:'great',why:'Broad commercial including restaurants'},{key:'USLI',match:'good',why:'Restaurants in commercial appetite'},{key:'Ascendant',match:'good',why:'Restaurant & hospitality segment with 1,000+ class codes'},{key:'Chubb-Small',match:'good',why:'Casual & fine dining strong appetite'}],
+    property: [{key:'Ascendant',match:'great',why:'Restaurant occupancy + property package available'},{key:'Tower-Hill',match:'good',why:'Restaurant occupancy (LRO) and commercial property'},{key:'CNA',match:'possible',why:'Hospitality in portfolio mix for large accounts'}],
+    liquor:   [{key:'Authentic-Restaurants',match:'great',why:'Liquor liability built into restaurant program, 46 states'},{key:'USLI',match:'great',why:'Liquor liability in core appetite'},{key:'Ascendant',match:'good',why:'Liquor liability available'}],
+    wc:       [{key:'MEMIC',match:'good',why:'Restaurants (not fast food) in hospitality appetite'},{key:'AMERISAFE',match:'possible',why:'Check class code — some food processing classes covered'}]
+  },
+  fitness: {
+    gl:       [{key:'Authentic-Fitness',match:'great',why:'Purpose-built gym & fitness program, all 50 states'},{key:'Authentic-Commercial',match:'great',why:'Fitness studios and gyms in target classes'},{key:'USLI',match:'good',why:'Fitness centers in commercial appetite'},{key:'Ascendant',match:'good',why:'Health or exercise clubs, gyms, yoga in appetite'}],
+    property: [{key:'Authentic-Fitness',match:'great',why:'Property coverage included in fitness program'},{key:'Ascendant',match:'good',why:'Property available for fitness occupancies'}],
+    wc:       [{key:'MEMIC',match:'good',why:'Healthcare/fitness fixed location a good fit'}]
+  },
+  retail: {
+    gl:       [{key:'Chubb-Small',match:'great',why:'Retail strong appetite — clothing, jewelry, bakeries, florists'},{key:'USLI',match:'great',why:'Main Street mercantile a core product'},{key:'Ascendant',match:'good',why:'Broad retail & service segment'},{key:'Authentic-Commercial',match:'good',why:'Retail excl. cannabis in target classes'}],
+    property: [{key:'Ascendant',match:'great',why:'Retail occupancy and broad property package'},{key:'Tower-Hill',match:'good',why:'Retail shops in commercial property appetite'},{key:'CNA',match:'possible',why:'Retail trade in portfolio mix'}],
+    wc:       [{key:'MEMIC',match:'great',why:'Retail stores (not convenience stores) preferred industry'},{key:'AMERISAFE',match:'possible',why:'Retail not core — check class code'},{key:'Chubb-Middle',match:'good',why:'Workers comp available for retail'}]
+  },
+  habitational: {
+    property: [{key:'Tower-Hill',match:'great',why:'Apartments, HOAs, condos are core commercial residential appetite'},{key:'CNA',match:'great',why:'Habitational in portfolio (non-combustible apartments/condos)'},{key:'Ascendant',match:'good',why:'Apartment buildings, condominiums, vacation rentals available'}],
+    gl:       [{key:'Authentic-LRO',match:'great',why:'LRO program covers building owners with retail/residential tenants'},{key:'USLI',match:'good',why:'1-4 family dwellings in appetite'},{key:'Ascendant',match:'good',why:'Apartment buildings in commercial/residential property segment'}]
+  },
+  habitational_hard: {
+    gl:       [{key:'Bass',match:'great',why:'Specialty market for hard-to-place habitational — too many losses, stories, short-term rentals, student housing, 100% subsidized'}],
+    property: [{key:'Bass',match:'great',why:'Hard-to-place with silent A&B, A&M and firearm coverage available'}]
+  },
+  lro: {
+    gl:       [{key:'Authentic-LRO',match:'great',why:'Purpose-built LRO program, all 50 states, shopping centers through food processors'},{key:'USLI',match:'good',why:'Land leased to others available'},{key:'Ascendant',match:'good',why:'LRO occupancies in property segment'}],
+    property: [{key:'Tower-Hill',match:'great',why:'Lessor risk exposures core to commercial property appetite'},{key:'Ascendant',match:'good',why:'Property package available with LRO occupancy'}]
+  },
+  contractor: {
+    gl:       [{key:'USLI',match:'great',why:'Artisan/trade contractors a core product'},{key:'Berkley',match:'good',why:'Construction in top industries for Berkley Marketplace'},{key:'Ascendant',match:'good',why:'Extensive contractor and construction class list'}],
+    wc:       [{key:'AMERISAFE',match:'great',why:'Construction is a core hazardous industry — masonry, carpentry, plumbing, electrical'},{key:'Berkley',match:'good',why:'Workers comp available for contractors'}],
+    property: [{key:'Ascendant',match:'good',why:'Contractors equipment and construction classes'},{key:'USLI',match:'good',why:"Contractor's equipment monoline"}]
+  },
+  manufacturing: {
+    wc:       [{key:'AMERISAFE',match:'great',why:'Manufacturing a core industry — machine shops, fabricated metals, wood products'},{key:'MEMIC',match:'great',why:'Manufacturing preferred — machine shops, electronics, food products, plastics, pharmaceuticals'}],
+    property: [{key:'CNA',match:'great',why:'HPR manufacturing core appetite — fabricated metals, electronics, industrial machinery, medical devices'},{key:'Berkley',match:'good',why:'Manufacturing a top industry for Berkley Marketplace'}],
+    gl:       [{key:'Berkley',match:'good',why:'Manufacturing in Berkley top industries'},{key:'Ascendant',match:'good',why:'Manufacturing segment available'}],
+    equipment_breakdown: [{key:'CNA',match:'great',why:'Equipment breakdown core appetite includes manufacturing and durable goods'}]
+  },
+  healthcare: {
+    gl:       [{key:'Chubb-Small',match:'great',why:'Medical & dentist offices strong appetite'},{key:'Authentic-Commercial',match:'good',why:'Medical offices in target classes'},{key:'Ascendant',match:'good',why:'Health care facilities, medical offices, home health care'}],
+    wc:       [{key:'MEMIC',match:'great',why:'Physicians offices and clinics, hospitals, CCRCs preferred'},{key:'AMERISAFE',match:'possible',why:'Check specific class code'}],
+    property: [{key:'CNA',match:'great',why:'Healthcare in portfolio mix for large accounts'},{key:'Tower-Hill',match:'possible',why:'Check specific occupancy'},{key:'Ascendant',match:'good',why:'Healthcare segment available'}]
+  },
+  technology: {
+    cyber:    [{key:'Chubb-Cyber',match:'great',why:'Technology / IT consulting strong appetite, Digitech ERM for tech E&O'},{key:'USLI',match:'good',why:'E&O for IT professionals 500+ classes'}],
+    gl:       [{key:'Chubb-Small',match:'great',why:'Computer software developers, website design strong appetite'},{key:'Chubb-Middle',match:'great',why:'Technology a core industry segment'}],
+    wc:       [{key:'MEMIC',match:'good',why:'Technology (hardware mfg, internet sales) in appetite'},{key:'Chubb-Middle',match:'good',why:'Workers comp for tech firms'}],
+    property: [{key:'CNA',match:'great',why:'Technology / data centers / software development in portfolio'},{key:'Berkley',match:'good',why:'Technology occupancy available'}]
+  },
+  professional: {
+    gl:       [{key:'Chubb-Small',match:'great',why:'Lawyers, architects, consultants, photographers strong appetite'},{key:'Chubb-Middle',match:'great',why:'Professional services core industry'},{key:'USLI',match:'good',why:'E&O for professionals 500+ classes'},{key:'Ascendant',match:'good',why:'Professional services segment including lawyers, consultants, architects'}],
+    cyber:    [{key:'Chubb-Cyber',match:'great',why:'Professional services strong cyber appetite'}],
+    wc:       [{key:'MEMIC',match:'great',why:'Attorneys and financial institutions preferred'},{key:'Chubb-Small',match:'good',why:'Workers comp available for professional offices'}]
+  },
+  nonprofit: {
+    gl:       [{key:'USLI',match:'great',why:'Full nonprofit package: D&O, charitable orgs, houses of worship, social services, sports orgs'},{key:'Chubb-Small',match:'good',why:'Charitable foundations and civic clubs in appetite'}],
+    mgmt:     [{key:'USLI',match:'great',why:'Nonprofit D&O up to $2M revenue, board liability focus'},{key:'Chubb-Small',match:'good',why:'ForeFront Portfolio D&O available for nonprofits'}]
+  },
+  hospitality: {
+    wc:       [{key:'MEMIC',match:'great',why:'Hotels, restaurants, resorts, country clubs preferred hospitality segment'}],
+    gl:       [{key:'Chubb-Small',match:'great',why:'Casual & fine dining, event planners strong appetite'},{key:'Ascendant',match:'good',why:'Restaurant & hospitality segment'},{key:'USLI',match:'good',why:'Restaurants in commercial appetite'}],
+    property: [{key:'CNA',match:'great',why:'Hospitality in portfolio mix'},{key:'Tower-Hill',match:'good',why:'Hotels (CP only) available'},{key:'Ascendant',match:'good',why:'Bed and breakfasts, caterers, event planners, restaurants available'}]
+  },
+  auto_dealer: {
+    wc:       [{key:'MEMIC',match:'great',why:'Automobile dealerships is a named preferred industry'}]
+  },
+  trucking: {
+    wc:       [{key:'AMERISAFE',match:'great',why:'Trucking NOC (7219) is a top class code — 30+ years experience'}],
+    gl:       [{key:'USLI',match:'great',why:'Truckers general liability is a named product'},{key:'Berkley',match:'good',why:'Transportation a top industry'}]
+  },
+  agribusiness: {
+    wc:       [{key:'AMERISAFE',match:'great',why:'Agribusiness a core industry — farm/field crops, livestock, landscape gardening, tree pruning'}],
+    gl:       [{key:'Ascendant',match:'good',why:'Agricultural & farming segment available'}]
+  },
+  special_events: {
+    gl:       [{key:'USLI',match:'great',why:'Full special events program: festivals, weddings, golf outings, trade shows, fundraisers'},{key:'Ascendant',match:'good',why:'Event planners and entertainment in appetite'}]
+  },
+  education: {
+    wc:       [{key:'MEMIC',match:'great',why:'Private K-12 and private colleges are preferred education classes'}],
+    gl:       [{key:'USLI',match:'great',why:'Specialty educators, trainers, tutors, music — named product'},{key:'Ascendant',match:'good',why:'Education classes including learning centers, schools, daycare'}],
+    property: [{key:'CNA',match:'good',why:'Education in portfolio mix for larger accounts'}]
+  },
+  large_complex: {
+    property: [{key:'CNA',match:'great',why:'National Accounts Property purpose-built for large/complex — $750M capacity, 4 specialized teams, multinational capability'},{key:'Berkley',match:'good',why:'Berkley Marketplace provides access to multiple Berkley units for complex risks'}],
+    equipment_breakdown: [{key:'CNA',match:'great',why:'Equipment Breakdown National Territory with $200M capacity and specialized risk control'}]
+  }
+};
+
+function openFinder() { document.getElementById('finder-overlay').classList.add('open'); }
+function closeFinder() {
+  document.getElementById('finder-overlay').classList.remove('open');
+  document.getElementById('finder-results').style.display = 'none';
+}
+
+function runFinder() {
+  var type = document.getElementById('ff-type').value;
+  var coverage = document.getElementById('ff-coverage').value;
+  if (!type || !coverage) { alert('Please select a business type and coverage type.'); return; }
+
+  var rules = (finderRules[type] || {})[coverage] || [];
+  var resultsEl = document.getElementById('finder-results');
+  if (rules.length === 0) {
+    resultsEl.innerHTML = '<h4>Results</h4><p style="color:#6B7280;font-size:13px;">No specific match found. Try the search bar or contact your underwriter to explore options.</p>';
+    resultsEl.style.display = 'block';
+    return;
+  }
+
+  var html = '<h4>Best Markets for this Risk</h4>';
+  rules.forEach(function(r) {
+    var label = r.match === 'great' ? 'Strong Match' : r.match === 'good' ? 'Good Match' : 'Possible';
+    html += '<div class="finder-match' + (r.match==='great'?' best':'') + '">' +
+      '<span class="match-badge ' + r.match + '">' + label + '</span>' +
+      '<div><div class="finder-match-name">' + r.key.replace(/-/g,' ').replace('Authentic ','Authentic — ') + '</div>' +
+      '<div class="finder-match-why">' + r.why + '</div></div></div>';
+  });
+  resultsEl.innerHTML = html;
+  resultsEl.style.display = 'block';
+}
+
+// ─────────────────────────────────────────────────────────────
+// TAB SWITCHING
+// ─────────────────────────────────────────────────────────────
 function showTab(name, btn) {
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-tab').forEach(b => b.classList.remove('active'));
@@ -654,32 +1377,38 @@ function showTab(name, btn) {
   btn.classList.add('active');
 }
 
-// ── Markets filter ──
-var currentFilter = 'all';
+// ─────────────────────────────────────────────────────────────
+// MARKETS FILTER
+// ─────────────────────────────────────────────────────────────
 function setFilter(val, btn) {
   currentFilter = val;
   document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
   btn.classList.add('active');
   filterCards();
 }
+
 function filterCards() {
   var q = (document.getElementById('global-search').value || '').toLowerCase().trim();
   var cards = document.querySelectorAll('#carrier-grid .card');
   var visible = 0;
   cards.forEach(function(c) {
+    var key = c.dataset.metakey;
     var types = (c.dataset.types || '').split(',');
     var typeMatch = currentFilter === 'all' || types.indexOf(currentFilter) > -1 ||
-      (currentFilter === 'mgmt' && (c.dataset.text||'').indexOf('d&o') > -1) ||
-      (currentFilter === 'mgmt' && (c.dataset.text||'').indexOf('epli') > -1) ||
-      (currentFilter === 'mgmt' && (c.dataset.text||'').indexOf('fiduciary') > -1);
+      (currentFilter === 'mgmt' && ((c.dataset.text||'').indexOf('d&o') > -1 || (c.dataset.text||'').indexOf('epli') > -1 || (c.dataset.text||'').indexOf('fiduciary') > -1));
     var textMatch = !q || (c.dataset.text||'').indexOf(q) > -1 || c.innerText.toLowerCase().indexOf(q) > -1;
-    if (typeMatch && textMatch) { c.style.display = ''; visible++; }
+    var favMatch = !favFilterOn || (key && favorites[key]);
+    if (typeMatch && textMatch && favMatch) { c.style.display = ''; visible++; }
     else { c.style.display = 'none'; }
   });
+  var countEl = document.getElementById('filter-count');
+  if (countEl) countEl.textContent = visible + ' carrier' + (visible !== 1 ? 's' : '');
   document.getElementById('no-results-markets').style.display = visible === 0 ? 'block' : 'none';
 }
 
-// ── Contacts ──
+// ─────────────────────────────────────────────────────────────
+// CONTACTS
+// ─────────────────────────────────────────────────────────────
 var colorClasses = ['av-blue','av-green','av-purple','av-amber','av-rose','av-teal'];
 var defaultContacts = [
   {id:6,name:'Alex Amacher',role:'Associate Underwriter — Cyber',carrier:'Chubb',email:'Alex.Amacher@chubb.com',phone:'770-262-9931',notes:'Cyber ERM | Submissions: NBSERMSubmissions@Chubb.com'},
@@ -719,12 +1448,8 @@ var defaultContacts = [
 var contacts = JSON.parse(JSON.stringify(defaultContacts));
 var nextId = 33;
 
-function initials(name) {
-  return name.split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2);
-}
-function avatarColor(id) {
-  return colorClasses[id % colorClasses.length];
-}
+function initials(name) { return name.split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2); }
+function avatarColor(id) { return colorClasses[id % colorClasses.length]; }
 
 function renderContacts() {
   var q = (document.getElementById('contact-search').value || '').toLowerCase().trim();
@@ -740,7 +1465,7 @@ function renderContacts() {
     var card = document.createElement('div');
     card.className = 'contact-card';
     var emailHtml = c.email ? '<a href="mailto:'+c.email+'">'+c.email+'</a>' : '<span style="color:#D1D5DB">—</span>';
-    var phoneHtml = c.phone || '<span style="color:#D1D5DB">—</span>';
+    var phoneHtml = c.phone ? '<a href="tel:'+c.phone+'">'+c.phone+'</a>' : '<span style="color:#D1D5DB">—</span>';
     var notesHtml = c.notes || '<span style="color:#D1D5DB">—</span>';
     card.innerHTML = '<button class="delete-btn" onclick="deleteContact('+c.id+')" title="Remove">×</button>' +
       '<div class="c-top"><div class="avatar '+avatarColor(c.id)+'">'+initials(c.name)+'</div>' +
@@ -762,10 +1487,7 @@ function deleteContact(id) {
   renderContacts();
 }
 
-function openModal() {
-  document.getElementById('modal').classList.add('open');
-  document.getElementById('f-name').focus();
-}
+function openModal() { document.getElementById('modal').classList.add('open'); document.getElementById('f-name').focus(); }
 function closeModal() {
   document.getElementById('modal').classList.remove('open');
   ['f-name','f-role','f-email','f-phone','f-notes'].forEach(function(id){ document.getElementById(id).value=''; });
@@ -774,26 +1496,26 @@ function closeModal() {
 function saveContact() {
   var name = document.getElementById('f-name').value.trim();
   if (!name) return;
-  contacts.push({
-    id: nextId++,
-    name: name,
-    role: document.getElementById('f-role').value.trim(),
-    carrier: document.getElementById('f-carrier').value,
-    email: document.getElementById('f-email').value.trim(),
-    phone: document.getElementById('f-phone').value.trim(),
-    notes: document.getElementById('f-notes').value.trim()
-  });
+  contacts.push({id:nextId++,name:name,role:document.getElementById('f-role').value.trim(),carrier:document.getElementById('f-carrier').value,email:document.getElementById('f-email').value.trim(),phone:document.getElementById('f-phone').value.trim(),notes:document.getElementById('f-notes').value.trim()});
   closeModal();
   renderContacts();
 }
 
-// Close modal on overlay click
-document.getElementById('modal').addEventListener('click', function(e){
-  if (e.target === this) closeModal();
-});
+document.getElementById('modal').addEventListener('click', function(e){ if(e.target===this) closeModal(); });
 
-// Init
+// ─────────────────────────────────────────────────────────────
+// INIT
+// ─────────────────────────────────────────────────────────────
+loadState();
+enhanceCards();
 renderContacts();
+filterCards();
+
+// Apply saved favorites to cards
+document.querySelectorAll('#carrier-grid .card').forEach(function(card) {
+  var key = card.dataset.metakey;
+  if (key && favorites[key]) card.classList.add('favorited');
+});
 </script>
 </body>
 </html>
