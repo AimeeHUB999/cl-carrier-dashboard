@@ -424,7 +424,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
       <div class="cl-selects">
         <select id="cl-carrier-sel">
           <option value="">— Carrier —</option>
-          <option>AMERISAFE</option><option>Ascendant</option><option>Authentic</option>
+          <option>AMERISAFE</option><option>Ascendant</option><option>Ascendant Roofing</option><option>Authentic</option>
           <option>Bass Underwriters</option><option>Berkley Marketplace</option>
           <option>CNA</option><option>Chubb Cyber</option><option>Chubb Life Sciences</option>
           <option>Chubb Middle Market</option>
@@ -541,6 +541,58 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
           <a class="portal-link" href="https://www.ascendantgroup.com" target="_blank">🔗 ascendantgroup.com</a>
         </div>
         <div class="note" style="margin-top:6px;">Visit site → <strong>Agent Quick Access</strong> → <strong>Quick Quote Submit</strong> → Select <strong>CPP – Commercial Package Policy</strong></div>
+      </div>
+    </div>
+
+    <!-- ASCENDANT ROOFERS & CONTRACTORS -->
+    <div class="card" data-types="wc,bop,liability" data-text="ascendant roofers roofing contractors general contractors home builders tree trimmers pool contractors framing remodelers workers compensation general liability commercial auto new ventures lapses hot air tar torch 100% subcontracted residential commercial roofing">
+      <div class="card-header">
+        <div class="card-header-left">
+          <div class="carrier-name">Ascendant — Roofers &amp; Contractors</div>
+          <div class="carrier-sub">WC · GL · Commercial Auto | A.M. Best A-</div>
+        </div>
+        <div class="card-header-right">
+          <span class="carrier-badge badge-wc">WC / GL / Auto</span>
+          <span class="updated-badge" id="upd-Ascendant-Roofing"></span>
+          <button class="fav-btn" onclick="toggleFav(this)" title="Favorite">☆</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="section-lbl">Roofing Contractors</div>
+        <div class="tags">
+          <span class="tag strong">New Ventures / Lapses</span><span class="tag strong">No Prior Coverage</span><span class="tag strong">Hot Air &amp; Tar Considered</span><span class="tag qualified">Limited Torch Availability</span><span class="tag strong">100% Subcontracted Work (w/ Adequate Risk Transfer)</span><span class="tag strong">Residential &amp; Commercial Roofing</span>
+        </div>
+        <div class="section-lbl">Other Contractor Classes</div>
+        <div class="tags">
+          <span class="tag strong">General Contractors</span><span class="tag strong">Home Builders</span><span class="tag strong">Tree Trimmers</span><span class="tag strong">Pool Contractors</span><span class="tag strong">Framing / Remodelers</span>
+        </div>
+        <div class="section-lbl">Workers Comp</div>
+        <div class="note">A.M. Best Rated A- carrier · <strong>Min premium:</strong> $50K · <strong>Prior insurance:</strong> 3 years required · No lapse in coverage · PEO options available upon request.</div>
+        <div class="section-lbl">General Liability</div>
+        <div class="note"><strong>Min premium:</strong> $3,500 · Up to 50-unit tract homes · Work up to 60 feet · Multiple carrier options. <strong>Optional coverages:</strong> Blanket/Single AI &amp; WOS, Blanket Primary/Non-Contributory, Per Project Aggregate, CG2037 (referral basis), Limited Earth Movement, Contractors Coverage Enhancement.</div>
+        <div class="section-lbl">Commercial Auto</div>
+        <div class="note"><strong>Commission:</strong> 13% + incentive rewards ($50 for premiums &gt;$1,500 / $25 for premiums &lt;$1,500 on ACI policies) · No charge for major/minor violations after 18 months · No credit check · No CLUE report · MVR fees waived at bind · Limits up to $6M (corporate accounts) · No fleet vehicle limit · Accepts PPT vehicles used in business · Annual policies eligible for 12-equal EFT pay.</div>
+        <div class="divider"></div>
+        <div class="portals">
+          <a class="portal-link" href="https://www.ascendantgroup.com" target="_blank">🔗 ascendantgroup.com</a>
+          <a class="portal-link" href="mailto:submissions@ascendantgroup.com">✉ submissions@ascendantgroup.com</a>
+        </div>
+        <div class="note" style="margin-top:6px;">Commercial Auto UWs available via AscendantChat, email, or phone.</div>
+        <div class="checklist-toggle" onclick="toggleChecklist(this)">
+          <span class="arrow">▶</span> Submission Checklist
+        </div>
+        <div class="checklist-body">
+          <label class="checklist-item"><input type="checkbox"><span>ACORD 130 (WC) or ACORD 125/126 (GL)</span></label>
+          <label class="checklist-item"><input type="checkbox"><span>Loss runs (3 years prior insurance required for WC)</span></label>
+          <label class="checklist-item"><input type="checkbox"><span>Subcontractor agreements / evidence of risk transfer (if 100% sub)</span></label>
+          <label class="checklist-item"><input type="checkbox"><span>MVR reports (Commercial Auto — waived at bind)</span></label>
+          <label class="checklist-item"><input type="checkbox"><span>Vehicle schedule (Commercial Auto)</span></label>
+        </div>
+        <div class="internal-notes-wrap">
+          <div class="internal-notes-label">Internal Notes <button onclick="editNotes(this,'Ascendant-Roofing')">edit</button></div>
+          <div class="internal-notes-text empty" id="notes-Ascendant-Roofing">No notes yet.</div>
+        </div>
+        <button class="add-compare-btn" onclick="addToCompare('Ascendant-Roofing','Ascendant — Roofers &amp; Contractors',this)">+ Compare</button>
       </div>
     </div>
 
@@ -1150,6 +1202,11 @@ var cardMeta = {
     checklist: ['Minimum 2 coverages required (e.g. Property + GL)', 'Property schedule (TIV per location)', 'Loss runs (3 years)', 'ACORD application'],
     note: ''
   },
+  'Ascendant-Roofing': {
+    updated: '2026-04-14',
+    checklist: ['ACORD 130 (WC) or ACORD 125/126 (GL)', 'Loss runs (3 years — required for WC)', 'Subcontractor agreements / risk transfer evidence (if 100% sub)', 'MVR reports (Auto — waived at bind)', 'Vehicle schedule (Auto)'],
+    note: ''
+  },
   'Authentic-Commercial': {
     updated: '2025-11-01',
     checklist: ['ACORD application', 'Loss runs (3 years)', 'Revenue per location confirmation', 'No serious OSHA violations confirmation'],
@@ -1238,6 +1295,7 @@ function getMetaKey(card) {
   if (!name) return null;
   var t = name.textContent.trim();
   if (t.includes('AMERISAFE')) return 'AMERISAFE';
+  if (t.includes('Roofers')) return 'Ascendant-Roofing';
   if (t.includes('Ascendant')) return 'Ascendant';
   if (t.includes('Authentic — Commercial')) return 'Authentic-Commercial';
   if (t.includes('Gym & Fitness')) return 'Authentic-Fitness';
@@ -1644,8 +1702,9 @@ var finderRules = {
     property: [{key:'Tower-Hill',match:'great',why:'Lessor risk exposures core to commercial property appetite'},{key:'Ascendant',match:'good',why:'Property package available with LRO occupancy'}]
   },
   contractor: {
-    gl:       [{key:'Nationwide',match:'great',why:'Artisan contractors: electrical, plumbing, HVAC, painting, drywall, flooring, masonry, landscaping, janitorial — strong appetite'},{key:'USLI',match:'great',why:'Artisan/trade contractors a core product'},{key:'Berkley',match:'good',why:'Construction in top industries for Berkley Marketplace'},{key:'Ascendant',match:'good',why:'Extensive contractor and construction class list'}],
-    wc:       [{key:'Nationwide',match:'great',why:'All GL-eligible contractor classes eligible for WC — target artisan contractors with $50K+ payroll'},{key:'AMERISAFE',match:'great',why:'Construction is a core hazardous industry — masonry, carpentry, plumbing, electrical'},{key:'Berkley',match:'good',why:'Workers comp available for contractors'}],
+    gl:       [{key:'Ascendant-Roofing',match:'great',why:'Purpose-built contractor program — roofers, GCs, home builders, tree trimmers, pool contractors, framers. New ventures and lapses accepted'},{key:'Nationwide',match:'great',why:'Artisan contractors: electrical, plumbing, HVAC, painting, drywall, flooring, masonry, landscaping, janitorial — strong appetite'},{key:'USLI',match:'great',why:'Artisan/trade contractors a core product'},{key:'Berkley',match:'good',why:'Construction in top industries for Berkley Marketplace'},{key:'Ascendant',match:'good',why:'Extensive contractor and construction class list'}],
+    wc:       [{key:'Ascendant-Roofing',match:'great',why:'WC for roofing and contractor classes — new ventures/lapses accepted, $50K min premium, 3 years prior required'},{key:'Nationwide',match:'great',why:'All GL-eligible contractor classes eligible for WC — target artisan contractors with $50K+ payroll'},{key:'AMERISAFE',match:'great',why:'Construction is a core hazardous industry — masonry, carpentry, plumbing, electrical'},{key:'Berkley',match:'good',why:'Workers comp available for contractors'}],
+    auto:     [{key:'Ascendant-Roofing',match:'great',why:'Commercial auto for contractors — 13% commission, no credit check, no CLUE, MVR fees waived at bind, limits up to $6M'}],
     property: [{key:'Nationwide',match:'good',why:'Commercial property up to $20M available for contractors'},{key:'Ascendant',match:'good',why:'Contractors equipment and construction classes'},{key:'USLI',match:'good',why:"Contractor's equipment monoline"}]
   },
   manufacturing: {
