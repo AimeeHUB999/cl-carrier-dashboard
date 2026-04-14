@@ -39,7 +39,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
 
 /* ── Carrier grid ── */
 .carrier-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px;}
-.card{background:#fff;border:1px solid #E5E7EB;border-radius:12px;overflow:hidden;transition:box-shadow 0.15s;position:relative;}
+.card{background:#fff;border:1px solid #E5E7EB;border-radius:12px;overflow:visible;transition:box-shadow 0.15s;position:relative;align-self:start;}
 .card:hover{box-shadow:0 4px 16px rgba(0,0,0,0.1);}
 .card.favorited{border-color:#F59E0B;box-shadow:0 0 0 2px rgba(245,158,11,0.15);}
 .card-header{padding:14px 16px 12px;border-bottom:1px solid #F3F4F6;display:flex;justify-content:space-between;align-items:flex-start;gap:8px;}
@@ -59,7 +59,13 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
 .fav-btn{background:none;border:none;cursor:pointer;font-size:16px;line-height:1;padding:0;color:#D1D5DB;transition:color 0.15s;}
 .fav-btn:hover,.fav-btn.active{color:#F59E0B;}
 
-.card-body{padding:12px 16px;}
+.card-body{padding:12px 16px;transition:none;}
+.card-body.collapsed{display:none;}
+.collapse-btn{background:none;border:none;cursor:pointer;color:#9CA3AF;font-size:18px;line-height:1;padding:0 0 0 4px;transition:transform 0.2s;flex-shrink:0;}
+.collapse-btn:hover{color:#374151;}
+.card.is-collapsed .collapse-btn{transform:rotate(-90deg);}
+.collapse-all-btn{font-size:12px;padding:5px 12px;border-radius:20px;border:1px solid #D1D5DB;cursor:pointer;background:#fff;color:#6B7280;font-weight:500;white-space:nowrap;transition:all 0.15s;margin-left:auto;}
+.collapse-all-btn:hover{border-color:#93C5FD;color:#1D4ED8;}
 .section-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:#9CA3AF;margin:10px 0 6px;}
 .section-lbl:first-child{margin-top:0;}
 .tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:2px;}
@@ -203,7 +209,96 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
 .close-modal-btn:hover{color:#374151;}
 
 .no-results{text-align:center;padding:40px;color:#9CA3AF;font-size:14px;display:none;}
-@media print{.top-nav,.compare-bar,.finder-overlay,.modal-overlay,.compare-modal-overlay,.fav-btn,.add-compare-btn,.checklist-toggle,.internal-notes-label button,.delete-btn,.notes-textarea,.notes-save-btn{display:none!important;}.card{break-inside:avoid;box-shadow:none!important;border:1px solid #ccc!important;}.main{padding:8px!important;}.carrier-grid{grid-template-columns:repeat(2,1fr)!important;gap:8px!important;}}
+
+/* ── AM Best rating badge ── */
+.rating-badge{font-size:10px;font-weight:700;padding:2px 7px;border-radius:6px;background:#1A1A2E;color:#FCD34D;letter-spacing:0.04em;white-space:nowrap;}
+
+/* ── Overlap highlight ── */
+.tag.overlap{background:#FEF9C3;color:#854D0E;border:1px solid #FDE047;font-weight:600;}
+.overlap-banner{font-size:11px;background:#FFFBEB;border:1px solid #FDE047;border-radius:6px;padding:5px 10px;color:#92400E;margin-bottom:8px;display:none;}
+.overlap-banner.visible{display:block;}
+
+/* ── Changelog modal ── */
+.changelog-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:300;align-items:flex-start;justify-content:center;padding:60px 20px;}
+.changelog-overlay.open{display:flex;}
+.changelog-modal{background:#fff;border-radius:16px;padding:28px;width:100%;max-width:600px;box-shadow:0 20px 60px rgba(0,0,0,0.3);max-height:80vh;overflow-y:auto;position:relative;}
+.changelog-modal h3{font-size:16px;font-weight:600;margin-bottom:4px;color:#111827;}
+.changelog-modal .cl-sub{font-size:13px;color:#6B7280;margin-bottom:16px;}
+.cl-entry{padding:12px 0;border-bottom:1px solid #F3F4F6;}
+.cl-entry:last-child{border-bottom:none;}
+.cl-entry-header{display:flex;align-items:center;gap:8px;margin-bottom:4px;}
+.cl-carrier{font-weight:600;font-size:13px;color:#111827;}
+.cl-date{font-size:11px;color:#9CA3AF;}
+.cl-stale-flag{font-size:10px;background:#FEF3C7;color:#92400E;border-radius:10px;padding:1px 7px;font-weight:600;}
+.cl-changes{font-size:12px;color:#6B7280;line-height:1.6;}
+.cl-add-wrap{margin-top:14px;padding-top:14px;border-top:1px solid #E5E7EB;}
+.cl-add-wrap label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:#6B7280;display:block;margin-bottom:5px;}
+.cl-selects{display:flex;gap:8px;margin-bottom:8px;flex-wrap:wrap;}
+.cl-selects select,.cl-selects input{flex:1;min-width:140px;padding:7px 10px;font-size:13px;border:1px solid #D1D5DB;border-radius:7px;outline:none;background:#fff;}
+.cl-selects select:focus,.cl-selects input:focus{border-color:#93C5FD;}
+.cl-textarea{width:100%;font-size:12px;border:1px solid #D1D5DB;border-radius:7px;padding:7px 10px;resize:vertical;font-family:inherit;min-height:60px;outline:none;}
+.cl-textarea:focus{border-color:#93C5FD;}
+.cl-save-btn{margin-top:6px;padding:7px 16px;font-size:12px;font-weight:500;background:#1A1A2E;color:#fff;border:none;border-radius:7px;cursor:pointer;}
+
+/* ── Email copy modal ── */
+.email-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:300;align-items:flex-start;justify-content:center;padding:60px 20px;}
+.email-overlay.open{display:flex;}
+.email-modal{background:#fff;border-radius:16px;padding:28px;width:100%;max-width:560px;box-shadow:0 20px 60px rgba(0,0,0,0.3);max-height:80vh;overflow-y:auto;position:relative;}
+.email-modal h3{font-size:16px;font-weight:600;margin-bottom:4px;color:#111827;}
+.email-modal .em-sub{font-size:13px;color:#6B7280;margin-bottom:16px;}
+.em-field{margin-bottom:12px;}
+.em-field label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:#6B7280;display:block;margin-bottom:4px;}
+.em-field input,.em-field textarea{width:100%;padding:8px 10px;font-size:13px;border:1px solid #D1D5DB;border-radius:7px;outline:none;font-family:inherit;color:#111827;}
+.em-field input:focus,.em-field textarea:focus{border-color:#93C5FD;}
+.em-field textarea{resize:vertical;min-height:120px;}
+.em-btns{display:flex;gap:8px;margin-top:4px;}
+.em-copy-btn{flex:1;padding:9px;font-size:13px;font-weight:500;border-radius:8px;background:#1A1A2E;color:#fff;border:none;cursor:pointer;}
+.em-open-btn{flex:1;padding:9px;font-size:13px;font-weight:500;border-radius:8px;background:#2563EB;color:#fff;border:none;cursor:pointer;}
+.em-copied{font-size:11px;color:#065F46;margin-left:8px;display:none;}
+
+/* ── Filtered PDF print ── */
+.pdf-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:300;align-items:center;justify-content:center;}
+.pdf-overlay.open{display:flex;}
+.pdf-modal{background:#fff;border-radius:16px;padding:28px;width:100%;max-width:440px;box-shadow:0 20px 60px rgba(0,0,0,0.3);position:relative;}
+.pdf-modal h3{font-size:16px;font-weight:600;margin-bottom:8px;color:#111827;}
+.pdf-modal p{font-size:13px;color:#6B7280;margin-bottom:16px;line-height:1.5;}
+.pdf-info{background:#F9FAFB;border-radius:8px;padding:12px;font-size:12px;color:#374151;margin-bottom:16px;line-height:1.6;}
+.pdf-info strong{color:#111827;}
+.pdf-btns{display:flex;gap:8px;}
+.pdf-go-btn{flex:1;padding:9px;font-size:13px;font-weight:500;border-radius:8px;background:#1A1A2E;color:#fff;border:none;cursor:pointer;}
+.pdf-cancel-btn{padding:9px 16px;font-size:13px;border:1px solid #D1D5DB;border-radius:8px;background:#fff;cursor:pointer;color:#374151;}
+
+/* ── Mobile ── */
+@media(max-width:640px){
+  .top-nav{padding:0 12px;gap:8px;height:auto;min-height:52px;flex-wrap:wrap;padding-top:8px;padding-bottom:8px;}
+  .nav-title{font-size:14px;}
+  .nav-tabs{margin-left:0;}
+  .nav-actions{width:100%;flex-wrap:wrap;gap:6px;margin-left:0;}
+  .search-bar{width:100%;}
+  .search-bar input{width:100%!important;}
+  .nav-btn{font-size:11px;padding:4px 9px;}
+  .main{padding:12px;}
+  .carrier-grid{grid-template-columns:1fr!important;gap:10px;}
+  .filter-row{gap:5px;}
+  .chip{font-size:11px;padding:4px 10px;}
+  .collapse-all-btn{font-size:11px;padding:4px 10px;}
+  .compare-bar{padding:10px 12px;flex-wrap:wrap;gap:8px;}
+  .finder-row{grid-template-columns:1fr!important;}
+  .finder-modal,.changelog-modal,.email-modal,.pdf-modal,.compare-modal{padding:18px;border-radius:12px;}
+  .compare-modal{max-width:100%;}
+  .card-header{flex-wrap:wrap;}
+  .contact-grid{grid-template-columns:1fr!important;}
+}
+
+@media print{
+  .top-nav,.compare-bar,.finder-overlay,.modal-overlay,.compare-modal-overlay,.changelog-overlay,.email-overlay,.pdf-overlay,.fav-btn,.add-compare-btn,.checklist-toggle,.internal-notes-label button,.delete-btn,.notes-textarea,.notes-save-btn,.collapse-btn,.collapse-all-btn,.nav-btn,.filter-row{display:none!important;}
+  .card{break-inside:avoid;box-shadow:none!important;border:1px solid #ccc!important;}
+  .card-body.collapsed{display:block!important;}
+  .main{padding:8px!important;}
+  .carrier-grid{grid-template-columns:repeat(2,1fr)!important;gap:8px!important;}
+  body{background:#fff!important;}
+  .print-hidden{display:none!important;}
+}
 </style>
 </head>
 <body>
@@ -218,7 +313,8 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
     <div class="search-bar"><input type="text" id="global-search" placeholder="Search carriers, classes..." oninput="filterCards()"></div>
     <button class="nav-btn finder-btn" onclick="openFinder()">🔍 Best Fit</button>
     <button class="nav-btn" onclick="toggleFavFilter(this)">⭐ Favorites</button>
-    <button class="nav-btn" onclick="window.print()">🖨 Print / PDF</button>
+    <button class="nav-btn" onclick="openChangelog()">📋 Changelog</button>
+    <button class="nav-btn" onclick="openPdfModal()">🖨 Export PDF</button>
   </div>
 </div>
 
@@ -248,6 +344,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
           <option value="lro">Lessor's Risk / Building Owner</option>
           <option value="contractor">Contractor / Construction</option>
           <option value="manufacturing">Manufacturing</option>
+          <option value="life_sciences">Life Sciences / Pharma / Biotech</option>
           <option value="healthcare">Healthcare / Medical Office</option>
           <option value="technology">Technology Company</option>
           <option value="professional">Professional Services / Office</option>
@@ -315,6 +412,64 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
   </div>
 </div>
 
+<!-- Changelog Modal -->
+<div class="changelog-overlay" id="changelog-overlay" onclick="if(event.target===this)closeChangelog()">
+  <div class="changelog-modal">
+    <button class="close-modal-btn" onclick="closeChangelog()">×</button>
+    <h3>📋 Appetite Changelog</h3>
+    <div class="cl-sub">Track when carrier appetite info was updated and what changed.</div>
+    <div id="changelog-list"></div>
+    <div class="cl-add-wrap">
+      <label>Log a Change</label>
+      <div class="cl-selects">
+        <select id="cl-carrier-sel">
+          <option value="">— Carrier —</option>
+          <option>AMERISAFE</option><option>Ascendant</option><option>Authentic</option>
+          <option>Bass Underwriters</option><option>Berkley Marketplace</option>
+          <option>CNA</option><option>Chubb Cyber</option><option>Chubb Life Sciences</option>
+          <option>Chubb Middle Market</option>
+          <option>Chubb Small Business</option><option>Chubb Technology</option><option>MEMIC</option><option>Nationwide</option>
+          <option>Tower Hill</option><option>USLI</option>
+        </select>
+        <input type="date" id="cl-date-input">
+      </div>
+      <textarea class="cl-textarea" id="cl-note-input" placeholder="What changed? e.g. Min premium increased to $5K · New appetite for arborists added · Florida restrictions updated"></textarea>
+      <button class="cl-save-btn" onclick="saveChangelogEntry()">Add Entry</button>
+    </div>
+  </div>
+</div>
+
+<!-- Email Copy Modal -->
+<div class="email-overlay" id="email-overlay" onclick="if(event.target===this)closeEmail()">
+  <div class="email-modal">
+    <button class="close-modal-btn" onclick="closeEmail()">×</button>
+    <h3>✉ Submission Email</h3>
+    <div class="em-sub">Pre-filled draft based on this carrier's requirements. Edit before sending.</div>
+    <div class="em-field"><label>To</label><input type="text" id="em-to"></div>
+    <div class="em-field"><label>Subject</label><input type="text" id="em-subject"></div>
+    <div class="em-field"><label>Body</label><textarea id="em-body"></textarea></div>
+    <div class="em-btns">
+      <button class="em-copy-btn" onclick="copyEmail()">📋 Copy to Clipboard</button>
+      <button class="em-open-btn" onclick="openEmailClient()">📧 Open in Email</button>
+    </div>
+    <span class="em-copied" id="em-copied">✓ Copied!</span>
+  </div>
+</div>
+
+<!-- Filtered PDF Modal -->
+<div class="pdf-overlay" id="pdf-overlay" onclick="if(event.target===this)closePdfModal()">
+  <div class="pdf-modal">
+    <button class="close-modal-btn" onclick="closePdfModal()">×</button>
+    <h3>🖨 Export Filtered View to PDF</h3>
+    <p>This will print only the currently visible cards based on your active filter and search.</p>
+    <div class="pdf-info" id="pdf-info"></div>
+    <div class="pdf-btns">
+      <button class="pdf-go-btn" onclick="printFiltered()">Print / Save as PDF</button>
+      <button class="pdf-cancel-btn" onclick="closePdfModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+
 <div class="main">
 
 <!-- MARKETS TAB -->
@@ -328,6 +483,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
     <button class="chip" onclick="setFilter('liability',this)">Liability</button>
     <button class="chip" onclick="setFilter('mgmt',this)">Mgmt Liability</button>
     <span class="filter-count" id="filter-count"></span>
+    <button class="collapse-all-btn" id="collapse-all-btn" onclick="toggleAllCards(this)">⊟ Collapse All</button>
   </div>
   <div class="carrier-grid" id="carrier-grid">
 
@@ -621,34 +777,61 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
       </div>
     </div>
 
+    <!-- CHUBB LIFE SCIENCES -->
+    <div class="card" data-types="bop,liability,property,cyber,mgmt" data-text="chubb life sciences industry practice pharmaceutical biotechnology medical devices clinical trials dietary supplements digital health contract manufacturers contract research organizations labs distributors life sciences lsip gl products completed operations property umbrella errors omissions cyber healthcare liability product recall environmental financial lines multinational marine aviation">
+      <div class="card-header">
+        <div>
+          <div class="carrier-name">Chubb — Life Sciences Industry Practice</div>
+          <div class="carrier-sub">LSIP | 25+ Years | 180+ Countries | Start-ups to Large Enterprise</div>
+        </div>
+        <span class="carrier-badge badge-commercial">Specialty</span>
+      </div>
+      <div class="card-body">
+        <div class="section-lbl">Target Classes</div>
+        <div class="tags">
+          <span class="tag strong">Pharmaceutical Companies</span><span class="tag strong">Biotechnology Companies</span><span class="tag strong">Medical Device Companies</span><span class="tag strong">Clinical Trials (local admitted, 180+ countries)</span><span class="tag strong">Dietary Supplement Companies</span><span class="tag strong">Digital Health Innovators</span><span class="tag strong">Contract Manufacturers & Packagers</span><span class="tag strong">Contract Research Organizations (CROs)</span><span class="tag strong">Site Management Organizations</span><span class="tag strong">Labs, Distributors & Life Sciences Service Cos.</span>
+        </div>
+        <div class="section-lbl">Coverages Available</div>
+        <div class="tags">
+          <span class="tag contact">General Liability</span><span class="tag contact">Products Completed Operations</span><span class="tag contact">Clinical Trials</span><span class="tag contact">Property</span><span class="tag contact">Packages</span><span class="tag contact">Umbrella</span><span class="tag contact">Errors & Omissions</span><span class="tag contact">Cyber</span><span class="tag contact">Healthcare Liability</span><span class="tag contact">Excess</span><span class="tag contact">Product Recall</span><span class="tag contact">Environmental</span><span class="tag contact">Financial Lines</span><span class="tag contact">Multinational</span><span class="tag contact">A&H</span><span class="tag contact">Marine</span><span class="tag contact">Aviation</span>
+        </div>
+        <div class="divider"></div>
+        <div class="note"><strong>Key Highlights:</strong> 100+ dedicated P&C underwriters, claims professionals and risk engineers · Endorsed insurer of BIO and MDMA · Global Services team for multinational placements and claims · 500+ in-house risk engineers · Advanced business continuity, supply chain, water/temp sensor services, and infrared thermography · Tailored limits available — e.g. $15M+ for pharmaceutical companies exceeding standard carrier offerings</div>
+        <div class="portals">
+          <a class="portal-link" href="https://www.chubb.com/us-en/business-insurance/industries/life-sciences.html" target="_blank">🔗 Chubb Life Sciences</a>
+        </div>
+        <div class="note" style="margin-top:6px;"><strong>Contact:</strong> Brandon Dixon · 656-234-9836 · <a href="mailto:Brandon.Dixon@chubb.com">Brandon.Dixon@chubb.com</a> · Submissions: <a href="mailto:commerciallinessubmissions@chubb.com">commerciallinessubmissions@chubb.com</a></div>
+      </div>
+    </div>
+
     <!-- CHUBB MIDDLE MARKET -->
     <div class="card" data-types="bop,cyber,wc,mgmt,liability,property" data-text="chubb middle market package workers comp auto umbrella environmental property cyber e&o financial institutions life sciences technology healthcare real estate manufacturing">
       <div class="card-header">
         <div>
           <div class="carrier-name">Chubb Middle Market</div>
-          <div class="carrier-sub">2024 Risk Appetite Guide</div>
+          <div class="carrier-sub">2024 Risk Appetite Guide | Multiple Lines</div>
         </div>
         <span class="carrier-badge badge-commercial">Commercial</span>
       </div>
       <div class="card-body">
         <div class="section-lbl">Strong Appetite</div>
         <div class="tags">
-          <span class="tag strong">Accountants/Auditors</span><span class="tag strong">Advertising/PR</span><span class="tag strong">Architects/Engineers</span><span class="tag strong">Business Consultants</span><span class="tag strong">Law Firms</span><span class="tag strong">Hospitals & Health Systems</span><span class="tag strong">Physician Groups</span><span class="tag strong">Computer Software Developers</span><span class="tag strong">Hardware Manufacturers</span><span class="tag strong">Technology Service Providers</span><span class="tag strong">Office Real Estate</span><span class="tag strong">Light Industrial/Warehouse</span><span class="tag strong">Retail Real Estate</span><span class="tag strong">Durable Goods Wholesale</span>
+          <span class="tag strong">Accountants/Auditors</span><span class="tag strong">Advertising/PR</span><span class="tag strong">Architects/Engineers</span><span class="tag strong">Business Consultants</span><span class="tag strong">Law Firms</span><span class="tag strong">Asset Management</span><span class="tag strong">Insurance Companies & Agents</span><span class="tag strong">Hospitals & Health Systems</span><span class="tag strong">Long-Term Healthcare Facilities</span><span class="tag strong">Outpatient Medical</span><span class="tag strong">Physician Groups</span><span class="tag strong">Computer Software Developers</span><span class="tag strong">Hardware Manufacturers</span><span class="tag strong">Network & Technology Service Providers</span><span class="tag strong">Advanced Manufacturing</span><span class="tag strong">Metal Workers</span><span class="tag strong">Plastic Workers</span><span class="tag strong">Food Manufacturing & Distribution</span><span class="tag strong">Printing & Publishing</span><span class="tag strong">Durable & Non-Durable Goods Wholesale</span><span class="tag strong">Office Real Estate</span><span class="tag strong">Light Industrial/Warehouse</span><span class="tag strong">Retail Real Estate</span><span class="tag strong">Broadcasters</span><span class="tag strong">Entertainment Services</span>
         </div>
         <div class="section-lbl">Qualified / Each Risk Considered</div>
         <div class="tags">
-          <span class="tag qualified">Clinical Trials</span><span class="tag qualified">Medical Devices</span><span class="tag qualified">Pharmaceutical/Biotech</span><span class="tag qualified">Federal Government Contractors</span><span class="tag qualified">Private Equity</span><span class="tag qualified">Hospitality</span><span class="tag qualified">Construction</span><span class="tag qualified">Transportation</span><span class="tag qualified">Habitational Real Estate</span>
+          <span class="tag qualified">Clinical Trials</span><span class="tag qualified">Medical Devices</span><span class="tag qualified">Pharmaceutical/Biotech</span><span class="tag qualified">Dietary Supplements</span><span class="tag qualified">Life Sciences Service Orgs</span><span class="tag qualified">Banks/Lending Institutions</span><span class="tag qualified">Federal Government Contractors</span><span class="tag qualified">Clean Technology</span><span class="tag qualified">Private Equity</span><span class="tag qualified">Chemical & Allied Workers</span><span class="tag qualified">Hospitality</span><span class="tag qualified">Retailers</span><span class="tag qualified">Educational Institutions</span><span class="tag qualified">Cultural Institutions</span><span class="tag qualified">Transportation</span><span class="tag qualified">Construction</span><span class="tag qualified">Membership Trade Orgs</span><span class="tag qualified">Film & Theater Production</span><span class="tag qualified">Habitational Real Estate</span><span class="tag qualified">Wholesalers</span>
         </div>
         <div class="section-lbl">Limited / No Appetite</div>
         <div class="tags">
-          <span class="tag limited">Mining</span><span class="tag limited">Petroleum</span><span class="tag limited">Aviation</span><span class="tag limited">Marine Facilities</span>
+          <span class="tag limited">Mining</span><span class="tag limited">Petroleum</span><span class="tag limited">Power/Energy</span><span class="tag limited">Aviation</span><span class="tag limited">Marine Facilities</span><span class="tag limited">Public Entity</span>
         </div>
         <div class="divider"></div>
-        <div class="note"><strong>Products:</strong> Package, WC, Auto, Umbrella/Excess, Environmental, GL, Product Recall, Property, Equipment Breakdown, Inland Marine, Ocean Cargo, Multinational, A&H, Crime/Fidelity, Cyber, E&O, K&R, Public D&O, EPLI, Fiduciary, Private/NFP D&O.</div>
+        <div class="note"><strong>Products:</strong> Package, WC, Auto, Umbrella/Excess, Environmental, GL, Product Recall, Property, Equipment Breakdown, Inland Marine, Ocean Cargo, Multinational, A&H, Crime/Fidelity, Cyber, E&O, Employed Lawyers, K&R, Public D&O, EPLI, Fiduciary, Private/NFP D&O. · <em>E&O for manufacturing, life science and technology handled in CI P&C.</em></div>
         <div class="portals">
           <a class="portal-link" href="https://sciagents.chubb.com/marketplace/" target="_blank">🔗 Chubb Marketplace</a>
         </div>
-        <div class="note" style="margin-top:8px;"><strong>Contacts:</strong> Tyler Valdez (General Industries) · Brandon Dixon (Life Sciences) · William Jones (Technology) · William Grossman (Financial Inst.) · Charlie Frigo (Financial/Mgmt Lines) · Alex Amacher (Cyber)</div>
+        <div class="note" style="margin-top:8px;"><strong>Contacts:</strong> Tyler Valdez (General Industries) · Brandon Dixon (Life Sciences) · William Jones (Technology) · William Grossman (Financial Inst.) · Charlie Frigo (Financial/Mgmt Lines) · Alex Amacher (Cyber) · Aaron Beattie (Marine, LMM, 945-364-6839)</div>
       </div>
     </div>
 
@@ -676,11 +859,53 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
         </div>
         <div class="divider"></div>
         <div class="note"><strong>Products:</strong> BOP & GL, Workers Comp, Umbrella, Auto, Cyber/E&O, ForeFront Portfolio (EPL, Fiduciary, D&O, Crime). Quote rates >80% on strong appetite. Appetite differs in CA, FL & NY.</div>
+        <div class="section-lbl">ForeFront Portfolio — Management Liability</div>
+        <div class="note">Protects private companies, nonprofits and healthcare orgs · <strong>D&O:</strong> mismanagement, financials, regulatory compliance · <strong>EPL:</strong> harassment, discrimination, wrongful termination · <strong>Fiduciary:</strong> employee benefit plan administration · <strong>Crime:</strong> theft, fraudulent EFT, forgery, social engineering · Available on Marketplace for orgs &lt;250 employees and &lt;$50M revenue · Straight-through processing >90% · No signed app required · ChubbWorks & PaymentWorks loss prevention tools included</div>
         <div class="portals">
           <a class="portal-link" href="https://sciagents.chubb.com/marketplace/" target="_blank">🔗 Chubb Marketplace</a>
           <a class="portal-link" href="https://www.chubb.com/us-en/agents-brokers/chubb-cyber-central.html" target="_blank">🔗 Cyber Central</a>
         </div>
         <div class="note" style="margin-top:8px;"><strong>Contacts:</strong> Tyler Valdez (General Industries) · Brandon Dixon (Life Sciences) · William Jones (Technology) · William Grossman (Financial Inst.) · Charlie Frigo (Financial/Mgmt Lines) · Alex Amacher (Cyber) · Sarah Tomacruz (A&H) · Yhanique Whitely (SE Florida BDM, 561-851-4621)</div>
+      </div>
+    </div>
+
+    <!-- CHUBB TECHNOLOGY SEGMENT -->
+    <div class="card" data-types="bop,cyber,liability,property,mgmt" data-text="chubb technology segment software design saas gaming social media hardware peripherals semiconductors communications network services it consulting staffing training data warehousing computer programming systems integration electronic components cloud services radiotelephone technology targets middle market">
+      <div class="card-header">
+        <div>
+          <div class="carrier-name">Chubb — Technology Segment</div>
+          <div class="carrier-sub">Middle Market | Software · Hardware · Networks · IT Services</div>
+        </div>
+        <span class="carrier-badge badge-cyber">Technology</span>
+      </div>
+      <div class="card-body">
+        <div class="section-lbl">Software Design, Services & Systems Integration</div>
+        <div class="tags">
+          <span class="tag strong">Software Design & Development</span><span class="tag strong">SaaS / Application Software</span><span class="tag strong">Gaming</span><span class="tag strong">Social Media Platforms</span><span class="tag strong">Value-Added Resellers</span><span class="tag strong">Systems Integrators</span>
+        </div>
+        <div class="note" style="margin-bottom:4px;font-size:11px;color:#9CA3AF;">SIC: 7371 Computer Programming · 7372 Prepackaged Software · 7373 Computer Integrated Systems</div>
+        <div class="section-lbl">Hardware, Peripherals, Electronic Components & Semiconductors</div>
+        <div class="tags">
+          <span class="tag strong">Computers, Servers & Workstations</span><span class="tag strong">Mobile Devices</span><span class="tag strong">Printers, Monitors & Peripherals</span><span class="tag strong">Electronic Components (capacitors, resistors, connectors)</span><span class="tag strong">Semiconductor Design & Fabrication</span><span class="tag strong">Wafer Processing Equipment</span>
+        </div>
+        <div class="note" style="margin-bottom:4px;font-size:11px;color:#9CA3AF;">SIC: 3571–3577, 3671–3679, 3695, 3812 · Semiconductors: 3674</div>
+        <div class="section-lbl">Communications & Network Services / Equipment</div>
+        <div class="tags">
+          <span class="tag strong">Internet & Cloud Services</span><span class="tag strong">Colocation Services</span><span class="tag strong">Hardware Maintenance / Network Mgmt</span><span class="tag strong">Telephone / Telecom Equipment Manufacturers</span><span class="tag strong">Radio & TV Broadcast Equipment</span><span class="tag strong">Modems, Routers & Wireless Networks</span>
+        </div>
+        <div class="note" style="margin-bottom:4px;font-size:11px;color:#9CA3AF;">SIC: 4812, 4813, 4899, 3576, 3660–3663, 3669</div>
+        <div class="section-lbl">IT Consulting & Technology Services</div>
+        <div class="tags">
+          <span class="tag strong">Technical Support</span><span class="tag strong">Data Warehousing</span><span class="tag strong">Staff Augmentation</span><span class="tag strong">Training</span><span class="tag strong">IT Consulting</span><span class="tag strong">Computer Processing & Data Prep</span><span class="tag strong">Computer Facilities Management</span><span class="tag strong">Computer Rental & Leasing</span><span class="tag strong">Computer Maintenance & Repair</span>
+        </div>
+        <div class="note" style="margin-bottom:4px;font-size:11px;color:#9CA3AF;">SIC: 7374–7379</div>
+        <div class="divider"></div>
+        <div class="note"><strong>Products available:</strong> Package, WC, Auto, Umbrella/Excess, GL, Property, Cyber, E&O (via CI P&C), Equipment Breakdown, Inland Marine, Crime/Fidelity, EPLI, Fiduciary, D&O, K&R, Multinational. See Chubb Middle Market appetite grid for full coverage matrix.</div>
+        <div class="portals">
+          <a class="portal-link" href="https://sciagents.chubb.com/marketplace/" target="_blank">🔗 Chubb Marketplace</a>
+          <a class="portal-link" href="https://www.chubb.com/us-en/agents-brokers/chubb-cyber-central.html" target="_blank">🔗 Cyber Central</a>
+        </div>
+        <div class="note" style="margin-top:6px;"><strong>Contact:</strong> William E. Jones, AINS · 813-904-0049 · <a href="mailto:Wejones@chubb.com">Wejones@chubb.com</a> · Submissions: <a href="mailto:commerciallinessubmissions@chubb.com">commerciallinessubmissions@chubb.com</a></div>
       </div>
     </div>
 
@@ -965,6 +1190,16 @@ var cardMeta = {
     checklist: ['ACORD application or online via Cyber Central / Marketplace', 'Revenue confirmation (under $100M)', 'Industry / class code', 'Batch upload available for 10+ accounts'],
     note: ''
   },
+  'Chubb-Tech': {
+    updated: '2024-01-01',
+    checklist: ['ACORD application', 'Loss runs (3–5 years)', 'Description of technology products / services', 'Revenue breakdown by product line', 'WC payroll by class', 'Submit to commerciallinessubmissions@chubb.com'],
+    note: 'E&O for technology is handled through CI P&C, not standard middle market. Contact William Jones for technology E&O submissions.'
+  },
+  'Chubb-LifeSci': {
+    updated: '2023-11-01',
+    checklist: ['ACORD application', 'Loss runs (5 years preferred)', 'Description of operations / products', 'Revenue and payroll breakdown', 'Clinical trial protocol (if applicable)', 'Contact Brandon Dixon to pre-qualify', 'Submissions: commerciallinessubmissions@chubb.com'],
+    note: 'Endorsed insurer of BIO and MDMA. Can write $15M+ limits for pharma companies where other carriers max out. Good for start-ups through large enterprise.'
+  },
   'Chubb-Middle': {
     updated: '2024-01-01',
     checklist: ['ACORD application', 'Loss runs (3–5 years)', 'Financial statements (if required)', 'Submit to commerciallinessubmissions@chubb.com'],
@@ -1012,6 +1247,8 @@ function getMetaKey(card) {
   if (t.includes('Berkley')) return 'Berkley';
   if (t.includes('CNA')) return 'CNA';
   if (t.includes('Chubb Cyber')) return 'Chubb-Cyber';
+  if (t.includes('Technology Segment')) return 'Chubb-Tech';
+  if (t.includes('Life Sciences Industry')) return 'Chubb-LifeSci';
   if (t.includes('Middle Market')) return 'Chubb-Middle';
   if (t.includes('Chubb Small')) return 'Chubb-Small';
   if (t.includes('Nationwide')) return 'Nationwide';
@@ -1062,7 +1299,9 @@ function enhanceCards() {
     card.dataset.metakey = key;
     var meta = cardMeta[key] || {};
 
-    // ── Restructure header to add fav + updated badge ──
+    // ── Add rating badge ──
+    addRatingBadge(card, key);
+
     var header = card.querySelector('.card-header');
     if (header) {
       var badge = header.querySelector('.carrier-badge');
@@ -1092,13 +1331,42 @@ function enhanceCards() {
       fb.onclick = function(e) { e.stopPropagation(); toggleFav(key, fb); };
       right.appendChild(fb);
 
+      // ── Collapse button (must be added AFTER header rebuild) ──
+      var colBtn = document.createElement('button');
+      colBtn.className = 'collapse-btn';
+      colBtn.title = 'Collapse / Expand';
+      colBtn.textContent = '⌄';
+      (function(c){ colBtn.onclick = function(e) { e.stopPropagation(); toggleCard(c); }; })(card);
+      right.appendChild(colBtn);
+
       header.appendChild(left);
       header.appendChild(right);
+
+      // Make header clickable to toggle
+      header.style.cursor = 'pointer';
+      (function(c){ header.onclick = function(e) {
+        if (e.target.closest('.fav-btn') || e.target.closest('.add-compare-btn') || e.target.closest('.collapse-btn')) return;
+        toggleCard(c);
+      }; })(card);
     }
 
     // ── Add compare button to card body ──
     var body = card.querySelector('.card-body');
     if (body) {
+      // Overlap banner (shown when search matches multiple carriers)
+      var banner = document.createElement('div');
+      banner.className = 'overlap-banner';
+      body.insertBefore(banner, body.firstChild);
+
+      // Email copy button
+      var emailBtn = document.createElement('button');
+      emailBtn.className = 'add-compare-btn';
+      emailBtn.style.background = 'rgba(37,99,235,0.07)';
+      emailBtn.style.borderColor = '#BFDBFE';
+      emailBtn.style.color = '#2563EB';
+      emailBtn.textContent = '✉ Copy Submission Email';
+      emailBtn.onclick = function() { openEmailModal(key); };
+      body.appendChild(emailBtn);
       // Compare button
       var cmpBtn = document.createElement('button');
       cmpBtn.className = 'add-compare-btn' + (compareList.indexOf(key) > -1 ? ' active' : '');
@@ -1148,6 +1416,30 @@ function enhanceCards() {
       body.appendChild(nw);
     }
   });
+}
+
+function toggleCard(card) {
+  var body = card.querySelector('.card-body');
+  if (!body) return;
+  var isCollapsed = card.classList.toggle('is-collapsed');
+  body.classList.toggle('collapsed', isCollapsed);
+}
+
+function toggleAllCards(btn) {
+  var cards = document.querySelectorAll('#carrier-grid .card');
+  var anyExpanded = Array.from(cards).some(function(c) { return !c.classList.contains('is-collapsed'); });
+  cards.forEach(function(card) {
+    var body = card.querySelector('.card-body');
+    if (!body) return;
+    if (anyExpanded) {
+      card.classList.add('is-collapsed');
+      body.classList.add('collapsed');
+    } else {
+      card.classList.remove('is-collapsed');
+      body.classList.remove('collapsed');
+    }
+  });
+  btn.textContent = anyExpanded ? '⊞ Expand All' : '⊟ Collapse All';
 }
 
 function isStale(dateStr) {
@@ -1362,16 +1654,23 @@ var finderRules = {
     gl:       [{key:'Berkley',match:'good',why:'Manufacturing in Berkley top industries'},{key:'Ascendant',match:'good',why:'Manufacturing segment available'}],
     equipment_breakdown: [{key:'CNA',match:'great',why:'Equipment breakdown core appetite includes manufacturing and durable goods'}]
   },
+  life_sciences: {
+    gl:       [{key:'Chubb-LifeSci',match:'great',why:'Dedicated Life Sciences Industry Practice — pharma, biotech, medical devices, CROs, clinical trials, dietary supplements, digital health. 25+ years, 180+ countries'},{key:'Chubb-Middle',match:'good',why:'Life sciences qualified in middle market appetite — clinical trials, medical devices, pharma/biotech, dietary supplements'}],
+    property: [{key:'Chubb-LifeSci',match:'great',why:'Unlimited BI period of indemnity available, spoilage protection, lab/manufacturing suite coverage'},{key:'CNA',match:'good',why:'HPR manufacturing appetite covers medical devices and equipment'}],
+    professional: [{key:'Chubb-LifeSci',match:'great',why:'Products/PCO, E&O and Healthcare Liability all available through LSIP — limits up to $15M+'}],
+    cyber:    [{key:'Chubb-LifeSci',match:'great',why:'Cyber available through Life Sciences Practice with specialized risk engineering support'},{key:'Chubb-Cyber',match:'good',why:'Cyber ERM available for life sciences companies under $100M revenue'}]
+  },
   healthcare: {
     gl:       [{key:'Nationwide',match:'great',why:'Physicians, dentists, chiropractors, optometrists, physical therapists, urgent care — strong BOP appetite'},{key:'Chubb-Small',match:'great',why:'Medical & dentist offices strong appetite'},{key:'Authentic-Commercial',match:'good',why:'Medical offices in target classes'},{key:'Ascendant',match:'good',why:'Health care facilities, medical offices, home health care'}],
     wc:       [{key:'Nationwide',match:'great',why:'Health care services WC eligible — physicians, dentists, therapists, optometrists, urgent care'},{key:'MEMIC',match:'great',why:'Physicians offices and clinics, hospitals, CCRCs preferred'},{key:'AMERISAFE',match:'possible',why:'Check specific class code'}],
     property: [{key:'CNA',match:'great',why:'Healthcare in portfolio mix for large accounts'},{key:'Tower-Hill',match:'possible',why:'Check specific occupancy'},{key:'Ascendant',match:'good',why:'Healthcare segment available'}]
   },
   technology: {
-    cyber:    [{key:'Chubb-Cyber',match:'great',why:'Technology / IT consulting strong appetite, Digitech ERM for tech E&O'},{key:'Nationwide',match:'good',why:'IT / computer consulting & programming in professional services BOP appetite'},{key:'USLI',match:'good',why:'E&O for IT professionals 500+ classes'}],
-    gl:       [{key:'Chubb-Small',match:'great',why:'Computer software developers, website design strong appetite'},{key:'Nationwide',match:'good',why:'Computer consulting, software programming, IT services in professional services appetite'},{key:'Chubb-Middle',match:'great',why:'Technology a core industry segment'}],
-    wc:       [{key:'Nationwide',match:'good',why:'Computer consulting and IT services eligible for WC'},{key:'MEMIC',match:'good',why:'Technology (hardware mfg, internet sales) in appetite'},{key:'Chubb-Middle',match:'good',why:'Workers comp for tech firms'}],
-    property: [{key:'CNA',match:'great',why:'Technology / data centers / software development in portfolio'},{key:'Berkley',match:'good',why:'Technology occupancy available'}]
+    cyber:    [{key:'Chubb-Tech',match:'great',why:'Chubb Technology Segment — software, SaaS, hardware, networks, IT services, cloud'},{key:'Chubb-Cyber',match:'great',why:'Technology / IT consulting strong appetite, Digitech ERM for tech E&O'},{key:'Nationwide',match:'good',why:'IT / computer consulting & programming in professional services BOP appetite'},{key:'USLI',match:'good',why:'E&O for IT professionals 500+ classes'}],
+    gl:       [{key:'Chubb-Tech',match:'great',why:'Chubb Technology Segment covers software, hardware, semiconductors, network services, IT consulting'},{key:'Chubb-Small',match:'great',why:'Computer software developers, website design strong appetite'},{key:'Nationwide',match:'good',why:'Computer consulting, software programming, IT services in professional services appetite'},{key:'Chubb-Middle',match:'great',why:'Technology a core industry segment'}],
+    wc:       [{key:'Chubb-Tech',match:'great',why:'WC available through Chubb Technology Segment for all tech classes'},{key:'Nationwide',match:'good',why:'Computer consulting and IT services eligible for WC'},{key:'MEMIC',match:'good',why:'Technology (hardware mfg, internet sales) in appetite'},{key:'Chubb-Middle',match:'good',why:'Workers comp for tech firms'}],
+    property: [{key:'Chubb-Tech',match:'great',why:'Property available for tech firms including semiconductor fabs, server facilities, hardware manufacturers'},{key:'CNA',match:'great',why:'Technology / data centers / software development in portfolio'},{key:'Berkley',match:'good',why:'Technology occupancy available'}],
+    professional: [{key:'Chubb-Tech',match:'great',why:'E&O for technology handled via CI P&C — software, IT services, consulting, SaaS'},{key:'Chubb-Cyber',match:'great',why:'Digitech ERM covers technology E&O and cyber'}]
   },
   professional: {
     gl:       [{key:'Nationwide',match:'great',why:'Attorneys, architects, engineers, accountants, IT consultants, advertising agencies — strong BOP appetite'},{key:'Chubb-Small',match:'great',why:'Lawyers, architects, consultants, photographers strong appetite'},{key:'Chubb-Middle',match:'great',why:'Professional services core industry'},{key:'USLI',match:'good',why:'E&O for professionals 500+ classes'},{key:'Ascendant',match:'good',why:'Professional services segment including lawyers, consultants, architects'}],
@@ -1484,6 +1783,7 @@ function filterCards() {
   var countEl = document.getElementById('filter-count');
   if (countEl) countEl.textContent = visible + ' carrier' + (visible !== 1 ? 's' : '');
   document.getElementById('no-results-markets').style.display = visible === 0 ? 'block' : 'none';
+  highlightOverlap();
 }
 
 // ─────────────────────────────────────────────────────────────
@@ -1495,6 +1795,7 @@ var defaultContacts = [
   {id:16,name:'Jason Angilan',role:'VP, Equipment Breakdown National Territory Leader',carrier:'CNA',email:'Jason.Angilan@cna.com',phone:'913-991-3227',notes:'CNA National Accounts Property'},
   {id:17,name:'Bryan Angley',role:'Director, Western Territory — Structured Risk',carrier:'CNA',email:'Bryan.Angley@cna.com',phone:'323-896-6486',notes:'CNA NAP Structured Risk | Retail 100% Ground-Up & Quota-Share'},
   {id:18,name:'Tina Bentley',role:'VP, Eastern Territory Leader — Structured Risk',carrier:'CNA',email:'Christina.Bentley@cna.com',phone:'248-225-3512',notes:'CNA NAP Structured Risk | Retail 100% Ground-Up & Quota-Share'},
+  {id:33,name:'Aaron Beattie',role:'Lower Middle Market Underwriter — Marine',carrier:'Chubb',email:'aaron.beattie@chubb.com',phone:'945-364-6839',notes:'Lower Middle Market | Marine specialty'},
   {id:9,name:'Kevin Brown',role:'Underwriter / Sales Contact',carrier:'AMERISAFE',email:'kevbrown@amerisafe.com',phone:'601.942.7551',notes:'Arborist & Hazardous Classes'},
   {id:19,name:'Laura Burns',role:'AVP, Midwest — Risk Management',carrier:'CNA',email:'Laura.Burns@cna.com',phone:'773-459-7195',notes:'CNA NAP Risk Management | Retail Shared & Layered'},
   {id:20,name:'Jordan Corlett',role:'VP, Structured Risk National Territory Leader',carrier:'CNA',email:'Jordan.Corlett@cna.com',phone:'347-947-0282',notes:'CNA National Accounts Property'},
@@ -1526,7 +1827,7 @@ var defaultContacts = [
 ];
 
 var contacts = JSON.parse(JSON.stringify(defaultContacts));
-var nextId = 33;
+var nextId = 34;
 
 function initials(name) { return name.split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2); }
 function avatarColor(id) { return colorClasses[id % colorClasses.length]; }
@@ -1584,9 +1885,310 @@ function saveContact() {
 document.getElementById('modal').addEventListener('click', function(e){ if(e.target===this) closeModal(); });
 
 // ─────────────────────────────────────────────────────────────
+// AM BEST RATINGS
+// ─────────────────────────────────────────────────────────────
+var carrierRatings = {
+  'AMERISAFE':      {rating:'A',  label:'A (Excellent)',   source:'A.M. Best'},
+  'Ascendant':      {rating:'A+', label:'A+ (Superior)',   source:'A.M. Best'},
+  'Authentic-Commercial': {rating:'A-', label:'A- / A XV', source:'A.M. Best'},
+  'Authentic-Fitness':    {rating:'A-', label:'A- / A XV', source:'A.M. Best'},
+  'Authentic-LRO':        {rating:'A-', label:'A- (Excellent)', source:'A.M. Best'},
+  'Authentic-Restaurants':{rating:'A-', label:'A- / A XV', source:'A.M. Best'},
+  'Bass':           {rating:'NR',  label:'Not Rated',      source:''},
+  'Berkley':        {rating:'A+',  label:'A+ (Superior)',  source:'A.M. Best'},
+  'CNA':            {rating:'A',   label:'A (Excellent)',  source:'A.M. Best'},
+  'Chubb-Cyber':    {rating:'A++', label:'A++ (Superior)', source:'A.M. Best'},
+  'Chubb-Tech':     {rating:'A++', label:'A++ (Superior)', source:'A.M. Best'},
+  'Chubb-LifeSci':  {rating:'A++', label:'A++ (Superior)', source:'A.M. Best'},
+  'Chubb-Middle':   {rating:'A++', label:'A++ (Superior)', source:'A.M. Best'},
+  'Chubb-Small':    {rating:'A++', label:'A++ (Superior)', source:'A.M. Best'},
+  'MEMIC':          {rating:'A',   label:'A (Excellent)',  source:'A.M. Best'},
+  'Nationwide':     {rating:'A+',  label:'A+ (Superior)',  source:'A.M. Best'},
+  'Tower-Hill':     {rating:'A',   label:'A (Exceptional)',source:'Demotech'},
+  'USLI':           {rating:'A++', label:'A++ (Superior)', source:'A.M. Best'},
+};
+
+function addRatingBadge(card, key) {
+  var r = carrierRatings[key];
+  if (!r) return;
+  var right = card.querySelector('.card-header-right');
+  if (!right) return;
+  var badge = document.createElement('span');
+  badge.className = 'rating-badge';
+  badge.title = r.source ? r.label + ' — ' + r.source : r.label;
+  badge.textContent = r.rating;
+  // Insert before the updated badge
+  var firstChild = right.firstChild;
+  right.insertBefore(badge, firstChild);
+}
+
+// ─────────────────────────────────────────────────────────────
+// EMAIL TEMPLATES
+// ─────────────────────────────────────────────────────────────
+var emailTemplates = {
+  'AMERISAFE': {
+    to: 'asksales@amerisafe.com',
+    subject: 'New WC Submission — [Client Name] — [Class Code]',
+    body: 'Hi AMERISAFE Team,\n\nPlease find attached a new workers\' compensation submission for your review.\n\nClient: [Client Name]\nClass Code(s): [Code + Description]\nState: [State]\nEstimated Annual Payroll: $[Amount]\nEstimated Annual Premium: $[Amount]\nEffective Date: [Date]\n\nAttached:\n☐ ACORD 130\n☐ Loss runs (years covered by exp mod)\n☐ Current Experience Mod Worksheet\n\nPlease let me know if you need anything additional.\n\nThank you,\n[Your Name]\nHUB International'
+  },
+  'Ascendant': {
+    to: '',
+    subject: 'CPP Submission — [Client Name] — [Business Type]',
+    body: 'Hello,\n\nPlease see the attached Commercial Package submission.\n\nClient: [Client Name]\nBusiness Type: [Type]\nState(s): [States]\nTotal Insurable Value: $[TIV]\nCoverages Requested: [e.g. Property + GL]\nEffective Date: [Date]\n\nAttached:\n☐ ACORD application\n☐ Property schedule / SOV\n☐ Loss runs (3 years)\n\nPlease confirm receipt and anticipated turnaround.\n\nThank you,\n[Your Name]\nHUB International'
+  },
+  'Berkley': {
+    to: 'quotes@berkleymarketplace.com',
+    subject: 'New Submission — [Client Name] — [Line of Business]',
+    body: 'Hello Berkley Marketplace Team,\n\nPlease find a new submission for your review.\n\nClient: [Client Name]\nIndustry: [Industry]\nState(s): [States]\nLine(s) of Business: [Lines]\nEffective Date: [Date]\n\nAttached:\n☐ ACORD application\n☐ Loss runs (3–5 years)\n☐ Statement of values / property schedule\n\nPlease let me know who will be handling and expected turnaround.\n\nThank you,\n[Your Name]\nHUB International'
+  },
+  'CNA': {
+    to: 'Joshua.Schlachter@cna.com',
+    subject: 'NAP Submission — [Client Name] — [Occupancy]',
+    body: 'Hi Josh,\n\nI have a new National Accounts Property submission I\'d like to discuss.\n\nClient: [Client Name]\nOccupancy: [Occupancy]\nTotal Insurable Value: $[TIV]\nState(s): [States]\nLines Requested: [e.g. Property, Equipment Breakdown]\nCurrent Expiring Premium: $[Amount]\nEffective Date: [Date]\n\nAttached:\n☐ Statement of values\n☐ Loss runs (5 years preferred)\n☐ Current / expiring program details\n☐ Engineering reports (if available)\n\nHappy to set up a call to pre-qualify before formal submission.\n\nThank you,\n[Your Name]\nHUB International'
+  },
+  'Chubb-Small': {
+    to: 'SmallBizHelpDesk@chubb.com',
+    subject: 'Small Business Submission — [Client Name] — [Class]',
+    body: 'Hello Chubb Small Business Team,\n\nI am submitting the following for a quote via Marketplace.\n\nClient: [Client Name]\nBusiness Class / NAICS: [Class]\nRevenue: $[Amount]\nEmployee Count: [Number]\nState: [State]\nCoverages: [BOP / WC / Cyber / Umbrella / EPL]\nEffective Date: [Date]\n\nNote: Quoting via Chubb Marketplace — please confirm any additional requirements.\n\nThank you,\n[Your Name]\nHUB International'
+  },
+  'Chubb-Tech': {
+    to: 'commerciallinessubmissions@chubb.com',
+    subject: 'Technology Segment Submission — [Client Name] — [Class]',
+    body: 'Hello Chubb Technology Team,\n\nPlease find a new Technology Segment submission for your review.\n\nClient: [Client Name]\nTechnology Category: [e.g. Software / Hardware / IT Services / Network Services]\nSIC Code(s): [Code(s)]\nRevenue: $[Amount]\nNumber of Employees: [Number]\nState(s): [States]\nCoverages Requested: [e.g. Package, GL, Property, Cyber, E&O, Umbrella]\nLimits Requested: $[Amount]\nEffective Date: [Date]\n\nNote: E&O for technology is handled through CI P&C — please route accordingly.\n\nAttached:\n☐ ACORD application\n☐ Loss runs (3–5 years)\n☐ Description of technology products / services\n☐ Revenue breakdown by product line\n\nPrimary contact: William E. Jones, AINS · 813-904-0049\n\nThank you,\n[Your Name]\nHUB International'
+  },
+  'Chubb-LifeSci': {
+    body: 'Hello Chubb Life Sciences Team,\n\nPlease find a new Life Sciences Industry Practice submission for your review.\n\nClient: [Client Name]\nClass / Sector: [e.g. Medical Device / Pharma / CRO / Clinical Trial]\nRevenue: $[Amount]\nNumber of Employees: [Number]\nState(s) of Operation: [States]\nCountries of Operation: [Countries if multinational]\nCoverages Requested: [e.g. GL, Products/PCO, Property, Umbrella, E&O, Clinical Trials]\nLimits Requested: $[Amount]\nEffective Date: [Date]\n\nAttached:\n☐ ACORD application\n☐ Loss runs (5 years)\n☐ Description of products / operations\n☐ Clinical trial protocol (if applicable)\n\nPlease assign to the appropriate underwriter. Brandon Dixon is our primary contact.\n\nThank you,\n[Your Name]\nHUB International'
+  },
+  'Chubb-Middle': {
+    to: 'commerciallinessubmissions@chubb.com',
+    subject: 'Middle Market Submission — [Client Name] — [Industry]',
+    body: 'Hello,\n\nPlease find attached a Middle Market submission for your review.\n\nClient: [Client Name]\nIndustry: [Industry]\nRevenue: $[Amount]\nEmployee Count: [Number]\nState(s): [States]\nCoverages Requested: [Lines]\nEffective Date: [Date]\n\nAttached:\n☐ ACORD application\n☐ Loss runs (3–5 years)\n☐ Financial statements (if required)\n\nPlease assign to the appropriate underwriter and confirm receipt.\n\nThank you,\n[Your Name]\nHUB International'
+  },
+  'Chubb-Cyber': {
+    to: 'NBSERMSubmissions@Chubb.com',
+    subject: 'Cyber ERM Submission — [Client Name] — [Industry]',
+    body: 'Hello Chubb Cyber Team,\n\nPlease find a new Cyber ERM submission below.\n\nClient: [Client Name]\nIndustry: [Industry]\nAnnual Revenue: $[Amount]\nNumber of Records: [Number]\nState: [State]\nLimit Requested: $[Limit]\nRetention: $[Retention]\nEffective Date: [Date]\n\nNote: Submitting via Cyber Central / Marketplace.\n\nThank you,\n[Your Name]\nHUB International'
+  },
+  'Nationwide': {
+    to: '',
+    subject: 'Small Commercial Submission — [Client Name] — [NAICS Code]',
+    body: 'Hello,\n\nPlease find a Small Commercial submission via ClearQuote / Policy Center.\n\nClient: [Client Name]\nNAICS Code: [Code]\nBusiness Type: [Type]\nGross Revenue / Receipts: $[Amount]\nEmployee Count: [Number]\nState: [State]\nCoverages: [BOP / WC / Auto / Cyber / EPL]\nEffective Date: [Date]\n\nAttached:\n☐ ACORD application\n☐ Loss runs (3 years)\n☐ Payroll breakdown by class (if WC)\n\nPlease confirm receipt.\n\nThank you,\n[Your Name]\nHUB International'
+  },
+  'Tower-Hill': {
+    to: 'TowerHillCommercial@thig.com',
+    subject: 'Commercial Lines Submission — [Client Name] — [Occupancy]',
+    body: 'Hello Tower Hill Commercial Team,\n\nPlease find attached a new commercial submission.\n\nClient: [Client Name]\nOccupancy: [Occupancy]\nTotal Insurable Value: $[TIV]\nYear Built: [Year]\nConstruction Type: [Type]\nState: [State]\nCoverages: [CP / BOP]\nEffective Date: [Date]\n\nNote: Pre-eligibility clearance completed via THIG.com portal.\n\nAttached:\n☐ ACORD application\n☐ Property schedule / SOV\n☐ Loss runs (3–5 years)\n\nPlease confirm receipt and assign to the appropriate underwriter.\n\nThank you,\n[Your Name]\nHUB International'
+  },
+  'USLI': {
+    to: 'brian.goebel@usli.com',
+    subject: 'USLI Submission — [Client Name] — [Product]',
+    body: 'Hi Brian,\n\nI have a new submission I\'d like to place with USLI.\n\nClient: [Client Name]\nProduct: [e.g. Liquor Liability / Nonprofit D&O / E&O]\nBusiness Type: [Type]\nRevenue / Receipts: $[Amount]\nEmployee Count: [Number]\nState: [State]\nEffective Date: [Date]\n\nNote: Quoting via snap.usli.com.\n\nPlease let me know if you need anything additional.\n\nThank you,\n[Your Name]\nHUB International'
+  },
+  'default': {
+    to: '',
+    subject: 'New Submission — [Client Name] — [Line of Business]',
+    body: 'Hello,\n\nPlease find a new submission for your review.\n\nClient: [Client Name]\nBusiness Type: [Type]\nState(s): [States]\nCoverages Requested: [Lines]\nEffective Date: [Date]\n\nAttached:\n☐ ACORD application\n☐ Loss runs (3 years)\n☐ Supporting documents\n\nPlease confirm receipt and anticipated turnaround.\n\nThank you,\n[Your Name]\nHUB International'
+  }
+};
+
+var currentEmailKey = '';
+
+function openEmailModal(key) {
+  currentEmailKey = key;
+  var tpl = emailTemplates[key] || emailTemplates['default'];
+  var name = key.replace(/-/g, ' ');
+  document.getElementById('em-to').value = tpl.to;
+  document.getElementById('em-subject').value = tpl.subject;
+  document.getElementById('em-body').value = tpl.body;
+  document.getElementById('em-copied').style.display = 'none';
+  document.getElementById('email-overlay').classList.add('open');
+}
+function closeEmail() { document.getElementById('email-overlay').classList.remove('open'); }
+function copyEmail() {
+  var to = document.getElementById('em-to').value;
+  var sub = document.getElementById('em-subject').value;
+  var body = document.getElementById('em-body').value;
+  var full = (to ? 'To: ' + to + '\n' : '') + 'Subject: ' + sub + '\n\n' + body;
+  navigator.clipboard.writeText(full).then(function() {
+    var c = document.getElementById('em-copied');
+    c.style.display = 'inline';
+    setTimeout(function(){ c.style.display = 'none'; }, 2500);
+  }).catch(function() { alert('Copy failed — please select and copy manually.'); });
+}
+function openEmailClient() {
+  var to = encodeURIComponent(document.getElementById('em-to').value);
+  var sub = encodeURIComponent(document.getElementById('em-subject').value);
+  var body = encodeURIComponent(document.getElementById('em-body').value);
+  window.location.href = 'mailto:' + to + '?subject=' + sub + '&body=' + body;
+}
+
+// ─────────────────────────────────────────────────────────────
+// CHANGELOG
+// ─────────────────────────────────────────────────────────────
+var changelog = [];
+
+function loadChangelog() {
+  try { changelog = JSON.parse(localStorage.getItem('im_changelog') || '[]'); } catch(e){ changelog = []; }
+}
+function saveChangelog() {
+  try { localStorage.setItem('im_changelog', JSON.stringify(changelog)); } catch(e){}
+}
+
+function openChangelog() {
+  renderChangelogList();
+  // Pre-fill today's date
+  var today = new Date().toISOString().slice(0,10);
+  document.getElementById('cl-date-input').value = today;
+  document.getElementById('changelog-overlay').classList.add('open');
+}
+function closeChangelog() { document.getElementById('changelog-overlay').classList.remove('open'); }
+
+function saveChangelogEntry() {
+  var carrier = document.getElementById('cl-carrier-sel').value;
+  var date = document.getElementById('cl-date-input').value;
+  var note = document.getElementById('cl-note-input').value.trim();
+  if (!carrier || !note) { alert('Please select a carrier and enter a note.'); return; }
+  changelog.unshift({ carrier: carrier, date: date || new Date().toISOString().slice(0,10), note: note });
+  saveChangelog();
+  document.getElementById('cl-note-input').value = '';
+  document.getElementById('cl-carrier-sel').value = '';
+  renderChangelogList();
+}
+
+function renderChangelogList() {
+  var el = document.getElementById('changelog-list');
+  if (changelog.length === 0) {
+    el.innerHTML = '<p style="font-size:13px;color:#9CA3AF;padding:12px 0;">No entries yet. Use the form below to log your first change.</p>';
+    return;
+  }
+  var html = '';
+  changelog.forEach(function(e, i) {
+    var d = new Date(e.date);
+    var dStr = d.toLocaleDateString('en-US', {month:'short', day:'numeric', year:'numeric'});
+    var ageMs = Date.now() - d.getTime();
+    var stale = ageMs > 1000*60*60*24*365;
+    html += '<div class="cl-entry">';
+    html += '<div class="cl-entry-header">';
+    html += '<span class="cl-carrier">' + e.carrier + '</span>';
+    html += '<span class="cl-date">' + dStr + '</span>';
+    if (stale) html += '<span class="cl-stale-flag">⚠ Over 1 yr ago</span>';
+    html += '<button onclick="deleteChangelogEntry('+i+')" style="margin-left:auto;background:none;border:none;cursor:pointer;color:#D1D5DB;font-size:14px;" title="Delete">×</button>';
+    html += '</div>';
+    html += '<div class="cl-changes">' + e.note.replace(/\n/g,'<br>') + '</div>';
+    html += '</div>';
+  });
+  el.innerHTML = html;
+}
+
+function deleteChangelogEntry(i) {
+  changelog.splice(i, 1);
+  saveChangelog();
+  renderChangelogList();
+}
+
+// ─────────────────────────────────────────────────────────────
+// APPETITE OVERLAP INDICATOR
+// ─────────────────────────────────────────────────────────────
+function highlightOverlap() {
+  var q = (document.getElementById('global-search').value || '').toLowerCase().trim();
+  if (!q || q.length < 3) {
+    // Clear any existing overlap highlights
+    document.querySelectorAll('.tag.overlap').forEach(function(t) { t.classList.remove('overlap'); });
+    document.querySelectorAll('.overlap-banner').forEach(function(b) { b.classList.remove('visible'); });
+    return;
+  }
+  // Find all visible cards
+  var visibleCards = Array.from(document.querySelectorAll('#carrier-grid .card')).filter(function(c) {
+    return c.style.display !== 'none';
+  });
+  if (visibleCards.length < 2) {
+    document.querySelectorAll('.tag.overlap').forEach(function(t) { t.classList.remove('overlap'); });
+    document.querySelectorAll('.overlap-banner').forEach(function(b) { b.classList.remove('visible'); });
+    return;
+  }
+  // On each visible card, highlight tags that match the search
+  visibleCards.forEach(function(card) {
+    var banner = card.querySelector('.overlap-banner');
+    var matchCount = visibleCards.length;
+    card.querySelectorAll('.tag').forEach(function(tag) {
+      if (tag.textContent.toLowerCase().indexOf(q) > -1) {
+        tag.classList.add('overlap');
+      } else {
+        tag.classList.remove('overlap');
+      }
+    });
+    if (banner && matchCount >= 2) {
+      banner.textContent = '⚡ ' + matchCount + ' carriers have appetite for "' + q + '"';
+      banner.classList.add('visible');
+    }
+  });
+  // Clear highlights on hidden cards
+  document.querySelectorAll('#carrier-grid .card').forEach(function(card) {
+    if (card.style.display === 'none') {
+      card.querySelectorAll('.tag').forEach(function(t){ t.classList.remove('overlap'); });
+      var banner = card.querySelector('.overlap-banner');
+      if (banner) banner.classList.remove('visible');
+    }
+  });
+}
+
+// ─────────────────────────────────────────────────────────────
+// FILTERED PDF EXPORT
+// ─────────────────────────────────────────────────────────────
+function openPdfModal() {
+  var visible = Array.from(document.querySelectorAll('#carrier-grid .card')).filter(function(c){
+    return c.style.display !== 'none';
+  });
+  var names = visible.map(function(c){
+    var n = c.querySelector('.carrier-name');
+    return n ? n.textContent.trim() : '';
+  }).filter(Boolean);
+  var q = document.getElementById('global-search').value.trim();
+  var filterLabel = currentFilter !== 'all' ? currentFilter.toUpperCase() : 'All';
+  var info = '<strong>' + visible.length + ' carrier' + (visible.length !== 1 ? 's' : '') + ' will be printed</strong><br>';
+  if (q) info += 'Search: "' + q + '"<br>';
+  info += 'Filter: ' + filterLabel + '<br><br>';
+  info += names.join(' · ');
+  document.getElementById('pdf-info').innerHTML = info;
+  document.getElementById('pdf-overlay').classList.add('open');
+}
+function closePdfModal() { document.getElementById('pdf-overlay').classList.remove('open'); }
+
+function printFiltered() {
+  closePdfModal();
+  // Temporarily show collapsed cards for print, then restore
+  var collapsedCards = [];
+  document.querySelectorAll('#carrier-grid .card.is-collapsed').forEach(function(c){
+    collapsedCards.push(c);
+  });
+  collapsedCards.forEach(function(c){
+    var body = c.querySelector('.card-body');
+    if (body) body.style.display = 'block';
+  });
+  // Hide cards that are not visible
+  var hiddenCards = [];
+  document.querySelectorAll('#carrier-grid .card').forEach(function(c){
+    if (c.style.display === 'none') {
+      c.dataset.printHidden = '1';
+      hiddenCards.push(c);
+    }
+  });
+  window.print();
+  // Restore after print
+  setTimeout(function(){
+    collapsedCards.forEach(function(c){
+      var body = c.querySelector('.card-body');
+      if (body) body.style.display = '';
+    });
+    hiddenCards.forEach(function(c){ delete c.dataset.printHidden; });
+  }, 500);
+}
+
+// ─────────────────────────────────────────────────────────────
 // INIT
 // ─────────────────────────────────────────────────────────────
 loadState();
+loadChangelog();
 enhanceCards();
 renderContacts();
 filterCards();
