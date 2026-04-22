@@ -428,7 +428,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
           <option>Bass Underwriters</option><option>Beazley DWP</option><option>Beazley MiscMed</option><option>Berkley Marketplace</option>
           <option>CNA</option><option>Chubb Cyber</option><option>Chubb Life Sciences</option>
           <option>Chubb Middle Market</option>
-          <option>Chubb Small Business</option><option>Chubb Technology</option><option>MEMIC</option><option>Nationwide</option>
+          <option>Chubb Small Business</option><option>Chubb Technology</option><option>Gateway Specialty</option><option>MEMIC</option><option>Nationwide</option>
           <option>Tower Hill</option><option>USLI</option>
         </select>
         <input type="date" id="cl-date-input">
@@ -760,6 +760,32 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
         <div class="portals">
           <a class="portal-link" href="mailto:quotes@berkleymarketplace.com">✉ quotes@berkleymarketplace.com</a>
         </div>
+      </div>
+    </div>
+
+    <!-- GATEWAY SPECIALTY INSURANCE -->
+    <div class="card" data-types="bop,liability,mgmt,property" data-text="gateway specialty insurance nonprofit community service organizations food banks shelters youth programs mentoring family social service agencies job training workforce development counseling support services general liability professional liability abuse molestation directors officers d&o property umbrella excess participant premises exposures admitted">
+      <div class="card-header">
+        <div>
+          <div class="carrier-name">Gateway Specialty Insurance</div>
+          <div class="carrier-sub">Nonprofit & Social Services | GL · Prof Liab · D&O · A&M · Property · Umbrella</div>
+        </div>
+        <span class="carrier-badge badge-liability">Nonprofit</span>
+      </div>
+      <div class="card-body">
+        <div class="section-lbl">Target Classes</div>
+        <div class="tags">
+          <span class="tag strong">Community Service Organizations</span><span class="tag strong">Food Banks & Shelters</span><span class="tag strong">Youth Programs & Mentoring Organizations</span><span class="tag strong">Family & Social Service Agencies</span><span class="tag strong">Job Training & Workforce Development Programs</span><span class="tag strong">Counseling & Support Services</span>
+        </div>
+        <div class="section-lbl">Coverage Highlights</div>
+        <div class="tags">
+          <span class="tag contact">General Liability (participant & premises exposures)</span><span class="tag contact">Professional Liability (service-based organizations)</span><span class="tag contact">Abuse & Molestation Coverage</span><span class="tag contact">Directors & Officers (D&O)</span><span class="tag contact">Property (owned or leased spaces)</span><span class="tag contact">Umbrella / Excess</span>
+        </div>
+        <div class="divider"></div>
+        <div class="portals">
+          <a class="portal-link" href="mailto:submissions@gatewayspecialty.com">✉ submissions@gatewayspecialty.com</a>
+        </div>
+        <div class="note" style="margin-top:6px;"><strong>Contact:</strong> Shelley Costa, Marketing Manager · 877-977-4474 ext. 7075 · Fax: 610-254-1855 · CA Org License #0G93801</div>
       </div>
     </div>
 
@@ -1155,6 +1181,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
       <option value="Berkley">Berkley</option>
       <option value="Chubb">Chubb</option>
       <option value="CNA">CNA</option>
+      <option value="Gateway">Gateway Specialty</option>
       <option value="Hartford">The Hartford</option>
       <option value="MEMIC">MEMIC</option>
       <option value="Nationwide">Nationwide</option>
@@ -1184,6 +1211,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
         <option value="Berkley">Berkley</option>
         <option value="Chubb">Chubb</option>
         <option value="CNA">CNA</option>
+        <option value="Gateway">Gateway Specialty</option>
         <option value="Hartford">The Hartford</option>
         <option value="MEMIC">MEMIC</option>
         <option value="Nationwide">Nationwide</option>
@@ -1256,8 +1284,12 @@ var cardMeta = {
     checklist: ['Email to quotes@berkleymarketplace.com', 'ACORD application', 'Loss runs (3–5 years)', 'Statement of values / property schedule'],
     note: ''
   },
+  'Gateway': {
+    updated: '2025-04-01',
+    checklist: ['Submit to submissions@gatewayspecialty.com', 'ACORD application', 'Description of nonprofit operations and programs served', 'Loss runs (3–5 years)', 'Current coverage / expiring declarations', 'List of board members (for D&O)', 'Revenue / budget details'],
+    note: 'Contact Shelley Costa, Marketing Manager: 877-977-4474 ext. 7075. Angelena Druker also available: 877-977-4474 ext. 7057 / angelena.druker@gatewayspecialty.com'
+  },
   'CNA': {
-    updated: '2025-10-16',
     checklist: ['Statement of values / TIV schedule', 'Loss runs (5 years preferred)', 'Expiring program details / current coverage', 'Engineering / inspection reports if available', 'Contact regional underwriter first to pre-qualify'],
     note: 'CNA is actively looking to grow with HUB. Call Josh Schlachter (SE/Mid-Atl) or Tripp Lemieux (SE Structured Risk) to discuss appetite before submitting.'
   },
@@ -1323,6 +1355,7 @@ function getMetaKey(card) {
   if (t.includes('Miscellaneous Medical')) return 'Beazley-MiscMed';
   if (t.includes('Beazley')) return 'Beazley';
   if (t.includes('Berkley')) return 'Berkley';
+  if (t.includes('Gateway')) return 'Gateway';
   if (t.includes('CNA')) return 'CNA';
   if (t.includes('Chubb Cyber')) return 'Chubb-Cyber';
   if (t.includes('Technology Segment')) return 'Chubb-Tech';
@@ -1757,8 +1790,9 @@ var finderRules = {
     wc:       [{key:'Nationwide',match:'great',why:'Professional & financial services WC — attorneys, accountants, architects, engineers, advertising, IT'},{key:'MEMIC',match:'great',why:'Attorneys and financial institutions preferred'},{key:'Chubb-Small',match:'good',why:'Workers comp available for professional offices'}]
   },
   nonprofit: {
-    gl:       [{key:'USLI',match:'great',why:'Full nonprofit package: D&O, charitable orgs, houses of worship, social services, sports orgs'},{key:'Chubb-Small',match:'good',why:'Charitable foundations and civic clubs in appetite'}],
-    mgmt:     [{key:'USLI',match:'great',why:'Nonprofit D&O up to $2M revenue, board liability focus'},{key:'Chubb-Small',match:'good',why:'ForeFront Portfolio D&O available for nonprofits'}]
+    gl:       [{key:'Gateway',match:'great',why:'Purpose-built for nonprofits — community service orgs, food banks, shelters, youth programs, job training, counseling agencies'},{key:'USLI',match:'great',why:'Full nonprofit package: D&O, charitable orgs, houses of worship, social services, sports orgs'},{key:'Chubb-Small',match:'good',why:'Charitable foundations and civic clubs in appetite'}],
+    mgmt:     [{key:'Gateway',match:'great',why:'D&O available for nonprofit boards and service-based organizations'},{key:'USLI',match:'great',why:'Nonprofit D&O up to $2M revenue, board liability focus'},{key:'Chubb-Small',match:'good',why:'ForeFront Portfolio D&O available for nonprofits'}],
+    professional: [{key:'Gateway',match:'great',why:'Professional liability specifically for service-based nonprofits — counseling, social services, workforce development'},{key:'Beazley-MiscMed',match:'good',why:'Social service agencies and counseling services in MiscMed appetite'}]
   },
   hospitality: {
     wc:       [{key:'MEMIC',match:'great',why:'Hotels, restaurants, resorts, country clubs preferred hospitality segment'}],
@@ -1875,6 +1909,8 @@ var defaultContacts = [
   {id:17,name:'Bryan Angley',role:'Director, Western Territory — Structured Risk',carrier:'CNA',email:'Bryan.Angley@cna.com',phone:'323-896-6486',notes:'CNA NAP Structured Risk | Retail 100% Ground-Up & Quota-Share'},
   {id:18,name:'Tina Bentley',role:'VP, Eastern Territory Leader — Structured Risk',carrier:'CNA',email:'Christina.Bentley@cna.com',phone:'248-225-3512',notes:'CNA NAP Structured Risk | Retail 100% Ground-Up & Quota-Share'},
   {id:33,name:'Aaron Beattie',role:'Lower Middle Market Underwriter — Marine',carrier:'Chubb',email:'aaron.beattie@chubb.com',phone:'945-364-6839',notes:'Lower Middle Market | Marine specialty'},
+  {id:34,name:'Shelley Costa',role:'Marketing Manager',carrier:'Gateway',email:'submissions@gatewayspecialty.com',phone:'877-977-4474 x7075',notes:'Gateway Specialty Insurance | CA Org License #0G93801 | Fax: 610-254-1855'},
+  {id:35,name:'Angelena Druker',role:'Underwriter',carrier:'Gateway',email:'angelena.druker@gatewayspecialty.com',phone:'877-977-4474 x7057',notes:'Gateway Specialty Insurance | Submissions: submissions@gatewayspecialty.com'},
   {id:9,name:'Kevin Brown',role:'Underwriter / Sales Contact',carrier:'AMERISAFE',email:'kevbrown@amerisafe.com',phone:'601.942.7551',notes:'Arborist & Hazardous Classes'},
   {id:19,name:'Laura Burns',role:'AVP, Midwest — Risk Management',carrier:'CNA',email:'Laura.Burns@cna.com',phone:'773-459-7195',notes:'CNA NAP Risk Management | Retail Shared & Layered'},
   {id:20,name:'Jordan Corlett',role:'VP, Structured Risk National Territory Leader',carrier:'CNA',email:'Jordan.Corlett@cna.com',phone:'347-947-0282',notes:'CNA National Accounts Property'},
@@ -1906,7 +1942,7 @@ var defaultContacts = [
 ];
 
 var contacts = JSON.parse(JSON.stringify(defaultContacts));
-var nextId = 34;
+var nextId = 36;
 
 function initials(name) { return name.split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2); }
 function avatarColor(id) { return colorClasses[id % colorClasses.length]; }
@@ -1977,6 +2013,7 @@ var carrierRatings = {
   'Beazley-MiscMed': {rating:'A',   label:'A (Excellent)',  source:'A.M. Best'},
   'Beazley':        {rating:'A',   label:'A (Excellent)',  source:'A.M. Best'},
   'Berkley':        {rating:'A+',  label:'A+ (Superior)',  source:'A.M. Best'},
+  'Gateway':        {rating:'NR',  label:'Not Rated',      source:''},
   'CNA':            {rating:'A',   label:'A (Excellent)',  source:'A.M. Best'},
   'Chubb-Cyber':    {rating:'A++', label:'A++ (Superior)', source:'A.M. Best'},
   'Chubb-Tech':     {rating:'A++', label:'A++ (Superior)', source:'A.M. Best'},
@@ -2028,6 +2065,11 @@ var emailTemplates = {
   'Berkley': {
     subject: 'New Submission — [Client Name] — [Line of Business]',
     body: 'Hello Berkley Marketplace Team,\n\nPlease find a new submission for your review.\n\nClient: [Client Name]\nIndustry: [Industry]\nState(s): [States]\nLine(s) of Business: [Lines]\nEffective Date: [Date]\n\nAttached:\n☐ ACORD application\n☐ Loss runs (3–5 years)\n☐ Statement of values / property schedule\n\nPlease let me know who will be handling and expected turnaround.\n\nThank you,\n[Your Name]\nHUB International'
+  },
+  'Gateway': {
+    to: 'submissions@gatewayspecialty.com',
+    subject: 'Nonprofit Submission — [Client Name] — [Organization Type]',
+    body: 'Hello Gateway Specialty Team,\n\nPlease find a new nonprofit submission for your review.\n\nClient: [Client Name]\nOrganization Type: [e.g. Food Bank / Youth Mentoring / Social Services / Counseling]\nAnnual Revenue / Budget: $[Amount]\nNumber of Employees: [Number]\nNumber of Volunteers: [Number]\nState(s): [States]\nCoverages Requested: [GL / Prof Liability / D&O / A&M / Property / Umbrella]\nEffective Date: [Date]\n\nAttached:\n☐ ACORD application\n☐ Loss runs (3–5 years)\n☐ Current / expiring declarations\n☐ List of board members (for D&O)\n☐ Description of programs and services\n\nPlease confirm receipt and anticipated turnaround.\n\nThank you,\n[Your Name]\nHUB International'
   },
   'CNA': {
     to: 'Joshua.Schlachter@cna.com',
