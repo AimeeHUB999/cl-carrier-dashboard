@@ -424,7 +424,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
       <div class="cl-selects">
         <select id="cl-carrier-sel">
           <option value="">— Carrier —</option>
-          <option>AMERISAFE</option><option>Ascendant</option><option>Authentic</option>
+          <option>AMERISAFE</option><option>Ascendant CPP</option><option>Ascendant Commercial Auto</option><option>Authentic</option>
           <option>Bass Underwriters</option><option>Beazley DWP</option><option>Beazley MiscMed</option><option>Berkley Marketplace</option>
           <option>CNA</option><option>Chubb Cyber</option><option>Chubb Life Sciences</option>
           <option>Chubb Middle Market</option>
@@ -541,6 +541,39 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
           <a class="portal-link" href="https://www.ascendantgroup.com" target="_blank">🔗 ascendantgroup.com</a>
         </div>
         <div class="note" style="margin-top:6px;">Visit site → <strong>Agent Quick Access</strong> → <strong>Quick Quote Submit</strong> → Select <strong>CPP – Commercial Package Policy</strong></div>
+      </div>
+    </div>
+
+    <!-- ASCENDANT COMMERCIAL AUTO -->
+    <div class="card" data-types="liability" data-text="ascendant commercial auto commercial vehicles delivery amazon food delivery artisan contractors courier freight forwarders furniture cable installers service repair general contractors frozen food distributors home appliance retailers mobile mechanics heavy trucks fleet small medium businesses no credit check no clue report MVR fees 13% commission incentive rewards assist program cross-sell">
+      <div class="card-header">
+        <div>
+          <div class="carrier-name">Ascendant — Commercial Auto</div>
+          <div class="carrier-sub">Commercial Vehicles | All Business Types | Small to Large Fleets</div>
+        </div>
+        <span class="carrier-badge badge-liability">Commercial Auto</span>
+      </div>
+      <div class="card-body">
+        <div class="section-lbl">Target Business Types</div>
+        <div class="tags">
+          <span class="tag strong">Amazon Delivery</span><span class="tag strong">Food Delivery</span><span class="tag strong">Artisan Contractors</span><span class="tag strong">Courier Services</span><span class="tag strong">Freight Forwarders</span><span class="tag strong">Furniture Stores</span><span class="tag strong">Cable Installers</span><span class="tag strong">Service & Repair</span><span class="tag strong">General Contractors</span><span class="tag strong">Frozen Food Distributors</span><span class="tag strong">Home Appliance Retailers</span><span class="tag strong">Mobile Mechanics</span><span class="tag strong">Many More Business Types</span>
+        </div>
+        <div class="section-lbl">Vehicle Appetite</div>
+        <div class="note">Small to medium-sized businesses and delivery services · Accepts up to <strong>heavy trucks</strong> · Accommodates <strong>extra-heavy as part of a fleet</strong> · <strong>No limit</strong> to number of vehicles in a fleet · Accepts PPT vehicles used in business · Accepts PPT vehicles on a 2-to-1 ratio · Accepts commercial vehicles registered to the name of an officer/director of an active corporation · Limits up to <strong>$6,000,000 for corporate accounts</strong></div>
+        <div class="section-lbl">Coverage Highlights</div>
+        <div class="tags">
+          <span class="tag strong">Competitive premiums</span><span class="tag strong">13% Commission + Incentive Rewards ($50 for premiums ≥$1,500 / $25 for premiums &lt;$1,500)</span><span class="tag strong">No charge for major or minor violations after 18 months</span><span class="tag strong">No credit check · No CLUE report</span><span class="tag strong">MVR fees paid when you bind and issue</span><span class="tag strong">Annual policies eligible for 12 equal payments on EFT</span>
+        </div>
+        <div class="section-lbl">Flexible Payment Options</div>
+        <div class="note">10% down with 10 payments · 12 equal payments for corporations on EFT</div>
+        <div class="section-lbl">ASSIST Program</div>
+        <div class="note">Cross-sell support · VIP business retention · Market placement assistance · Lead generation · Growth opportunities for your commercial auto book</div>
+        <div class="divider"></div>
+        <div class="note"><strong>Specialized Commercial Auto Underwriters</strong> available via AscendantChat, email, or phone</div>
+        <div class="portals">
+          <a class="portal-link" href="https://www.ascendantgroup.com" target="_blank">🔗 ascendantgroup.com</a>
+        </div>
+        <div class="note" style="margin-top:6px;"><strong>How to submit:</strong> Login → Agent Quick Access → Quick Quote &gt; Submit → Select Commercial Auto Liability &amp; Physical Damage → Complete quote questions</div>
       </div>
     </div>
 
@@ -1287,6 +1320,11 @@ var cardMeta = {
     checklist: ['Minimum 2 coverages required (e.g. Property + GL)', 'Property schedule (TIV per location)', 'Loss runs (3 years)', 'ACORD application'],
     note: ''
   },
+  'Ascendant-Auto': {
+    updated: '2025-04-01',
+    checklist: ['Login at ascendantgroup.com → Agent Quick Access', 'Quick Quote > Submit → Select Commercial Auto Liability & Physical Damage', 'Answer quote questions online', 'MVR fees covered at bind', 'No credit check or CLUE report required', 'Confirm vehicle GVW and fleet size'],
+    note: 'No credit check. No CLUE report. MVR fees on Ascendant when you bind. Violations not charged after 18 months. Incentive rewards: $50 for premiums ≥$1,500, $25 for premiums <$1,500. ASSIST program available for cross-sell and VIP retention support.'
+  },
   'Authentic-Commercial': {
     updated: '2025-11-01',
     checklist: ['ACORD application', 'Loss runs (3 years)', 'Revenue per location confirmation', 'No serious OSHA violations confirmation'],
@@ -1392,6 +1430,7 @@ function getMetaKey(card) {
   if (!name) return null;
   var t = name.textContent.trim();
   if (t.includes('AMERISAFE')) return 'AMERISAFE';
+  if (t.includes('Commercial Auto')) return 'Ascendant-Auto';
   if (t.includes('Ascendant')) return 'Ascendant';
   if (t.includes('Authentic — Commercial')) return 'Authentic-Commercial';
   if (t.includes('Gym & Fitness')) return 'Authentic-Fitness';
@@ -1804,7 +1843,8 @@ var finderRules = {
   contractor: {
     gl:       [{key:'Nationwide',match:'great',why:'Artisan contractors: electrical, plumbing, HVAC, painting, drywall, flooring, masonry, landscaping, janitorial — strong appetite'},{key:'USLI',match:'great',why:'Artisan/trade contractors a core product'},{key:'Berkley',match:'good',why:'Construction in top industries for Berkley Marketplace'},{key:'Ascendant',match:'good',why:'Extensive contractor and construction class list'}],
     wc:       [{key:'Nationwide',match:'great',why:'All GL-eligible contractor classes eligible for WC — target artisan contractors with $50K+ payroll'},{key:'AMERISAFE',match:'great',why:'Construction is a core hazardous industry — masonry, carpentry, plumbing, electrical'},{key:'Berkley',match:'good',why:'Workers comp available for contractors'}],
-    property: [{key:'Starwind',match:'great',why:'Builders Risk for new construction — wood frame up to $25M, non-combustible up to $50M, instant quote/bind, premiums from $2K'},{key:'Nationwide',match:'good',why:'Commercial property up to $20M available for contractors'},{key:'Ascendant',match:'good',why:'Contractors equipment and construction classes'},{key:'USLI',match:'good',why:"Contractor's equipment monoline"}]
+    property: [{key:'Starwind',match:'great',why:'Builders Risk for new construction — wood frame up to $25M, non-combustible up to $50M, instant quote/bind, premiums from $2K'},{key:'Nationwide',match:'good',why:'Commercial property up to $20M available for contractors'},{key:'Ascendant',match:'good',why:'Contractors equipment and construction classes'},{key:'USLI',match:'good',why:"Contractor's equipment monoline"}],
+    auto:     [{key:'Ascendant-Auto',match:'great',why:'Commercial Auto built for artisan contractors and general contractors — no credit check, no CLUE, heavy trucks accepted, fleet friendly'}]
   },
   manufacturing: {
     wc:       [{key:'AMERISAFE',match:'great',why:'Manufacturing a core industry — machine shops, fabricated metals, wood products'},{key:'MEMIC',match:'great',why:'Manufacturing preferred — machine shops, electronics, food products, plastics, pharmaceuticals'}],
@@ -1851,7 +1891,8 @@ var finderRules = {
   },
   trucking: {
     wc:       [{key:'AMERISAFE',match:'great',why:'Trucking NOC (7219) is a top class code — 30+ years experience'}],
-    gl:       [{key:'USLI',match:'great',why:'Truckers general liability is a named product'},{key:'Berkley',match:'good',why:'Transportation a top industry'}]
+    gl:       [{key:'USLI',match:'great',why:'Truckers general liability is a named product'},{key:'Berkley',match:'good',why:'Transportation a top industry'}],
+    auto:     [{key:'Ascendant-Auto',match:'great',why:'Commercial Auto for freight forwarders, delivery, heavy trucks, large fleets — no credit check, no CLUE, 13% commission'}]
   },
   agribusiness: {
     wc:       [{key:'AMERISAFE',match:'great',why:'Agribusiness a core industry — farm/field crops, livestock, landscape gardening, tree pruning'}],
@@ -2051,7 +2092,8 @@ document.getElementById('modal').addEventListener('click', function(e){ if(e.tar
 // ─────────────────────────────────────────────────────────────
 var carrierRatings = {
   'AMERISAFE':      {rating:'A',  label:'A (Excellent)',   source:'A.M. Best'},
-  'Ascendant':      {rating:'A+', label:'A+ (Superior)',   source:'A.M. Best'},
+  'Ascendant-Auto':  {rating:'A+', label:'A+ (Superior)',   source:'A.M. Best'},
+  'Ascendant':       {rating:'A+', label:'A+ (Superior)',   source:'A.M. Best'},
   'Authentic-Commercial': {rating:'A-', label:'A- / A XV', source:'A.M. Best'},
   'Authentic-Fitness':    {rating:'A-', label:'A- / A XV', source:'A.M. Best'},
   'Authentic-LRO':        {rating:'A-', label:'A- (Excellent)', source:'A.M. Best'},
@@ -2101,6 +2143,11 @@ var emailTemplates = {
     to: '',
     subject: 'CPP Submission — [Client Name] — [Business Type]',
     body: 'Hello,\n\nPlease see the attached Commercial Package submission.\n\nClient: [Client Name]\nBusiness Type: [Type]\nState(s): [States]\nTotal Insurable Value: $[TIV]\nCoverages Requested: [e.g. Property + GL]\nEffective Date: [Date]\n\nAttached:\n☐ ACORD application\n☐ Property schedule / SOV\n☐ Loss runs (3 years)\n\nPlease confirm receipt and anticipated turnaround.\n\nThank you,\n[Your Name]\nHUB International'
+  },
+  'Ascendant-Auto': {
+    to: '',
+    subject: 'Commercial Auto Submission — [Client Name] — [Business Type]',
+    body: 'Hello Ascendant Commercial Auto Team,\n\nPlease find a new Commercial Auto submission for your review.\n\nClient: [Client Name]\nBusiness Type: [e.g. Amazon Delivery / Artisan Contractor / Courier / Freight Forwarder]\nState(s): [States]\nNumber of Vehicles: [Number]\nVehicle Types / GVW: [e.g. Light trucks / Heavy trucks / PPT used in business]\nPrimary Use: [Delivery / Service / Contractors / etc.]\nLimits Requested: $[Amount]\nEffective Date: [Date]\n\nDriver Information: [Number of drivers, any violations to note]\n\nCoverage Requested:\n☐ Commercial Auto Liability\n☐ Physical Damage\n\nNote: No credit check or CLUE report required. MVR fees covered at bind.\n\nPlease quote via Agent Quick Access → Quick Quote → Commercial Auto Liability & Physical Damage.\n\nThank you,\n[Your Name]\nHUB International'
   },
   'Beazley-MiscMed': {
     to: '',
