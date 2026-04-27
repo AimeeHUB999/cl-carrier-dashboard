@@ -431,7 +431,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
           <option>Distinguished Programs</option>
           <option>Chubb Middle Market</option>
           <option>Chubb Small Business</option><option>Chubb Technology</option><option>Gateway Specialty</option><option>MEMIC</option><option>Nationwide</option>
-          <option>Starwind Specialty</option><option>Tower Hill</option><option>USLI</option><option>USLI Nonprofit Social Services</option><option>XPT Specialty</option>
+          <option>Starwind Specialty</option><option>Tower Hill</option><option>USLI</option><option>USLI Nonprofit Social Services</option><option>XPT Specialty</option><option>The Zenith</option>
         </select>
         <input type="date" id="cl-date-input">
       </div>
@@ -1490,6 +1490,54 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
       </div>
     </div>
 
+    <!-- THE ZENITH - WORKERS' COMP SMALL BUSINESS -->
+    <div class="card" data-types="wc" data-text="The Zenith Zenith Insurance Company ZNAT small business workers compensation workers comp hospitality bar lounge tavern bowling lane country club golf club exercise health club hotels motels marinas miniature golf restaurant fine dining fast food manufacturing dental laboratory food products furniture jewelry machine shop optical medical offices dentists physicians veterinarians professional services architectural engineering attorney law office photographer real estate agency real estate condominiums property managers mini storage retail wholesale automobile dealers bakery clothing stores convenience stores drug stores florists gas stations grocery hardware jewelry shoe stores schools colleges universities private charter service banks beauty barber salon funeral home pet grooming printing social services churches religious museum MyZenith new ventures lapses in coverage Tifanie Thornberry Southeast Region">
+      <div class="card-header">
+        <div>
+          <div class="carrier-name">The Zenith — Small Business Workers' Comp</div>
+          <div class="carrier-sub">Zenith Insurance Company / ZNAT | Admitted | Small Business Program | All States</div>
+        </div>
+        <span class="carrier-badge badge-wc">Workers' Comp</span>
+      </div>
+      <div class="card-body">
+        <div class="section-lbl">Program Eligibility</div>
+        <div class="tags">
+          <span class="tag strong">Accounts up to $25,000 in premium (FL: up to $30,000; CA/PA/NJ: up to $40,000)</span>
+          <span class="tag strong">New ventures considered</span>
+          <span class="tag strong">Lapses in coverage considered</span>
+          <span class="tag qualified">No cap on experience modification</span>
+          <span class="tag qualified">Submit up to 4 months before effective date</span>
+        </div>
+        <div class="section-lbl">Target Industries</div>
+        <div class="tags">
+          <span class="tag strong">Hospitality — bars, bowling lanes, clubs, hotels, marinas, restaurants (fine dining &amp; fast food)</span>
+          <span class="tag strong">Manufacturing — food products, jewelry, machine shop, dental lab, optical goods, pharmaceutical</span>
+          <span class="tag strong">Medical Offices — dentists, physicians, veterinarians</span>
+          <span class="tag strong">Professional Services — law offices, architects/engineers, photographers, real estate agencies</span>
+          <span class="tag strong">Retail/Wholesale — auto dealers, bakeries, clothing, convenience stores, drug stores, florists, grocery, hardware</span>
+          <span class="tag strong">Real Estate — condominiums, property managers, mini-storage</span>
+          <span class="tag strong">Schools — colleges, universities, private &amp; charter schools</span>
+          <span class="tag strong">Service — banks, beauty/barber salons, funeral homes, pet grooming, printing</span>
+          <span class="tag strong">Social Services — churches, museums, public libraries</span>
+        </div>
+        <div class="section-lbl">Payment &amp; Portal Features</div>
+        <div class="tags">
+          <span class="tag qualified">Down payments as low as 1%</span>
+          <span class="tag qualified">Auto-pay, eCheck, and credit card accepted</span>
+          <span class="tag qualified">Voluntary payroll reporting available</span>
+          <span class="tag qualified">Quote, bind, and manage via MyZenith portal</span>
+          <span class="tag qualified">Small Business Eligibility Tool available in portal</span>
+          <span class="tag qualified">Resubmit tool for prior-year renewals</span>
+        </div>
+        <div class="divider"></div>
+        <div class="note">National workers' comp carrier expanding into new regions. Strong appetite for small business across hospitality, retail, professional services, and medical offices. Good alternative when AMERISAFE or MEMIC don't fit. Contact: Tifanie Thornberry (SE Region) — 704-567-7456 | tthornberry@thezenith.com</div>
+        <div class="portals">
+          <a class="portal-link" href="https://www.thezenith.com" target="_blank">🔗 thezenith.com</a>
+          <a class="portal-link" href="mailto:tthornberry@thezenith.com">✉ tthornberry@thezenith.com</a>
+        </div>
+      </div>
+    </div>
+
   </div><!-- /carrier-grid -->
   <div class="no-results" id="no-results-markets">No carriers match your filters.</div>
 </div><!-- /tab-markets -->
@@ -1514,10 +1562,8 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
       <option value="Tower Hill">Tower Hill</option>
       <option value="USLI">USLI</option>
       <option value="XPT">XPT Specialty</option>
+      <option value="Zenith">The Zenith</option>
       <option value="Other">Other</option>
-    </select>
-  </div>
-  <div class="contact-grid" id="contact-grid"></div>
   <div class="no-results" id="no-results-contacts">No contacts found.</div>
 </div>
 
@@ -1545,10 +1591,8 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
         <option value="Tower Hill">Tower Hill</option>
         <option value="USLI">USLI</option>
         <option value="XPT">XPT Specialty</option>
+        <option value="Zenith">The Zenith</option>
         <option value="Other">Other</option>
-      </select>
-    </div>
-    <div class="form-group"><label>Email</label><input type="text" id="f-email" placeholder="email@carrier.com"></div>
     <div class="form-group"><label>Phone</label><input type="text" id="f-phone" placeholder="555-555-5555"></div>
     <div class="form-group"><label>Territory / Notes</label><input type="text" id="f-notes" placeholder="e.g. Southeast Florida, Cyber UW"></div>
     <div class="modal-btns">
@@ -1698,6 +1742,11 @@ var cardMeta = {
     updated: '2025-01-01',
     checklist: ['Complete application for applicable coverage line (E&O, D&O, EPLI, Fiduciary, Crime)', 'Loss runs / claims history (5 years preferred)', 'Currently valued loss runs — within 90 days of effective date', 'Prior policy declarations page if applicable', 'Revenue / payroll / headcount as applicable', 'Submit to: info@xptspecialty.com'],
     note: 'Specialty E&O/D&O wholesale market — 20+ years experience. Multiple claims history and no prior coverage are acceptable. All states, admitted and non-admitted, A-rated markets only. Good escalation option when standard professional liability markets decline.'
+  },
+  'Zenith': {
+    updated: '2025-04-01',
+    checklist: ['ACORD 130 Application (Workers Compensation)', 'Current loss runs', 'Experience modification worksheet (if applicable — no cap on mod)', 'Description of operations / payroll breakdown by class code', 'Submit via MyZenith portal: thezenith.com', 'Contact Tifanie Thornberry for SE Region: 704-567-7456 | tthornberry@thezenith.com'],
+    note: 'Small Business WC program — accounts up to $25K premium (FL: $30K; CA/PA/NJ: $40K). New ventures and lapses in coverage accepted. No cap on experience modification. Eligibility check available via Small Business Eligibility Tool in MyZenith portal.'
   }
 };
 
@@ -1734,6 +1783,7 @@ function getMetaKey(card) {
   if (t.includes('XPT')) return 'XPT';
   if (t.includes('USLI-Nonprofit') || t.includes('Nonprofit Social')) return 'USLI-Nonprofit';
   if (t.includes('USLI')) return 'USLI';
+  if (t.includes('Zenith')) return 'Zenith';
   return null;
 }
 
@@ -2314,6 +2364,7 @@ var defaultContacts = [
   {id:31,name:'Conrad Taniguchi',role:'VP, Risk Management National Territory Leader',carrier:'CNA',email:'Conrad.Taniguchi@cna.com',phone:'347-918-7294',notes:'CNA National Accounts Property'},
   {id:12,name:'Hunter Thompson',role:'Underwriter — Small Business',carrier:'Hartford',email:'Hunter.Thompson@thehartford.com',phone:'',notes:''},
   {id:7,name:'Sarah Tomacruz',role:'AVP, A&H Business Development Manager',carrier:'Chubb',email:'sarah.tomacruz@chubb.com',phone:'813-514-7465',notes:'Accident & Health'},
+  {id:43,name:'Tifanie Thornberry',role:'Small Business Territory Marketing Consultant — Southeast Region',carrier:'Zenith',email:'tthornberry@thezenith.com',phone:'704-567-7456',notes:'The Zenith | Sales & Marketing, Southeast Region | Small Business Workers\' Comp | thezenith.com'},
   {id:14,name:'Tower Hill Commercial',role:'Service & Submissions',carrier:'Tower Hill',email:'TowerHillCommercial@thig.com',phone:'800.509.1592',notes:'AL, FL, GA, SC, TX'},
   {id:32,name:'Stephanie Treuil',role:'Director, South Central — Risk Management',carrier:'CNA',email:'Stephanie.Treuil@cna.com',phone:'504-312-1636',notes:'CNA NAP Risk Management | Retail Shared & Layered'},
   {id:1,name:'Tyler Valdez',role:'Underwriter — General Industries (up to $75M revenue)',carrier:'Chubb',email:'Tyler.Valdez@Chubb.com',phone:'813-217-1547',notes:'2202 N. Westshore Blvd., Ste 300, Tampa FL 33607 | Submissions: commerciallinessubmissions@chubb.com'},
