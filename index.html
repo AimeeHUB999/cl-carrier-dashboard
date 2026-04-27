@@ -164,7 +164,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
 .contacts-toolbar select{padding:8px 12px;font-size:13px;border:1px solid #D1D5DB;border-radius:8px;background:#fff;outline:none;color:#374151;}
 .add-btn{padding:8px 16px;font-size:13px;font-weight:500;border-radius:8px;background:#1A1A2E;color:#fff;border:none;cursor:pointer;white-space:nowrap;}
 .add-btn:hover{background:#2D2D4A;}
-.contact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;}
+.contact-grid{display:block;}
 .contact-card{background:#fff;border:1px solid #E5E7EB;border-radius:12px;padding:16px;position:relative;}
 .contact-card:hover{box-shadow:0 4px 12px rgba(0,0,0,0.08);}
 .c-top{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px;}
@@ -186,6 +186,25 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
 .delete-btn{position:absolute;top:10px;right:10px;background:none;border:none;cursor:pointer;color:#D1D5DB;font-size:16px;line-height:1;padding:2px;}
 .delete-btn:hover{color:#EF4444;}
 .c-carrier-tag{font-size:10px;padding:2px 7px;border-radius:10px;background:#F3F4F6;color:#6B7280;margin-top:4px;display:inline-block;}
+/* ── Contact alpha groups ── */
+.alpha-group{margin-bottom:20px;}
+.alpha-header{font-size:13px;font-weight:700;color:#9CA3AF;letter-spacing:0.08em;padding:4px 0 6px 2px;border-bottom:1px solid #F3F4F6;margin-bottom:6px;text-transform:uppercase;}
+.contact-row{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;cursor:pointer;transition:background 0.12s;position:relative;border:1px solid transparent;}
+.contact-row:hover{background:#F9FAFB;border-color:#E5E7EB;}
+.contact-row.expanded{background:#F0F9FF;border-color:#BFDBFE;border-radius:8px 8px 0 0;}
+.cr-avatar{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:11px;flex-shrink:0;}
+.cr-name{font-weight:600;font-size:13px;color:#111827;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.cr-carrier{font-size:11px;padding:1px 6px;border-radius:8px;background:#F3F4F6;color:#6B7280;flex-shrink:0;}
+.cr-chevron{font-size:11px;color:#9CA3AF;flex-shrink:0;transition:transform 0.15s;}
+.contact-row.expanded .cr-chevron{transform:rotate(180deg);}
+.contact-detail{display:none;background:#F0F9FF;border:1px solid #BFDBFE;border-top:none;border-radius:0 0 8px 8px;padding:12px 12px 10px 52px;margin-bottom:4px;position:relative;}
+.contact-detail.open{display:block;}
+.contact-detail .c-field{display:flex;gap:8px;font-size:12px;margin-bottom:5px;align-items:flex-start;}
+.contact-detail .c-lbl{color:#9CA3AF;min-width:46px;flex-shrink:0;}
+.contact-detail .c-val{color:#374151;}
+.contact-detail .c-val a{color:#2563EB;text-decoration:none;}
+.contact-detail .c-val a:hover{text-decoration:underline;}
+.contact-detail .delete-btn{position:absolute;top:8px;right:8px;}
 
 /* ── Modals ── */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:200;align-items:center;justify-content:center;}
@@ -2380,33 +2399,86 @@ var nextId = 38;
 function initials(name) { return name.split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2); }
 function avatarColor(id) { return colorClasses[id % colorClasses.length]; }
 
+function lastNameInitial(name) {
+  var parts = name.trim().split(/\s+/);
+  return parts.length > 1 ? parts[parts.length - 1][0].toUpperCase() : parts[0][0].toUpperCase();
+}
+
+function toggleContactRow(rowEl, detailEl) {
+  var isOpen = detailEl.classList.contains('open');
+  // Close all open details first
+  document.querySelectorAll('.contact-detail.open').forEach(function(d) { d.classList.remove('open'); });
+  document.querySelectorAll('.contact-row.expanded').forEach(function(r) { r.classList.remove('expanded'); });
+  if (!isOpen) {
+    detailEl.classList.add('open');
+    rowEl.classList.add('expanded');
+  }
+}
+
 function renderContacts() {
   var q = (document.getElementById('contact-search').value || '').toLowerCase().trim();
   var cf = document.getElementById('contact-carrier-filter').value;
   var grid = document.getElementById('contact-grid');
   grid.innerHTML = '';
-  var visible = 0;
-  contacts.forEach(function(c) {
+  var filtered = contacts.filter(function(c) {
     var carrierMatch = !cf || c.carrier === cf;
     var textMatch = !q || (c.name+c.role+c.carrier+c.email+c.phone+c.notes).toLowerCase().indexOf(q) > -1;
-    if (!carrierMatch || !textMatch) return;
-    visible++;
-    var card = document.createElement('div');
-    card.className = 'contact-card';
-    var emailHtml = c.email ? '<a href="mailto:'+c.email+'">'+c.email+'</a>' : '<span style="color:#D1D5DB">—</span>';
-    var phoneHtml = c.phone ? '<a href="tel:'+c.phone+'">'+c.phone+'</a>' : '<span style="color:#D1D5DB">—</span>';
-    var notesHtml = c.notes || '<span style="color:#D1D5DB">—</span>';
-    card.innerHTML = '<button class="delete-btn" onclick="deleteContact('+c.id+')" title="Remove">×</button>' +
-      '<div class="c-top"><div class="avatar '+avatarColor(c.id)+'">'+initials(c.name)+'</div>' +
-      '<div><div class="c-name">'+c.name+'</div><div class="c-role">'+c.role+'</div>' +
-      '<span class="c-carrier-tag">'+c.carrier+'</span></div></div>' +
-      '<div class="c-divider"></div>' +
-      '<div class="c-field"><span class="c-lbl">Email</span><span class="c-val">'+emailHtml+'</span></div>' +
-      '<div class="c-field"><span class="c-lbl">Phone</span><span class="c-val">'+phoneHtml+'</span></div>' +
-      '<div class="c-field"><span class="c-lbl">Notes</span><span class="c-val">'+notesHtml+'</span></div>';
-    grid.appendChild(card);
+    return carrierMatch && textMatch;
   });
-  document.getElementById('no-results-contacts').style.display = visible === 0 ? 'block' : 'none';
+
+  if (filtered.length === 0) {
+    document.getElementById('no-results-contacts').style.display = 'block';
+    return;
+  }
+  document.getElementById('no-results-contacts').style.display = 'none';
+
+  // Group by last name initial
+  var groups = {};
+  filtered.forEach(function(c) {
+    var letter = lastNameInitial(c.name);
+    if (!groups[letter]) groups[letter] = [];
+    groups[letter].push(c);
+  });
+  var letters = Object.keys(groups).sort();
+
+  letters.forEach(function(letter) {
+    var groupEl = document.createElement('div');
+    groupEl.className = 'alpha-group';
+    var hdr = document.createElement('div');
+    hdr.className = 'alpha-header';
+    hdr.textContent = letter;
+    groupEl.appendChild(hdr);
+
+    groups[letter].forEach(function(c) {
+      var emailHtml = c.email ? '<a href="mailto:'+c.email+'">'+c.email+'</a>' : '<span style="color:#D1D5DB">—</span>';
+      var phoneHtml = c.phone ? '<a href="tel:'+c.phone+'">'+c.phone+'</a>' : '<span style="color:#D1D5DB">—</span>';
+      var notesHtml = c.notes || '<span style="color:#D1D5DB">—</span>';
+
+      var row = document.createElement('div');
+      row.className = 'contact-row';
+      row.innerHTML =
+        '<div class="cr-avatar '+avatarColor(c.id)+'">'+initials(c.name)+'</div>' +
+        '<span class="cr-name">'+c.name+'</span>' +
+        '<span class="cr-carrier">'+c.carrier+'</span>' +
+        '<span class="cr-chevron">▼</span>';
+
+      var detail = document.createElement('div');
+      detail.className = 'contact-detail';
+      detail.innerHTML =
+        '<button class="delete-btn" onclick="deleteContact('+c.id+')" title="Remove">×</button>' +
+        '<div class="c-field"><span class="c-lbl">Role</span><span class="c-val">'+c.role+'</span></div>' +
+        '<div class="c-field"><span class="c-lbl">Email</span><span class="c-val">'+emailHtml+'</span></div>' +
+        '<div class="c-field"><span class="c-lbl">Phone</span><span class="c-val">'+phoneHtml+'</span></div>' +
+        '<div class="c-field"><span class="c-lbl">Notes</span><span class="c-val">'+notesHtml+'</span></div>';
+
+      row.addEventListener('click', function() { toggleContactRow(row, detail); });
+
+      groupEl.appendChild(row);
+      groupEl.appendChild(detail);
+    });
+
+    grid.appendChild(groupEl);
+  });
 }
 
 function filterContacts() { renderContacts(); }
