@@ -17,9 +17,12 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
 .nav-tab.active,.nav-tab:hover{background:rgba(255,255,255,0.12);color:#fff;}
 .nav-tab.active{background:rgba(96,165,250,0.25);color:#93C5FD;}
 .nav-actions{margin-left:auto;display:flex;align-items:center;gap:8px;}
-.search-bar input{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);border-radius:8px;padding:6px 12px;font-size:13px;color:#fff;width:200px;outline:none;}
+.search-bar{position:relative;display:inline-flex;align-items:center;}
+.search-bar input{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);border-radius:8px;padding:6px 28px 6px 12px;font-size:13px;color:#fff;width:200px;outline:none;}
 .search-bar input::placeholder{color:rgba(255,255,255,0.4);}
 .search-bar input:focus{background:rgba(255,255,255,0.15);border-color:rgba(96,165,250,0.5);}
+.search-clear{position:absolute;right:8px;background:none;border:none;color:rgba(255,255,255,0.5);cursor:pointer;font-size:14px;line-height:1;padding:0;display:none;transition:color 0.15s;}
+.search-clear:hover{color:#fff;}
 .nav-btn{padding:5px 12px;font-size:12px;font-weight:500;border-radius:6px;border:1px solid rgba(255,255,255,0.25);background:transparent;color:rgba(255,255,255,0.8);cursor:pointer;white-space:nowrap;transition:all 0.15s;}
 .nav-btn:hover{background:rgba(255,255,255,0.12);color:#fff;}
 .nav-btn.finder-btn{background:rgba(96,165,250,0.2);border-color:rgba(96,165,250,0.4);color:#93C5FD;}
@@ -274,7 +277,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
   .nav-title{font-size:14px;}
   .nav-tabs{margin-left:0;}
   .nav-actions{width:100%;flex-wrap:wrap;gap:6px;margin-left:0;}
-  .search-bar{width:100%;}
+  .search-bar{width:100%;display:flex;}
   .search-bar input{width:100%!important;}
   .nav-btn{font-size:11px;padding:4px 9px;}
   .main{padding:12px;}
@@ -310,7 +313,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
     <button class="nav-tab" onclick="showTab('contacts',this)">Contacts</button>
   </div>
   <div class="nav-actions">
-    <div class="search-bar"><input type="text" id="global-search" placeholder="Search carriers, classes..." oninput="filterCards()"></div>
+    <div class="search-bar"><input type="text" id="global-search" placeholder="Search carriers, classes..." oninput="filterCards();toggleSearchClear()"><button class="search-clear" id="search-clear" onclick="clearSearch()" title="Clear search">&#x2715;</button></div>
     <button class="nav-btn finder-btn" onclick="openFinder()">🔍 Best Fit</button>
     <button class="nav-btn" onclick="toggleFavFilter(this)">⭐ Favorites</button>
     <button class="nav-btn" onclick="openChangelog()">📋 Changelog</button>
@@ -431,7 +434,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
           <option>Church Mutual</option><option>CNA</option><option>Chubb Cyber</option><option>Chubb Life Sciences</option>
           <option>Distinguished Programs</option>
           <option>Chubb Middle Market</option>
-          <option>Chubb Small Business</option><option>Chubb Technology</option><option>Gateway Specialty</option><option>Hull &amp; Company</option><option>MEMIC</option><option>Normandy</option><option>Nationwide</option>
+          <option>Chubb Small Business</option><option>Chubb Technology</option><option>Gateway Specialty</option><option>Hartford</option><option>Hull &amp; Company</option><option>MEMIC</option><option>Normandy</option><option>Nationwide</option>
           <option>Starwind Specialty</option><option>Tokio Marine Highland</option><option>Tower Hill</option><option>US Assure</option><option>USLI</option><option>USLI Nonprofit Social Services</option><option>XPT Specialty</option>
         </select>
         <input type="date" id="cl-date-input">
@@ -1359,6 +1362,84 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
       </div>
     </div>
 
+    <!-- HARTFORD SPECTRUM BOP -->
+    <div class="card" data-types="bop,liability,cyber,mgmt" data-text="Hartford Spectrum BOP small business business owners policy property liability GL general liability professional liability EPLI data breach cyber umbrella equipment breakdown business income extra expense blanket additional insured waiver subrogation newly acquired organizations defense outside limits personal advertising injury EPLI employment practices umbrella product recall identity recovery money securities outdoor property valuable papers accounts receivable forgery ordinance law earthquake green upgrades franchise upgrade hired auto physical damage spectrum small business">
+      <div class="card-header">
+        <div>
+          <div class="carrier-name">Hartford — Spectrum Small Business BOP</div>
+          <div class="carrier-sub">The Hartford | Spectrum® BOP | Broad Property &amp; Liability | Oct 2025</div>
+        </div>
+        <span class="carrier-badge badge-bop">BOP / GL</span>
+      </div>
+      <div class="card-body">
+
+        <div class="section-lbl">Business Liability — Standard Coverages</div>
+        <div class="tags">
+          <span class="tag strong">Per Occurrence: $1M default (options: $300K, $500K, $2M)</span>
+          <span class="tag strong">Aggregate: $2M default (options: double the per occurrence limit)</span>
+          <span class="tag strong">Damage to Premises Rented: up to $1M</span>
+          <span class="tag strong">Medical Expenses: $10K per person ($5K for certain restaurant classes)</span>
+          <span class="tag strong">Defense costs outside the limits of insurance</span>
+          <span class="tag strong">Blanket Waiver of Subrogation included</span>
+          <span class="tag strong">Newly Acquired Organizations: 180 days</span>
+          <span class="tag strong">Employees &amp; volunteers as insureds · Subsidiaries (&gt;50% owned) as insured</span>
+          <span class="tag strong">Non-owned watercraft under 51 ft as insured · Personal &amp; advertising injury</span>
+          <span class="tag strong">Mental anguish resulting from physical injury covered · Borrowed equipment PD (off job site)</span>
+        </div>
+
+        <div class="section-lbl">Optional Liability Coverages</div>
+        <div class="tags">
+          <span class="tag qualified">Blanket Additional Insured by Contract — all classes</span>
+          <span class="tag qualified">Scheduled Additional Insured — all classes</span>
+          <span class="tag qualified">Per Location General Aggregate</span>
+          <span class="tag qualified">Professional Liability: $10K–$2M · deductible $0–$25K · defense in addition to limits · extended reporting · prior acts</span>
+          <span class="tag qualified">EPLI: $25K/occ / $25K agg standard · options up to $1M</span>
+          <span class="tag qualified">Electronic Media Liability — expanded internet-related personal &amp; advertising injury</span>
+          <span class="tag qualified">Data Breach — First Party: $10K–$1M · deductible $1K–$100K · prior acts, BI, extortion, PCI loss, fines &amp; penalties</span>
+          <span class="tag qualified">Data Breach — Third Party Defense &amp; Liability: $50K–$1M (requires first party coverage)</span>
+          <span class="tag qualified">Umbrella: $1M–$10M · $10K retention · Product Recall $10K/$25K agg (options up to $500K/$1M)</span>
+        </div>
+
+        <div class="section-lbl">Business Property — Standard Coverages</div>
+        <div class="tags">
+          <span class="tag strong">Business Personal Property (incl. employee tools, personal property of others, tenant improvements)</span>
+          <span class="tag strong">Equipment Breakdown — subject to covered property limit · expediting expenses $50K · hazardous substances $50K · upgrade allowance 125%</span>
+          <span class="tag strong">Business Income: actual loss sustained up to 12 months · no waiting period standard</span>
+          <span class="tag strong">Business Income for Civil Authority: ALS 30 days standard (up to 180 days) · 72-hr waiting period</span>
+          <span class="tag strong">Building Limit Auto-Increase: 8% · BPP Seasonal Increase: 25% (up to 50% option)</span>
+          <span class="tag strong">Cyber Virus &amp; Malware: $25K · Digital Ransom/Extortion sublimit $10K</span>
+          <span class="tag strong">Collapse · Glass · Fire Extinguisher · Theft Damage to Building — subject to covered limit</span>
+          <span class="tag strong">Electronic Data: $10K · Debris Removal: 25% + $10K · Fungi/Bacteria/Virus: $50K</span>
+          <span class="tag strong">Money &amp; Securities: $10K inside / $5K outside (up to $250K/$125K)</span>
+          <span class="tag strong">Accounts Receivable: $25K (up to $2M) · Forgery: $5K (up to $250K)</span>
+          <span class="tag strong">Valuable Papers &amp; Records: $25K (up to $2M) · Outdoor Property: $10K (up to $500K)</span>
+          <span class="tag strong">Identity Recovery: $15K policy year · Interruption of Computer Ops: $10K · Lock &amp; Key: $1K</span>
+          <span class="tag strong">Ordinance or Law: $25K increased cost/demolition · $25K undamaged portion (up to $2M)</span>
+          <span class="tag strong">Newly Acquired/Constructed: Building $500K · BPP $250K · BI/EE $100K (up to 180 days)</span>
+        </div>
+
+        <div class="section-lbl">Optional Property Coverages</div>
+        <div class="tags">
+          <span class="tag qualified">Earthquake (full and sublimit) · Earthquake Sprinkler Leakage</span>
+          <span class="tag qualified">Green Upgrades — up to 100% of loss, up to $500K, BI up to 180 days</span>
+          <span class="tag qualified">Franchise Upgrade — 25% of covered property damage up to $500K</span>
+          <span class="tag qualified">Hired Auto Physical Damage — $5K–$500K · deductible from $250</span>
+          <span class="tag qualified">False Pretense: $5K–$500K · Telephone Fraud: up to $500K/occ · $1M policy year</span>
+          <span class="tag qualified">Business Income for Electronic Vandalism — up to $500K</span>
+          <span class="tag qualified">Business Income for Essential Personnel — $25K, $50K, $100K</span>
+          <span class="tag qualified">Perishable Goods in Transit (incl. BI/EE) — up to $500K each</span>
+          <span class="tag qualified">Scheduled/Miscellaneous Property — total cannot exceed $1M</span>
+          <span class="tag qualified">Outdoor Signs Away from Premises — up to $1M</span>
+        </div>
+
+        <div class="divider"></div>
+        <div class="note">The Hartford Spectrum® BOP — one of the broadest small business property and liability products in the market. Standard deductible options $250–$25K. Certain coverages vary by state. © October 2025 The Hartford (NYSE: HIG).</div>
+        <div class="portals">
+          <a class="portal-link" href="https://www.thehartford.com" target="_blank">🔗 thehartford.com</a>
+        </div>
+      </div>
+    </div>
+
     <!-- MEMIC -->
     <div class="card" data-types="wc" data-text="memic workers compensation automobile dealerships education private schools colleges healthcare hospitals physicians hospitality hotels restaurants resorts country clubs manufacturing machine shops electronics food products bakeries pharmaceuticals professional financial services attorneys banks retail grocery technology hardware internet sales fixed location fixed premium">
       <div class="card-header">
@@ -1978,6 +2059,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
       <option value="CNA">CNA</option>
       <option value="Gateway">Gateway Specialty</option>
       <option value="Hartford">The Hartford</option>
+      <option value="Hartford">Hartford</option>
       <option value="Hull &amp; Company">Hull &amp; Company</option>
       <option value="MEMIC">MEMIC</option>
       <option value="Normandy">Normandy</option>
@@ -2015,7 +2097,8 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
         <option value="CNA">CNA</option>
         <option value="Gateway">Gateway Specialty</option>
         <option value="Hartford">The Hartford</option>
-        <option value="Hull &amp; Company">Hull &amp; Company</option>
+        <option value="Hartford">Hartford</option>
+      <option value="Hull &amp; Company">Hull &amp; Company</option>
       <option value="MEMIC">MEMIC</option>
         <option value="Normandy">Normandy</option>
       <option value="Nationwide">Nationwide</option>
@@ -2155,6 +2238,11 @@ var cardMeta = {
     checklist: ['Quote via ClearQuote or Policy Center using NAICS code', 'ACORD application', 'Loss runs (3 years)', 'WC: payroll breakdown by class code', 'Food services: confirm gross receipts meet minimums', 'Auto services: confirm GVW under 20,000 lbs and min $250K sales'],
     note: ''
   },
+  'Hartford': {
+    updated: '2025-10-01',
+    checklist: ['Quote via The Hartford Spectrum BOP portal or appointed agency system', 'ACORD application (GL and/or property as applicable)', 'Business description — SIC/NAICS code, years in business, revenue', 'Number of locations, building details (sq ft, construction type, year built)', 'Loss runs (3–5 years)', 'For Professional Liability: description of professional services, prior acts date', 'For EPLI: employee count, any pending/prior claims', 'For Data Breach: revenue, number of records, security protocols', 'For Umbrella: confirm underlying policy limits and carriers'],
+    note: 'Hartford Spectrum® BOP — broad small business product with defense outside limits, blanket WOS, 180-day newly acquired, and wide optional coverage menu. Check state availability for EPLI, Prof Liability, and data breach options. NYSE: HIG — One Hartford Plaza, Hartford CT 06155.'
+  },
   'MEMIC': {
     updated: '2025-01-01',
     checklist: ['ACORD 130', 'Loss runs (3 years)', 'Experience mod worksheet', 'Pre-loss control survey required for accounts over $50K premium'],
@@ -2234,6 +2322,7 @@ function getMetaKey(card) {
   if (t.includes('Chubb Small')) return 'Chubb-Small';
   if (t.includes('Normandy')) return 'Normandy';
   if (t.includes('Nationwide')) return 'Nationwide';
+  if (t.includes('Hartford')) return 'Hartford';
   if (t.includes('MEMIC')) return 'MEMIC';
   if (t.includes('US Assure')) return 'USAssure';
   if (t.includes('Starwind')) return 'Starwind';
