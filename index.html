@@ -441,7 +441,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
       <div class="cl-selects">
         <select id="cl-carrier-sel">
           <option value="">— Carrier —</option>
-          <option>AmRisc</option><option>AMERISAFE</option><option>Ascendant CPP</option><option>Ascendant Commercial Auto</option><option>Authentic</option>
+          <option>AmRisc</option><option>AMERISAFE</option><option>Ascendant CPP</option><option>Ascendant Commercial Auto</option><option>Ascendant Misc E&O</option><option>Authentic</option>
           <option>Bass Underwriters</option><option>Beazley DWP</option><option>Beazley MiscMed</option><option>Berkley Marketplace</option>
           <option>Church Mutual</option><option>CNA</option><option>Chubb Cyber</option><option>Chubb Life Sciences</option>
           <option>Distinguished Programs</option>
@@ -694,6 +694,38 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
           <a class="portal-link" href="https://www.ascendantgroup.com" target="_blank">🔗 ascendantgroup.com</a>
         </div>
         <div class="note" style="margin-top:6px;"><strong>How to submit:</strong> Login → Agent Quick Access → Quick Quote &gt; Submit → Select Commercial Auto Liability &amp; Physical Damage → Complete quote questions</div>
+      </div>
+    </div>
+
+    <!-- ASCENDANT MISCELLANEOUS PROFESSIONAL LIABILITY / E&O -->
+    <div class="card" data-types="eo,liability" data-text="ascendant miscellaneous professional liability errors omissions e&o actuaries appraisers associations claims adjusters consultants debt collectors employment agencies event planners insurance agents bookkeepers tax preparation business brokers cannabis real estate property management notaries travel agents translators training security guards title agent risk management safety consultants peo medical billing legal support franchisors a- excellent 50 states">
+      <div class="card-header">
+        <div>
+          <div class="carrier-name">Ascendant — Misc. Professional Liability (E&amp;O)</div>
+          <div class="carrier-sub">A- (Excellent) A.M. Best | Up to $5M Primary + $5M Excess | All 50 States</div>
+        </div>
+        <span class="carrier-badge badge-eo">E&amp;O / Prof. Liability</span>
+      </div>
+      <div class="card-body">
+        <div class="section-lbl">Target Classes</div>
+        <div class="tags">
+          <span class="tag strong">Insurance Agents &amp; Brokers</span><span class="tag strong">Actuaries / Employee Benefit Consultants</span><span class="tag strong">Appraisers</span><span class="tag strong">Associations</span><span class="tag strong">Claims Adjusters</span><span class="tag strong">Consultants</span><span class="tag strong">Debt Collectors</span><span class="tag strong">Employment Agencies</span><span class="tag strong">Event Planners &amp; Promoters</span><span class="tag strong">Real Estate Agents / Brokers</span><span class="tag strong">Property Management</span><span class="tag strong">Travel Agents</span><span class="tag strong">Bookkeepers &amp; Tax Preparation</span><span class="tag strong">Business Brokers</span><span class="tag strong">Medical Billing / Coding</span><span class="tag strong">Notaries</span><span class="tag strong">PEO Services</span><span class="tag strong">Printers</span><span class="tag strong">Private Investigators (unarmed)</span><span class="tag strong">Risk &amp; Safety Consultants</span><span class="tag strong">Security Guards (unarmed)</span><span class="tag strong">Third Party Administrators</span><span class="tag strong">Title Agent Services</span><span class="tag strong">Training</span><span class="tag strong">Translators</span><span class="tag strong">Cannabis Industry Support Services</span><span class="tag strong">Franchisors</span><span class="tag strong">Legal Support Services</span><span class="tag strong">Advertisers</span><span class="tag strong">Analytical Testing Laboratories</span><span class="tag strong">Business Services</span><span class="tag strong">Referral Services</span><span class="tag strong">Telephone Answering Services</span>
+        </div>
+        <div class="section-lbl">Product Features</div>
+        <div class="note">
+          <strong>Limits:</strong> Up to $5M Primary · Additional $5M Excess available · Claims-made coverage<br>
+          <strong>Contingent BI/PD:</strong> Optional limits up to $250K depending on class<br>
+          <strong>Debt Collectors:</strong> Defense-only coverage available, incl. telecommunication violations<br>
+          <strong>Printers E&amp;O:</strong> Cost of correction sublimit up to $1M<br>
+          <strong>No minimum premium</strong> for consulting risks<br>
+          <strong>Cannabis consulting</strong> considered<br>
+          <strong>Media endorsement</strong> available for small to mid-sized risks with media exposure<br>
+          Available in all 50 states + DC
+        </div>
+        <div class="divider"></div>
+        <div class="portals">
+          <a class="portal-link" href="https://www.ascendantgroup.com" target="_blank">🔗 ascendantgroup.com</a>
+        </div>
       </div>
     </div>
 
@@ -2239,6 +2271,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
       <option value="">All Carriers</option>
       <option value="AmRisc">AmRisc</option>
       <option value="AMERISAFE">AMERISAFE</option>
+      <option value="Ascendant">Ascendant</option>
       <option value="Authentic">Authentic</option>
       <option value="Bass">Bass Underwriters</option>
       <option value="Berkley">Berkley</option>
@@ -2280,6 +2313,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
       <select id="f-carrier">
         <option value="AmRisc">AmRisc</option>
       <option value="AMERISAFE">AMERISAFE</option>
+        <option value="Ascendant">Ascendant</option>
         <option value="Authentic">Authentic</option>
         <option value="Bass">Bass Underwriters</option>
         <option value="Berkley">Berkley</option>
@@ -2334,6 +2368,11 @@ var cardMeta = {
     updated: '2025-01-01',
     checklist: ['Minimum 2 coverages required (e.g. Property + GL)', 'Property schedule (TIV per location)', 'Loss runs (3 years)', 'ACORD application'],
     note: ''
+  },
+  'Ascendant-EO': {
+    updated: '2025-01-01',
+    checklist: ['ACORD application or carrier app', 'Description of professional services / operations', 'Revenue (past 12 months and projected)', 'Loss runs (3–5 years)', 'Limits requested (up to $5M primary + $5M excess)', 'Confirm claims-made and retroactive date if applicable'],
+    note: 'No minimum premium for consulting risks. Cannabis consulting considered. Defense-only available for debt collectors including telecom violations. Media endorsement available for small to mid-sized risks.'
   },
   'Ascendant-Auto': {
     updated: '2025-04-01',
@@ -2516,6 +2555,7 @@ function getMetaKey(card) {
   if (t.includes('AmRisc')) return 'AmRisc';
   if (t.includes('AMERISAFE')) return 'AMERISAFE';
   if (t.includes('Commercial Auto')) return 'Ascendant-Auto';
+  if (t.includes('Misc. Professional Liability')) return 'Ascendant-EO';
   if (t.includes('Ascendant')) return 'Ascendant';
   if (t.includes('Authentic — Commercial')) return 'Authentic-Commercial';
   if (t.includes('Gym & Fitness')) return 'Authentic-Fitness';
@@ -2973,6 +3013,7 @@ var finderRules = {
   },
   professional: {
     gl:       [{key:'Nationwide',match:'great',why:'Attorneys, architects, engineers, accountants, IT consultants, advertising agencies — strong BOP appetite'},{key:'Chubb-Small',match:'great',why:'Lawyers, architects, consultants, photographers strong appetite'},{key:'Chubb-Middle',match:'great',why:'Professional services core industry'},{key:'N2G',match:'good',why:'Engineering, accounting, legal, and business services are preferred N2G classes — consider when firm has any foreign office or international clients'},{key:'USLI',match:'good',why:'E&O for professionals 500+ classes'},{key:'Ascendant',match:'good',why:'Professional services segment including lawyers, consultants, architects'}],
+    professional: [{key:'Ascendant-EO',match:'great',why:'Misc. Professional Liability / E&O — actuaries, appraisers, consultants, insurance agents, real estate, property management, event planners, debt collectors, bookkeepers, travel agents, and 30+ more classes. Up to $5M primary + $5M excess. All 50 states.'},{key:'USLI',match:'good',why:'E&O for professionals 500+ classes via snap.usli.com'},{key:'XPT',match:'good',why:'XPT Specialty E&O for professionals including architects, engineers, accountants, and hard-to-place classes'}],
     cyber:    [{key:'Nationwide',match:'great',why:'Cyber auto-offered on eligible BOP quotes for professional services'},{key:'Chubb-Cyber',match:'great',why:'Professional services strong cyber appetite'}],
     wc:       [{key:'Nationwide',match:'great',why:'Professional & financial services WC — attorneys, accountants, architects, engineers, advertising, IT'},{key:'MEMIC',match:'great',why:'Attorneys and financial institutions preferred'},{key:'Chubb-Small',match:'good',why:'Workers comp available for professional offices'}]
   },
@@ -3309,6 +3350,7 @@ document.getElementById('modal').addEventListener('click', function(e){ if(e.tar
 var carrierRatings = {
   'AMERISAFE':      {rating:'A',  label:'A (Excellent)',   source:'A.M. Best'},
   'Ascendant-Auto':  {rating:'A+', label:'A+ (Superior)',   source:'A.M. Best'},
+  'Ascendant-EO':    {rating:'A-', label:'A- (Excellent)',  source:'A.M. Best'},
   'Ascendant':       {rating:'A+', label:'A+ (Superior)',   source:'A.M. Best'},
   'Authentic-Commercial': {rating:'A-', label:'A- / A XV', source:'A.M. Best'},
   'Authentic-Fitness':    {rating:'A-', label:'A- / A XV', source:'A.M. Best'},
@@ -3373,9 +3415,12 @@ var emailTemplates = {
     subject: 'CPP Submission — [Client Name] — [Business Type]',
     body: 'Hello,\n\nPlease see the attached Commercial Package submission.\n\nClient: [Client Name]\nBusiness Type: [Type]\nState(s): [States]\nTotal Insurable Value: $[TIV]\nCoverages Requested: [e.g. Property + GL]\nEffective Date: [Date]\n\nAttached:\n☐ ACORD application\n☐ Property schedule / SOV\n☐ Loss runs (3 years)\n\nPlease confirm receipt and anticipated turnaround.\n\nThank you,\n[Your Name]\nHUB International'
   },
-  'Ascendant-Auto': {
+  'Ascendant-EO': {
     to: '',
-    subject: 'Commercial Auto Submission — [Client Name] — [Business Type]',
+    subject: 'Misc. Professional Liability Submission — [Client Name] — [Class]',
+    body: 'Hello Ascendant E&O Team,\n\nPlease find a new Miscellaneous Professional Liability submission for your review.\n\nClient: [Client Name]\nClass of Business: [e.g. Consultant / Appraiser / Claims Adjuster / Insurance Agent]\nDescription of Services: [Brief description]\nRevenue (last 12 months): $[Amount]\nRevenue (projected next 12 months): $[Amount]\nNumber of Employees: [Number]\nState(s): [States]\nLimits Requested: $[Amount] per claim / $[Amount] aggregate\nRetroactive Date (if applicable): [Date]\nEffective Date: [Date]\n\nAttached:\n☐ ACORD application / carrier application\n☐ Description of professional services\n☐ Loss runs (3–5 years)\n\nPlease advise on next steps.\n\nThank you,\n[Your Name]\nHUB International'
+  },
+  'Ascendant-Auto': { — [Client Name] — [Business Type]',
     body: 'Hello Ascendant Commercial Auto Team,\n\nPlease find a new Commercial Auto submission for your review.\n\nClient: [Client Name]\nBusiness Type: [e.g. Amazon Delivery / Artisan Contractor / Courier / Freight Forwarder]\nState(s): [States]\nNumber of Vehicles: [Number]\nVehicle Types / GVW: [e.g. Light trucks / Heavy trucks / PPT used in business]\nPrimary Use: [Delivery / Service / Contractors / etc.]\nLimits Requested: $[Amount]\nEffective Date: [Date]\n\nDriver Information: [Number of drivers, any violations to note]\n\nCoverage Requested:\n☐ Commercial Auto Liability\n☐ Physical Damage\n\nNote: No credit check or CLUE report required. MVR fees covered at bind.\n\nPlease quote via Agent Quick Access → Quick Quote → Commercial Auto Liability & Physical Damage.\n\nThank you,\n[Your Name]\nHUB International'
   },
   'Beazley-MiscMed': {
