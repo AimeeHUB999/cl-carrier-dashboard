@@ -190,8 +190,16 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
 .delete-btn{position:absolute;top:10px;right:10px;background:none;border:none;cursor:pointer;color:#D1D5DB;font-size:16px;line-height:1;padding:2px;}
 .delete-btn:hover{color:#EF4444;}
 .c-carrier-tag{font-size:10px;padding:2px 7px;border-radius:10px;background:#F3F4F6;color:#6B7280;margin-top:4px;display:inline-block;}
-.carrier-bucket{margin-bottom:28px;}
-.carrier-bucket-header{font-size:13px;font-weight:700;color:#374151;text-transform:uppercase;letter-spacing:0.06em;padding:6px 0 8px 0;border-bottom:2px solid #E5E7EB;margin-bottom:12px;}
+.carrier-bucket{margin-bottom:8px;}
+.carrier-bucket-header{font-size:13px;font-weight:700;color:#374151;text-transform:uppercase;letter-spacing:0.06em;padding:10px 14px;border:1px solid #E5E7EB;border-radius:10px;margin-bottom:0;background:#F9FAFB;cursor:pointer;display:flex;align-items:center;justify-content:space-between;user-select:none;}
+.carrier-bucket-header:hover{background:#F3F4F6;border-color:#D1D5DB;}
+.carrier-bucket-header.open{border-radius:10px 10px 0 0;border-bottom-color:#E5E7EB;background:#F3F4F6;}
+.bucket-chevron{font-size:11px;color:#9CA3AF;transition:transform 0.18s;display:inline-block;}
+.carrier-bucket-header.open .bucket-chevron{transform:rotate(180deg);}
+.bucket-count{font-size:11px;font-weight:500;color:#6B7280;background:#E5E7EB;border-radius:10px;padding:1px 8px;margin-left:8px;}
+.bucket-grid-wrap{border:1px solid #E5E7EB;border-top:none;border-radius:0 0 10px 10px;padding:14px;display:none;}
+.bucket-grid-wrap.open{display:block;}
+.carrier-bucket-header.open+.bucket-grid-wrap{display:block;}
 
 /* ── Modals ── */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:200;align-items:center;justify-content:center;}
@@ -355,6 +363,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
           <option value="technology">Technology Company</option>
           <option value="professional">Professional Services / Office</option>
           <option value="nonprofit">Nonprofit / Association</option>
+          <option value="worship">House of Worship / Religious Organization</option>
           <option value="hospitality">Hotel / Resort / Country Club</option>
           <option value="auto_dealer">Automobile Dealership</option>
           <option value="trucking">Trucking / Transportation</option>
@@ -2158,7 +2167,6 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
       <option value="Chubb">Chubb</option>
       <option value="CNA">CNA</option>
       <option value="Gateway">Gateway Specialty</option>
-      <option value="Hartford">The Hartford</option>
       <option value="Hartford">Hartford</option>
       <option value="Hull &amp; Company">Hull &amp; Company</option>
       <option value="Luminor">Luminor Risk</option>
@@ -2199,7 +2207,6 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
       <option value="Chubb">Chubb</option>
         <option value="CNA">CNA</option>
         <option value="Gateway">Gateway Specialty</option>
-        <option value="Hartford">The Hartford</option>
         <option value="Hartford">Hartford</option>
       <option value="Hull &amp; Company">Hull &amp; Company</option>
       <option value="Luminor">Luminor Risk</option>
@@ -2887,6 +2894,12 @@ var finderRules = {
     mgmt:     [{key:'USLI-Nonprofit',match:'great',why:'D&O, EPL, and Crime all available in the USLI Nonprofit Social & Human Services package'},{key:'Distinguished',match:'great',why:'Executive Lines wholesale D&O/EPL/Fiduciary — hard-to-place classes, E&S mindset, monoline or blended, excess and primary'},{key:'Gateway',match:'great',why:'D&O available for nonprofit boards and service-based organizations'},{key:'USLI',match:'great',why:'Nonprofit D&O up to $2M revenue, board liability focus'},{key:'Chubb-Small',match:'good',why:'ForeFront Portfolio D&O available for nonprofits'}],
     professional: [{key:'USLI-Nonprofit',match:'great',why:'Professional E&O, Abuse & Molestation, and Assault/Battery all available in USLI Nonprofit package'},{key:'Gateway',match:'great',why:'Professional liability specifically for service-based nonprofits — counseling, social services, workforce development'},{key:'Beazley-MiscMed',match:'good',why:'Social service agencies and counseling services in MiscMed appetite'}]
   },
+  worship: {
+    gl:       [{key:'USLI-Worship',match:'great',why:'Purpose-built USLI package for houses of worship — all faiths and denominations, new ventures accepted, no premises limitation (outreach/events/retreats covered), up to 40,000 sq ft, includes Pastoral Professional Liability and Abuse & Molestation'},{key:'USLI',match:'good',why:'General USLI nonprofit package also covers houses of worship and charitable orgs'},{key:'Chubb-Small',match:'good',why:'Charitable foundations and religious institutions in appetite'},{key:'Beazley',match:'good',why:'DWP is a strong cross-sell — fills deadly weapon gap for congregations and large gatherings'}],
+    mgmt:     [{key:'USLI-Worship',match:'great',why:'D&O and EPLI available in the USLI Houses of Worship package'},{key:'Distinguished',match:'good',why:'Executive Lines D&O/EPL for nonprofits including religious organizations — E&S mindset for hard-to-place boards'},{key:'USLI',match:'good',why:'Nonprofit D&O available for religious orgs under $2M revenue'}],
+    property: [{key:'USLI-Worship',match:'great',why:'Property up to $3M TIV — building must be constructed within last 75 years, roof replaced within last 25 years; coastal TIV up to $1M'},{key:'Nationwide',match:'good',why:'Commercial property for office/service occupancies'},{key:'XPT',match:'good',why:'For hard-to-place or high-value church properties — any occupancy considered'}],
+    professional: [{key:'USLI-Worship',match:'great',why:'Pastoral Professional Liability and Abuse & Molestation bundled into the GL package — no separate application needed'}]
+  },
   hospitality: {
     wc:       [{key:'MEMIC',match:'great',why:'Hotels, restaurants, resorts, country clubs preferred hospitality segment'}],
     gl:       [{key:'Distinguished',match:'great',why:'Hotels & Resorts program — limited service through luxury, boutique, casinos, franchised and independent. Hotel Primary GL + Cyber + Umbrella up to $140M'},{key:'Nationwide',match:'good',why:'Food services BOP appetite covers full/limited service restaurants'},{key:'Chubb-Small',match:'great',why:'Casual & fine dining, event planners strong appetite'},{key:'Ascendant',match:'good',why:'Restaurant & hospitality segment'},{key:'USLI',match:'good',why:'Restaurants in commercial appetite'},{key:'Beazley',match:'good',why:'DWP fills CGL gap for deadly weapon events — strong cross-sell for hotels, restaurants, entertainment venues'}],
@@ -3115,18 +3128,38 @@ function renderContacts() {
     return a.toLowerCase().localeCompare(b.toLowerCase());
   });
 
+  // Auto-expand all buckets when user is actively searching or filtering
+  var autoExpand = q.length > 0 || cf.length > 0;
+
   carrierKeys.forEach(function(carrier) {
+    var count = groups[carrier].length;
+
     var bucket = document.createElement('div');
     bucket.className = 'carrier-bucket';
 
     var header = document.createElement('div');
-    header.className = 'carrier-bucket-header';
-    header.textContent = carrier;
-    bucket.appendChild(header);
+    header.className = 'carrier-bucket-header' + (autoExpand ? ' open' : '');
+    header.innerHTML =
+      '<span>' + carrier + '<span class="bucket-count">' + count + '</span></span>' +
+      '<span class="bucket-chevron">&#9660;</span>';
+
+    var cardWrap = document.createElement('div');
+    cardWrap.className = 'bucket-grid-wrap' + (autoExpand ? ' open' : '');
+
+    header.addEventListener('click', function() {
+      var isOpen = header.classList.contains('open');
+      if (isOpen) {
+        header.classList.remove('open');
+        cardWrap.classList.remove('open');
+      } else {
+        header.classList.add('open');
+        cardWrap.classList.add('open');
+      }
+    });
 
     var cardGrid = document.createElement('div');
     cardGrid.className = 'contact-grid';
-    bucket.appendChild(cardGrid);
+    cardWrap.appendChild(cardGrid);
 
     groups[carrier].forEach(function(c) {
       visible++;
@@ -3145,6 +3178,8 @@ function renderContacts() {
       cardGrid.appendChild(card);
     });
 
+    bucket.appendChild(header);
+    bucket.appendChild(cardWrap);
     grid.appendChild(bucket);
   });
 
