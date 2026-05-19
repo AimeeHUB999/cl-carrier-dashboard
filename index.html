@@ -717,8 +717,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
           <strong>Contingent BI/PD:</strong> Optional limits up to $250K depending on class<br>
           <strong>Debt Collectors:</strong> Defense-only coverage available, incl. telecommunication violations<br>
           <strong>Printers E&amp;O:</strong> Cost of correction sublimit up to $1M<br>
-          <strong>No minimum premium</strong> for consulting risks<br>
-          <strong>Cannabis consulting</strong> considered<br>
+          <strong>No minimum premium</strong> for consulting risks · <strong>Cannabis consulting</strong> considered<br>
           <strong>Media endorsement</strong> available for small to mid-sized risks with media exposure<br>
           Available in all 50 states + DC
         </div>
@@ -2371,7 +2370,7 @@ var cardMeta = {
   },
   'Ascendant-EO': {
     updated: '2025-01-01',
-    checklist: ['ACORD application or carrier app', 'Description of professional services / operations', 'Revenue (past 12 months and projected)', 'Loss runs (3–5 years)', 'Limits requested (up to $5M primary + $5M excess)', 'Confirm claims-made and retroactive date if applicable'],
+    checklist: ['ACORD application or carrier app', 'Description of professional services / operations', 'Revenue (past 12 months and projected)', 'Loss runs (3-5 years)', 'Limits requested (up to $5M primary + $5M excess)', 'Confirm claims-made retroactive date if applicable'],
     note: 'No minimum premium for consulting risks. Cannabis consulting considered. Defense-only available for debt collectors including telecom violations. Media endorsement available for small to mid-sized risks.'
   },
   'Ascendant-Auto': {
@@ -2576,6 +2575,7 @@ function getMetaKey(card) {
   if (t.includes('Middle Market')) return 'Chubb-Middle';
   if (t.includes('Chubb Small')) return 'Chubb-Small';
   if (t.includes('Normandy')) return 'Normandy';
+  if (t.includes('N2G')) return 'N2G';
   if (t.includes('Nationwide')) return 'Nationwide';
   if (t.includes('Hartford')) return 'Hartford';
   if (t.includes('Luminor')) return 'Luminor';
@@ -3013,7 +3013,6 @@ var finderRules = {
   },
   professional: {
     gl:       [{key:'Nationwide',match:'great',why:'Attorneys, architects, engineers, accountants, IT consultants, advertising agencies — strong BOP appetite'},{key:'Chubb-Small',match:'great',why:'Lawyers, architects, consultants, photographers strong appetite'},{key:'Chubb-Middle',match:'great',why:'Professional services core industry'},{key:'N2G',match:'good',why:'Engineering, accounting, legal, and business services are preferred N2G classes — consider when firm has any foreign office or international clients'},{key:'USLI',match:'good',why:'E&O for professionals 500+ classes'},{key:'Ascendant',match:'good',why:'Professional services segment including lawyers, consultants, architects'}],
-    professional: [{key:'Ascendant-EO',match:'great',why:'Misc. Professional Liability / E&O — actuaries, appraisers, consultants, insurance agents, real estate, property management, event planners, debt collectors, bookkeepers, travel agents, and 30+ more classes. Up to $5M primary + $5M excess. All 50 states.'},{key:'USLI',match:'good',why:'E&O for professionals 500+ classes via snap.usli.com'},{key:'XPT',match:'good',why:'XPT Specialty E&O for professionals including architects, engineers, accountants, and hard-to-place classes'}],
     cyber:    [{key:'Nationwide',match:'great',why:'Cyber auto-offered on eligible BOP quotes for professional services'},{key:'Chubb-Cyber',match:'great',why:'Professional services strong cyber appetite'}],
     wc:       [{key:'Nationwide',match:'great',why:'Professional & financial services WC — attorneys, accountants, architects, engineers, advertising, IT'},{key:'MEMIC',match:'great',why:'Attorneys and financial institutions preferred'},{key:'Chubb-Small',match:'good',why:'Workers comp available for professional offices'}]
   },
@@ -3418,9 +3417,11 @@ var emailTemplates = {
   'Ascendant-EO': {
     to: '',
     subject: 'Misc. Professional Liability Submission — [Client Name] — [Class]',
-    body: 'Hello Ascendant E&O Team,\n\nPlease find a new Miscellaneous Professional Liability submission for your review.\n\nClient: [Client Name]\nClass of Business: [e.g. Consultant / Appraiser / Claims Adjuster / Insurance Agent]\nDescription of Services: [Brief description]\nRevenue (last 12 months): $[Amount]\nRevenue (projected next 12 months): $[Amount]\nNumber of Employees: [Number]\nState(s): [States]\nLimits Requested: $[Amount] per claim / $[Amount] aggregate\nRetroactive Date (if applicable): [Date]\nEffective Date: [Date]\n\nAttached:\n☐ ACORD application / carrier application\n☐ Description of professional services\n☐ Loss runs (3–5 years)\n\nPlease advise on next steps.\n\nThank you,\n[Your Name]\nHUB International'
+    body: 'Hello Ascendant E&O Team,\\n\\nPlease find a new Miscellaneous Professional Liability submission for your review.\\n\\nClient: [Client Name]\\nClass of Business: [e.g. Consultant / Appraiser / Claims Adjuster / Insurance Agent]\\nDescription of Services: [Brief description]\\nRevenue (last 12 months): $[Amount]\\nRevenue (projected next 12 months): $[Amount]\\nNumber of Employees: [Number]\\nState(s): [States]\\nLimits Requested: $[Amount] per claim / $[Amount] aggregate\\nRetroactive Date (if applicable): [Date]\\nEffective Date: [Date]\\n\\nAttached:\\n☐ ACORD application / carrier application\\n☐ Description of professional services\\n☐ Loss runs (3-5 years)\\n\\nPlease advise on next steps.\\n\\nThank you,\\n[Your Name]\\nHUB International'
   },
-  'Ascendant-Auto': { — [Client Name] — [Business Type]',
+  'Ascendant-Auto': {
+    to: '',
+    subject: 'Commercial Auto Submission — [Client Name] — [Business Type]',
     body: 'Hello Ascendant Commercial Auto Team,\n\nPlease find a new Commercial Auto submission for your review.\n\nClient: [Client Name]\nBusiness Type: [e.g. Amazon Delivery / Artisan Contractor / Courier / Freight Forwarder]\nState(s): [States]\nNumber of Vehicles: [Number]\nVehicle Types / GVW: [e.g. Light trucks / Heavy trucks / PPT used in business]\nPrimary Use: [Delivery / Service / Contractors / etc.]\nLimits Requested: $[Amount]\nEffective Date: [Date]\n\nDriver Information: [Number of drivers, any violations to note]\n\nCoverage Requested:\n☐ Commercial Auto Liability\n☐ Physical Damage\n\nNote: No credit check or CLUE report required. MVR fees covered at bind.\n\nPlease quote via Agent Quick Access → Quick Quote → Commercial Auto Liability & Physical Damage.\n\nThank you,\n[Your Name]\nHUB International'
   },
   'Beazley-MiscMed': {
