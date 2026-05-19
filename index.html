@@ -168,6 +168,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
 .add-btn{padding:8px 16px;font-size:13px;font-weight:500;border-radius:8px;background:#1A1A2E;color:#fff;border:none;cursor:pointer;white-space:nowrap;}
 .add-btn:hover{background:#2D2D4A;}
 .contact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;}
+#contact-grid{display:block;}
 .contact-card{background:#fff;border:1px solid #E5E7EB;border-radius:12px;padding:16px;position:relative;}
 .contact-card:hover{box-shadow:0 4px 12px rgba(0,0,0,0.08);}
 .c-top{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px;}
@@ -189,6 +190,8 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
 .delete-btn{position:absolute;top:10px;right:10px;background:none;border:none;cursor:pointer;color:#D1D5DB;font-size:16px;line-height:1;padding:2px;}
 .delete-btn:hover{color:#EF4444;}
 .c-carrier-tag{font-size:10px;padding:2px 7px;border-radius:10px;background:#F3F4F6;color:#6B7280;margin-top:4px;display:inline-block;}
+.carrier-bucket{margin-bottom:28px;}
+.carrier-bucket-header{font-size:13px;font-weight:700;color:#374151;text-transform:uppercase;letter-spacing:0.06em;padding:6px 0 8px 0;border-bottom:2px solid #E5E7EB;margin-bottom:12px;}
 
 /* ── Modals ── */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:200;align-items:center;justify-content:center;}
@@ -3067,32 +3070,84 @@ var nextId = 65;
 function initials(name) { return name.split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2); }
 function avatarColor(id) { return colorClasses[id % colorClasses.length]; }
 
+function lastNameKey(name) {
+  // Strip credentials after a comma (e.g. "Steven Saulino, CPCU, RPLU" -> "Saulino")
+  var base = name.split(',')[0].trim();
+  var parts = base.split(' ');
+  return parts[parts.length - 1].toLowerCase();
+}
+
 function renderContacts() {
   var q = (document.getElementById('contact-search').value || '').toLowerCase().trim();
   var cf = document.getElementById('contact-carrier-filter').value;
   var grid = document.getElementById('contact-grid');
   grid.innerHTML = '';
   var visible = 0;
-  contacts.forEach(function(c) {
+
+  // Filter first
+  var filtered = contacts.filter(function(c) {
     var carrierMatch = !cf || c.carrier === cf;
     var textMatch = !q || (c.name+c.role+c.carrier+c.email+c.phone+c.notes).toLowerCase().indexOf(q) > -1;
-    if (!carrierMatch || !textMatch) return;
-    visible++;
-    var card = document.createElement('div');
-    card.className = 'contact-card';
-    var emailHtml = c.email ? '<a href="mailto:'+c.email+'">'+c.email+'</a>' : '<span style="color:#D1D5DB">—</span>';
-    var phoneHtml = c.phone ? '<a href="tel:'+c.phone+'">'+c.phone+'</a>' : '<span style="color:#D1D5DB">—</span>';
-    var notesHtml = c.notes || '<span style="color:#D1D5DB">—</span>';
-    card.innerHTML = '<button class="delete-btn" onclick="deleteContact('+c.id+')" title="Remove">×</button>' +
-      '<div class="c-top"><div class="avatar '+avatarColor(c.id)+'">'+initials(c.name)+'</div>' +
-      '<div><div class="c-name">'+c.name+'</div><div class="c-role">'+c.role+'</div>' +
-      '<span class="c-carrier-tag">'+c.carrier+'</span></div></div>' +
-      '<div class="c-divider"></div>' +
-      '<div class="c-field"><span class="c-lbl">Email</span><span class="c-val">'+emailHtml+'</span></div>' +
-      '<div class="c-field"><span class="c-lbl">Phone</span><span class="c-val">'+phoneHtml+'</span></div>' +
-      '<div class="c-field"><span class="c-lbl">Notes</span><span class="c-val">'+notesHtml+'</span></div>';
-    grid.appendChild(card);
+    return carrierMatch && textMatch;
   });
+
+  // Group by carrier
+  var groups = {};
+  filtered.forEach(function(c) {
+    var key = c.carrier || 'Other';
+    if (!groups[key]) groups[key] = [];
+    groups[key].push(c);
+  });
+
+  // Sort contacts within each group by last name
+  Object.keys(groups).forEach(function(carrier) {
+    groups[carrier].sort(function(a, b) {
+      var la = lastNameKey(a.name);
+      var lb = lastNameKey(b.name);
+      if (la < lb) return -1;
+      if (la > lb) return 1;
+      return 0;
+    });
+  });
+
+  // Sort carrier group keys alphabetically
+  var carrierKeys = Object.keys(groups).sort(function(a, b) {
+    return a.toLowerCase().localeCompare(b.toLowerCase());
+  });
+
+  carrierKeys.forEach(function(carrier) {
+    var bucket = document.createElement('div');
+    bucket.className = 'carrier-bucket';
+
+    var header = document.createElement('div');
+    header.className = 'carrier-bucket-header';
+    header.textContent = carrier;
+    bucket.appendChild(header);
+
+    var cardGrid = document.createElement('div');
+    cardGrid.className = 'contact-grid';
+    bucket.appendChild(cardGrid);
+
+    groups[carrier].forEach(function(c) {
+      visible++;
+      var card = document.createElement('div');
+      card.className = 'contact-card';
+      var emailHtml = c.email ? '<a href="mailto:'+c.email+'">'+c.email+'</a>' : '<span style="color:#D1D5DB">—</span>';
+      var phoneHtml = c.phone ? '<a href="tel:'+c.phone+'">'+c.phone+'</a>' : '<span style="color:#D1D5DB">—</span>';
+      var notesHtml = c.notes || '<span style="color:#D1D5DB">—</span>';
+      card.innerHTML = '<button class="delete-btn" onclick="deleteContact('+c.id+')" title="Remove">×</button>' +
+        '<div class="c-top"><div class="avatar '+avatarColor(c.id)+'">'+initials(c.name)+'</div>' +
+        '<div><div class="c-name">'+c.name+'</div><div class="c-role">'+c.role+'</div></div></div>' +
+        '<div class="c-divider"></div>' +
+        '<div class="c-field"><span class="c-lbl">Email</span><span class="c-val">'+emailHtml+'</span></div>' +
+        '<div class="c-field"><span class="c-lbl">Phone</span><span class="c-val">'+phoneHtml+'</span></div>' +
+        '<div class="c-field"><span class="c-lbl">Notes</span><span class="c-val">'+notesHtml+'</span></div>';
+      cardGrid.appendChild(card);
+    });
+
+    grid.appendChild(bucket);
+  });
+
   document.getElementById('no-results-contacts').style.display = visible === 0 ? 'block' : 'none';
 }
 
