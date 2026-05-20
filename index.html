@@ -442,7 +442,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
         <select id="cl-carrier-sel">
           <option value="">— Carrier —</option>
           <option>AmRisc</option><option>Aon — Attorneys Advantage</option><option>AMERISAFE</option><option>Ascendant CPP</option><option>Ascendant Commercial Auto</option><option>Ascendant Misc E&O</option><option>Authentic</option>
-          <option>Bass Underwriters</option><option>Beazley DWP</option><option>Beazley MiscMed</option><option>Berkley Marketplace</option>
+          <option>Bass Underwriters</option><option>Beazley DWP</option><option>Beazley MiscMed</option><option>Berkley Marketplace</option><option>Bridge Specialty Group</option>
           <option>Church Mutual</option><option>CNA</option><option>Chubb Cyber</option><option>Chubb Life Sciences</option>
           <option>Distinguished Programs</option>
           <option>Chubb Middle Market</option>
@@ -2308,6 +2308,43 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
       </div>
     </div>
 
+    <!-- BRIDGE SPECIALTY GROUP -->
+    <div class="card" data-types="liability,umbrella,property" data-text="Bridge Specialty Group casualty wholesale broker surplus lines GL general liability excess liability construction hospitality real estate products liability environmental energy transportation nightclubs hotels restaurants bars contractors roofing waterproofing crane foundation repair scaffolding apartments condominiums REITS lessors risk shopping centers warehouses life sciences clinical trials pharmaceuticals medical devices cannabis cosmetics firearms ammunition food processing trucking livery passenger transport non-emergency medical transport waste haulers sand gravel OCIP CCIP owner interest rolling wrap-up large accounts GL minimum premium 25000 excess minimum 10000 admitted non-admitted Lloyds markets 95 carriers Mark Walker mwalker bridgespecialty.com bridgespecialtygroup.com">
+      <div class="card-header">
+        <div>
+          <div class="carrier-name">Bridge Specialty Group</div>
+          <div class="carrier-sub">Surplus Lines Wholesale Broker | 95+ Carriers | Admitted &amp; Non-Admitted | All States</div>
+        </div>
+        <span class="carrier-badge badge-commercial">Casualty Wholesale</span>
+      </div>
+      <div class="card-body">
+        <div class="section-lbl">Core Appetite — GL &amp; Excess</div>
+        <div class="tags">
+          <span class="tag strong">Construction — General &amp; Trade Contractors, Custom Home Builders, Scaffolding, Crane Rental, Roofing, Waterproofing, Foundation Repair, Tree Trimming</span>
+          <span class="tag strong">Hospitality (incl. Liquor) — Restaurants, Bars, Nightclubs, Hotels/Motels, Resorts &amp; Casinos, Fast Food Chains, Amusement Parks, Special Events, Catering Halls</span>
+          <span class="tag strong">Real Estate — Apartments, Condos/Townhomes, REITs, Lessor's Risk, Shopping Centers, Warehouses, Convenience Stores, Supermarkets, Affordable/Student/Elderly Housing, Campgrounds</span>
+          <span class="tag strong">Products Liability — Industrial &amp; Consumer Products, Critical Auto Parts, Food Processing, Firearms &amp; Ammunition, Tobacco/E-Cigarettes, Products Recall, Discontinued Products</span>
+          <span class="tag strong">Life Sciences — Clinical Trials, Nutraceuticals, Pharmaceuticals, Medical Devices, Cannabis, Cosmetics &amp; Skin Care</span>
+          <span class="tag strong">Environmental / Energy — GL/Professional/Pollution, Contractors/Consultants, Site Liability, Storage Tanks, TPL, Auto, Professional</span>
+          <span class="tag strong">Transportation — Excess Liability, Passenger Transport/Livery, Trucking for Hire, Contractor Fleets, Non-Emergency Medical Transport, Moving &amp; Storage, Waste Haulers, Sand &amp; Gravel Haulers</span>
+        </div>
+        <div class="section-lbl">Program Capabilities</div>
+        <div class="tags">
+          <span class="tag qualified">95+ Admitted &amp; Non-Admitted Carriers</span>
+          <span class="tag qualified">Excess Capacity over $300M</span>
+          <span class="tag qualified">OCIP / CCIP / Owner's Interest — Residential, Apartment, Commercial/Industrial, Rolling</span>
+          <span class="tag qualified">Lloyd's Markets Access</span>
+          <span class="tag qualified">GL Min Premium: $25,000 · Excess Min Premium: $10,000</span>
+        </div>
+        <div class="divider"></div>
+        <div class="note"><strong>Best use:</strong> Hard-to-place or large GL/excess risks that standard markets won't touch — nightclubs, large apartment schedules, subsidized housing, roofing contractors, hospitality with liquor, products liability with complex exposures, and construction wrap-ups. Global wholesaler with deep specialty bench.</div>
+        <div class="portals">
+          <a class="portal-link" href="https://bridgespecialtygroup.com" target="_blank">🔗 BridgeSpecialtyGroup.com</a>
+          <a class="portal-link" href="mailto:mwalker@bridgespecialty.com">✉ Mark Walker</a>
+        </div>
+      </div>
+    </div>
+
   </div><!-- /carrier-grid -->
   <div class="no-results" id="no-results-markets">No carriers match your filters.</div>
 </div><!-- /tab-markets -->
@@ -2600,6 +2637,11 @@ var cardMeta = {
     updated: '2025-01-01',
     checklist: ['Complete application for applicable coverage line (E&O, D&O, EPLI, Fiduciary, Crime)', 'Loss runs / claims history (5 years preferred)', 'Currently valued loss runs — within 90 days of effective date', 'Prior policy declarations page if applicable', 'Revenue / payroll / headcount as applicable', 'Submit to: info@xptspecialty.com'],
     note: 'Specialty E&O/D&O wholesale market — 20+ years experience. Multiple claims history and no prior coverage are acceptable. All states, admitted and non-admitted, A-rated markets only. Good escalation option when standard professional liability markets decline.'
+  },
+  'Bridge': {
+    updated: '2025-10-30',
+    checklist: ['ACORD 125, ACORD 126, ACORD 131', 'Supplemental application for the line', 'Currently valued 5-year loss history', 'Narrative on insured\'s operations', 'Expiring declarations / details', 'Target pricing', 'GL min premium: $25,000 | Excess min premium: $10,000', 'Contact: Mark Walker — mwalker@bridgespecialty.com | 704-839-7116'],
+    note: 'Bridge Specialty Group is a surplus lines wholesale brokerage — they access 95+ admitted and non-admitted carriers including Lloyd\'s markets. Not a direct carrier. Use for hard-to-place GL and excess risks: nightclubs, large apartment schedules, subsidized/student housing, roofing contractors, hospitality with liquor, complex products liability, and construction wrap-ups. Excess capacity exceeds $300M. Contact Mark Walker for casualty placements.'
   }
 };
 
@@ -2648,6 +2690,7 @@ function getMetaKey(card) {
   if (t.includes('XPT')) return 'XPT';
   if (t.includes('Houses of Worship')) return 'USLI-Worship';
   if (t.includes('USLI-Nonprofit') || t.includes('Nonprofit Social')) return 'USLI-Nonprofit';
+  if (t.includes('Bridge Specialty')) return 'Bridge';
   if (t.includes('USLI')) return 'USLI';
   return null;
 }
@@ -3039,7 +3082,7 @@ var finderRules = {
     property: [{key:'Tower-Hill',match:'great',why:'Lessor risk exposures core to commercial property appetite'},{key:'Distinguished',match:'good',why:'Real Estate umbrella up to $125M for commercial real estate owners'},{key:'Ascendant',match:'good',why:'Property package available with LRO occupancy'}]
   },
   contractor: {
-    gl:       [{key:'Nationwide',match:'great',why:'Artisan contractors: electrical, plumbing, HVAC, painting, drywall, flooring, masonry, landscaping, janitorial — strong appetite'},{key:'USLI',match:'great',why:'Artisan/trade contractors a core product'},{key:'Berkley',match:'good',why:'Construction in top industries for Berkley Marketplace'},{key:'Ascendant',match:'good',why:'Extensive contractor and construction class list'}],
+    gl:       [{key:'Nationwide',match:'great',why:'Artisan contractors: electrical, plumbing, HVAC, painting, drywall, flooring, masonry, landscaping, janitorial — strong appetite'},{key:'USLI',match:'great',why:'Artisan/trade contractors a core product'},{key:'Berkley',match:'good',why:'Construction in top industries for Berkley Marketplace'},{key:'Ascendant',match:'good',why:'Extensive contractor and construction class list'},{key:'Bridge',match:'good',why:'GL and excess for roofing, scaffolding, crane rental, foundation repair, waterproofing, general/trade contractors — OCIP/CCIP wrap-up placements available'}],
     wc:       [{key:'Nationwide',match:'great',why:'All GL-eligible contractor classes eligible for WC — target artisan contractors with $50K+ payroll'},{key:'AMERISAFE',match:'great',why:'Construction is a core hazardous industry — masonry, carpentry, plumbing, electrical'},{key:'Berkley',match:'good',why:'Workers comp available for contractors'},{key:'XPT-WC',match:'good',why:'XPT writes contractors — electricians, plumbers, painters, HVAC, landscapers all on hot list'}],
     property: [{key:'Starwind',match:'great',why:'Builders Risk for new construction — wood frame up to $25M, non-combustible up to $50M, instant quote/bind, premiums from $2K'},{key:'Nationwide',match:'good',why:'Commercial property up to $20M available for contractors'},{key:'Ascendant',match:'good',why:'Contractors equipment and construction classes'},{key:'USLI',match:'good',why:"Contractor's equipment monoline"}],
     auto:     [{key:'Ascendant-Auto',match:'great',why:'Commercial Auto built for artisan contractors and general contractors — no credit check, no CLUE, heavy trucks accepted, fleet friendly'}]
@@ -3088,7 +3131,7 @@ var finderRules = {
   },
   hospitality: {
     wc:       [{key:'MEMIC',match:'great',why:'Hotels, restaurants, resorts, country clubs preferred hospitality segment'}],
-    gl:       [{key:'Distinguished',match:'great',why:'Hotels & Resorts program — limited service through luxury, boutique, casinos, franchised and independent. Hotel Primary GL + Cyber + Umbrella up to $140M'},{key:'Nationwide',match:'good',why:'Food services BOP appetite covers full/limited service restaurants'},{key:'Chubb-Small',match:'great',why:'Casual & fine dining, event planners strong appetite'},{key:'Ascendant',match:'good',why:'Restaurant & hospitality segment'},{key:'USLI',match:'good',why:'Restaurants in commercial appetite'},{key:'Beazley',match:'good',why:'DWP fills CGL gap for deadly weapon events — strong cross-sell for hotels, restaurants, entertainment venues'}],
+    gl:       [{key:'Distinguished',match:'great',why:'Hotels & Resorts program — limited service through luxury, boutique, casinos, franchised and independent. Hotel Primary GL + Cyber + Umbrella up to $140M'},{key:'Nationwide',match:'good',why:'Food services BOP appetite covers full/limited service restaurants'},{key:'Chubb-Small',match:'great',why:'Casual & fine dining, event planners strong appetite'},{key:'Ascendant',match:'good',why:'Restaurant & hospitality segment'},{key:'USLI',match:'good',why:'Restaurants in commercial appetite'},{key:'Beazley',match:'good',why:'DWP fills CGL gap for deadly weapon events — strong cross-sell for hotels, restaurants, entertainment venues'},{key:'Bridge',match:'good',why:'GL and excess for nightclubs, bars, hotels/motels, resorts, casinos, fast food chains, special events, catering halls — liquor liability included'}],
     property: [{key:'Distinguished',match:'great',why:'Hotel & Resort umbrella up to $140M — dedicated limits per client, A to A+ rated carriers, 1M+ hotel rooms covered'},{key:'CNA',match:'great',why:'Hospitality in portfolio mix'},{key:'N2G',match:'good',why:'Hospitality a preferred N2G class — good fit when hotel/resort group has any foreign locations'},{key:'Tower-Hill',match:'good',why:'Hotels (CP only) available'},{key:'Ascendant',match:'good',why:'Bed and breakfasts, caterers, event planners, restaurants available'}]
   },
   auto_dealer: {
@@ -3096,7 +3139,7 @@ var finderRules = {
   },
   trucking: {
     wc:       [{key:'AMERISAFE',match:'great',why:'Trucking NOC (7219) is a top class code — 30+ years experience'}],
-    gl:       [{key:'USLI',match:'great',why:'Truckers general liability is a named product'},{key:'Berkley',match:'good',why:'Transportation a top industry'}],
+    gl:       [{key:'USLI',match:'great',why:'Truckers general liability is a named product'},{key:'Berkley',match:'good',why:'Transportation a top industry'},{key:'Bridge',match:'good',why:'Transportation excess capacity available — trucking for hire, contractor fleets, waste haulers, sand & gravel haulers, moving & storage'}],
     auto:     [{key:'Ascendant-Auto',match:'great',why:'Commercial Auto for freight forwarders, delivery, heavy trucks, large fleets — no credit check, no CLUE, 13% commission'}]
   },
   agribusiness: {
@@ -3438,6 +3481,7 @@ var carrierRatings = {
   'XPT':            {rating:'NR',  label:'Wholesale — varies by carrier', source:''},
   'USLI-Nonprofit':  {rating:'A++', label:'A++ (Superior)', source:'A.M. Best'},
   'USLI-Worship':    {rating:'A++', label:'A++ (Superior)', source:'A.M. Best'},
+  'Bridge':         {rating:'WB',  label:'Wholesale Broker — accesses 95+ rated carriers, not itself rated', source:''},
   'USLI':           {rating:'A++', label:'A++ (Superior)', source:'A.M. Best'},
 };
 
@@ -3611,6 +3655,12 @@ var emailTemplates = {
     to: 'jakesheeder@xptspecialty.com',
     subject: 'Commercial Property Submission — [Client Name] — [Occupancy]',
     body: 'Hi Jake,\n\nI have a commercial property submission I\'d like to discuss with you.\n\nClient: [Client Name]\nOccupancy: [e.g. Hotel / Shopping Center / Vacant Building / Coastal Residential]\nLocation: [Address, City, State]\nTotal Insurable Value (TIV): $[Amount]\nYear Built: [Year]\nConstruction Type: [e.g. Frame / Masonry / Non-Combustible]\nNumber of Buildings / Stories: [Number]\nOccupancy Type: [Owner-Occupied / Tenant-Occupied / Vacant]\nCurrent Carrier / Expiring Premium: [Carrier / $Amount]\nEffective Date: [Date]\n\nSpecial Circumstances:\n☐ Coastal — Wind / Hail / Flood exposure\n☐ California — Earthquake / Wildfire exposure\n☐ Large TIV over $100M\n☐ Complex layered structure\n☐ Builders Risk including renovation\n☐ Renewable energy exposure\n\nCoverages Needed:\n☐ All Risk\n☐ DIC\n☐ Deductible Buy Down\n☐ Excess Property\n☐ Terrorism\n\nAttached:\n☐ Statement of values / property schedule\n☐ Loss runs (5 years)\n☐ Current expiring program details\n☐ Engineering / inspection reports (if available)\n\nPlease let me know your appetite and next steps.\n\nThank you,\n[Your Name]\nHUB International'
+  },
+  'Bridge': {
+    updated: '2025-10-30',
+    to: 'mwalker@bridgespecialty.com',
+    subject: 'Submission \u2014 [Insured Name] | [GL/Excess] | Eff. [Date]',
+    body: 'Hi Mark,\\n\\nPlease find a new submission for GL/excess placement.\\n\\nClient: [Insured Name]\\nEffective Date: [Date]\\nCoverage Requested: [GL / Excess / Both]\\nClass of Business: [e.g. Roofing Contractor / Nightclub / Apartment Complex]\\nRevenue / Payroll / Units: [Amount]\\nState(s): [States]\\n\\nLoss History (5 years):\\n[Summary]\\n\\nExpiring: [Carrier / $Premium]\\nTarget Premium: $[if known]\\n\\nAttached:\\n\u2610 ACORD 125, 126, 131\\n\u2610 Supplemental application\\n\u2610 5-year loss runs\\n\u2610 Narrative on operations\\n\u2610 Expiring declarations\\n\\nGL min premium: $25,000 | Excess min premium: $10,000\\n\\nPlease advise on markets.\\n\\nThank you,\\n[Your Name]\\nHUB International South Florida'
   },
   'default': {
     to: '',
