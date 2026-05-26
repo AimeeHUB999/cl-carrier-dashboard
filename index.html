@@ -2813,7 +2813,7 @@ function enhanceCards() {
 
     var header = card.querySelector('.card-header');
     if (header) {
-      var badge = header.querySelector('.carrier-badge');
+      var badges = Array.from(header.querySelectorAll('.carrier-badge'));
       var nameDiv = header.querySelector('.carrier-name')?.parentElement;
       header.innerHTML = '';
       var left = document.createElement('div');
@@ -2821,7 +2821,7 @@ function enhanceCards() {
       if (nameDiv) left.appendChild(nameDiv);
       var right = document.createElement('div');
       right.className = 'card-header-right';
-      if (badge) right.appendChild(badge);
+      badges.forEach(function(b) { right.appendChild(b); });
 
       // Updated badge
       if (meta.updated) {
