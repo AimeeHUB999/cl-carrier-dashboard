@@ -452,7 +452,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
           <option>Great American</option>
           <option>Chubb Middle Market</option>
           <option>Chubb Small Business</option><option>Chubb Technology</option><option>Gateway Specialty</option><option>Hartford</option><option>Hull &amp; Company</option><option>Luminor Risk</option><option>MEMIC</option><option>Method Insurance</option><option>N2G</option><option>Normandy</option><option>Nationwide</option>
-          <option>Starr — Commercial Property</option><option>Starwind Community Associations</option><option>Starwind Specialty</option><option>Tokio Marine Highland</option><option>Tower Hill</option><option>US Assure</option><option>USLI</option><option>USLI Nonprofit Social Services</option><option>USLI Houses of Worship</option><option>XPT Specialty</option>
+          <option>Starr — Commercial Property</option><option>Starwind Community Associations</option><option>Starwind Specialty</option><option>Summit — Workers' Comp</option><option>Tokio Marine Highland</option><option>Tower Hill</option><option>US Assure</option><option>USLI</option><option>USLI Nonprofit Social Services</option><option>USLI Houses of Worship</option><option>XPT Specialty</option>
         </select>
         <input type="date" id="cl-date-input">
       </div>
@@ -2124,6 +2124,53 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
       </div>
     </div>
 
+    <!-- SUMMIT -->
+    <div class="card" data-types="wc" data-text="Summit workers compensation workers comp WC Bridgefield Casualty Bridgefield Employers Bridgefield Indemnity RetailFirst BusinessFirst Retailers Casualty hazardous industry construction manufacturing retail hospitality healthcare agriculture restaurants hotels motels roofing logging trucking landscaping Florida southeast AL AR GA IL IN KY LA MD MS NC OH OK PA SC TN TX VA WV DC in-house claims safety consulting Back2work return to work loss prevention premium audit no money down pay as you go competitive payment 31000 insured businesses summitholdings.com member Great American Insurance Group GAIG">
+      <div class="card-header">
+        <div>
+          <div class="carrier-name">Summit — Workers' Comp</div>
+          <div class="carrier-sub">Bridgefield (A+ Superior) · RetailFirst / BusinessFirst / Retailers Casualty (A- Excellent) | 18 states + D.C.</div>
+        </div>
+        <span class="carrier-badge badge-wc">Workers' Comp</span>
+      </div>
+      <div class="card-body">
+        <div class="section-lbl">Appetite Highlights</div>
+        <div class="tags-row">
+          <span class="tag">Construction &amp; Trades</span>
+          <span class="tag">Manufacturing</span>
+          <span class="tag">Retail / Hospitality</span>
+          <span class="tag">Healthcare</span>
+          <span class="tag">Restaurants</span>
+          <span class="tag">Trucking / Transportation</span>
+          <span class="tag">Agribusiness</span>
+          <span class="tag">Logging / Hazardous</span>
+          <span class="tag">Landscaping</span>
+          <span class="tag">Small to Mid-Market</span>
+        </div>
+        <div class="section-lbl">Coverage &amp; Key Features</div>
+        <div class="tags-row">
+          <span class="tag">Workers' Compensation (monoline)</span>
+          <span class="tag">Competitive payment options — most with no money down</span>
+          <span class="tag">In-house claims management + 24-hr reporting</span>
+          <span class="tag">In-house loss prevention / safety consulting</span>
+          <span class="tag">Back2work® return-to-work program</span>
+          <span class="tag">In-house premium audits — same auditor year to year</span>
+          <span class="tag">In-house nurse case management &amp; physician review</span>
+          <span class="tag">Bilingual (Spanish) customer care</span>
+        </div>
+        <div class="section-lbl">States Served</div>
+        <div class="tags-row">
+          <span class="tag">FL · AL · AR · DC · GA · IL · IN · KY · LA · MD · MS · NC · OH · OK · PA · SC · TN · TX · VA · WV (18 states + D.C.)</span>
+        </div>
+        <div class="section-lbl">About Summit</div>
+        <div class="tags-row">
+          <span class="tag contact">Founded 1977 · 31,000 insured businesses · 7,000+ independent agent relationships · $784M managed premium (2025)</span>
+          <span class="tag contact">Member of Great American Insurance Group since 2014 · HQ: Lakeland, FL · summitholdings.com · 1.800.282.7648</span>
+          <span class="tag contact">AM Best: Bridgefield companies A+ (Superior) · RetailFirst / BusinessFirst / Retailers Casualty A- (Excellent)</span>
+        </div>
+      </div>
+    </div>
+
     <!-- TOKIO MARINE HIGHLAND -->
     <div class="card" data-types="property" data-text="Tokio Marine Highland TMH TM Highland private flood flood insurance commercial flood residential flood excess flood NFIP private flood alternative Lloyd's of London Tokio Marine Group Tokio Marine Kiln office buildings hotels motels restaurants shopping centers apartment complexes houses of worship single family multi-family condo units renters residential flood excess flood business income additional living expense replacement cost no elevation certificate no HFIAA surcharge lender compliant Lydia Martinez PrivateFloodSolution excessfloodquote">
       <div class="card-header">
@@ -2563,6 +2610,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
       <option value="Starr">Starr</option>
       <option value="Starwind">Starwind Specialty</option>
       <option value="Starwind Community Associations">Starwind Community Associations</option>
+      <option value="Summit">Summit</option>
       <option value="Tower Hill">Tower Hill</option>
       <option value="US Assure">US Assure</option>
       <option value="USLI">USLI</option>
@@ -2608,6 +2656,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
         <option value="Starr">Starr</option>
         <option value="Starwind">Starwind Specialty</option>
         <option value="Starwind Community Associations">Starwind Community Associations</option>
+        <option value="Summit">Summit</option>
         <option value="Tokio Marine Highland">Tokio Marine Highland</option>
       <option value="Tower Hill">Tower Hill</option>
         <option value="US Assure">US Assure</option>
@@ -2807,6 +2856,11 @@ var cardMeta = {
     checklist: ['Builders Risk Worksheet form 26-0534 (available at starwindins.com)', 'Itemization of hard costs, soft costs, and rental/income values', 'Construction schedule', 'Site map', 'Geotechnical report', 'General contractor name, website, and years in business', 'Confirm: new construction only, 4-wall building, GC has 5+ years experience'],
     note: 'Instant quote/bind/issue for eligible risks. Premiums as low as $2K. Wood frame/joisted masonry up to $25M TIV; non-combustible up to $50M TIV. Renovation appetite coming soon per starwindins.com.'
   },
+  'Summit': {
+    updated: '2026-05-29',
+    checklist: ['ACORD 130 (Workers Compensation Application)', 'Supplemental application if required for class', 'NCCI / WCIRB Experience Mod Worksheet — current and prior period', 'Currently valued loss runs (within 90 days of effective date)', 'Detailed payroll breakdown by class code', 'Description of operations', 'Confirm state(s) of operation — Summit writes 18 states + D.C. (not all 50)', 'Payment plan preference (most options require no money down)', 'Submit via your dedicated Summit business developer/underwriter'],
+    note: 'Workers comp specialist — 40+ years, 31,000 insured businesses. Dedicated business developer + single underwriter assigned per agency. In-house claims, safety consulting, premium audit, nurse case management, and Back2work RTW program all included. Contact: summitholdings.com | 1.800.282.7648. Member of Great American Insurance Group.'
+  },
   'Starr': {
     updated: '2026-04-03',
     checklist: ['Identify which program applies: Middle Market (TIV up to $500M, min $50K premium) or Large Account (complex/CAT/layered)', 'Contact regional underwriter before submitting (Middle Market) or Jamie Mullarkey (Large Account / Global)', 'ACORD property application', 'Statement of values / property schedule', 'Loss runs (5 years preferred)', 'Construction type, year built, occupancy, number of stories', 'Current program details and limits structure (for layered/large accounts)', 'Engineering / inspection reports if available'],
@@ -2899,6 +2953,7 @@ function getMetaKey(card) {
   if (t.includes('US Assure')) return 'USAssure';
   if (t.includes('Community Associations')) return 'Starwind-CA';
   if (t.includes('Starwind')) return 'Starwind';
+  if (t.includes('Summit') && t.includes("Workers' Comp")) return 'Summit';
   if (t.includes('Tokio Marine Highland')) return 'TMHighland';
   if (t.includes('Tower Hill')) return 'Tower-Hill';
   if (t.includes("Workers' Comp") && t.includes('XPT')) return 'XPT-WC';
@@ -3272,7 +3327,7 @@ var finderRules = {
     gl:       [{key:'Authentic-Restaurants',match:'great',why:'Purpose-built restaurant program, full/fine dining, fast casual'},{key:'Authentic-Commercial',match:'great',why:'Broad commercial including restaurants'},{key:'Nationwide',match:'good',why:'Full/limited service restaurants, fast casual, cafes, delis — strong appetite'},{key:'USLI',match:'good',why:'Restaurants in commercial appetite'},{key:'Distinguished',match:'good',why:'Restaurant Umbrella up to $125M — fine dining, casual, fast casual, wine bars, caterers, ghost restaurants'},{key:'Ascendant',match:'good',why:'Restaurant & hospitality segment with 1,000+ class codes'},{key:'Chubb-Small',match:'good',why:'Casual & fine dining strong appetite'}],
     property: [{key:'Ascendant',match:'great',why:'Restaurant occupancy + property package available'},{key:'Tower-Hill',match:'good',why:'Restaurant occupancy (LRO) and commercial property'},{key:'CNA',match:'possible',why:'Hospitality in portfolio mix for large accounts'}],
     liquor:   [{key:'Authentic-Restaurants',match:'great',why:'Liquor liability built into restaurant program, 46 states'},{key:'USLI',match:'great',why:'Liquor liability in core appetite'},{key:'Ascendant',match:'good',why:'Liquor liability available'}],
-    wc:       [{key:'Nationwide',match:'great',why:'Full/limited service restaurants eligible — monoline or packaged with BOP'},{key:'MEMIC',match:'good',why:'Restaurants (not fast food) in hospitality appetite'},{key:'AMERISAFE',match:'possible',why:'Check class code — some food processing classes covered'},{key:'XPT-WC',match:'possible',why:'XPT Workers Comp has extensive appetite — new ventures and nonstandard risks accepted'}]
+    wc:       [{key:'Nationwide',match:'great',why:'Full/limited service restaurants eligible — monoline or packaged with BOP'},{key:'Summit',match:'great',why:'Restaurants are a core Summit class — in-house claims, safety consulting, and RTW program included'},{key:'MEMIC',match:'good',why:'Restaurants (not fast food) in hospitality appetite'},{key:'AMERISAFE',match:'possible',why:'Check class code — some food processing classes covered'},{key:'XPT-WC',match:'possible',why:'XPT Workers Comp has extensive appetite — new ventures and nonstandard risks accepted'}]
   },
   fitness: {
     gl:       [{key:'Authentic-Fitness',match:'great',why:'Purpose-built gym & fitness program, all 50 states'},{key:'Authentic-Commercial',match:'great',why:'Fitness studios and gyms in target classes'},{key:'USLI',match:'good',why:'Fitness centers in commercial appetite'},{key:'Ascendant',match:'good',why:'Health or exercise clubs, gyms, yoga in appetite'}],
@@ -3282,7 +3337,7 @@ var finderRules = {
   retail: {
     gl:       [{key:'Chubb-Small',match:'great',why:'Retail strong appetite — clothing, jewelry, bakeries, florists'},{key:'Nationwide',match:'great',why:'Broad retail BOP appetite — hardware, florists, gift, sporting goods, optical, office supply'},{key:'USLI',match:'great',why:'Main Street mercantile a core product'},{key:'Ascendant',match:'good',why:'Broad retail & service segment'},{key:'Authentic-Commercial',match:'good',why:'Retail excl. cannabis in target classes'}],
     property: [{key:'Ascendant',match:'great',why:'Retail occupancy and broad property package'},{key:'Tower-Hill',match:'good',why:'Retail shops in commercial property appetite'},{key:'N2G',match:'good',why:'Retail trade a preferred N2G class — consider when retailer has any foreign locations or international sourcing operations'},{key:'CNA',match:'possible',why:'Retail trade in portfolio mix'}],
-    wc:       [{key:'Nationwide',match:'great',why:'95% of BOP-eligible retail NAICS codes also eligible for WC — florists, hardware, clothing, sporting goods and more'},{key:'MEMIC',match:'great',why:'Retail stores (not convenience stores) preferred industry'},{key:'AMERISAFE',match:'possible',why:'Retail not core — check class code'},{key:'Chubb-Middle',match:'good',why:'Workers comp available for retail'},{key:'XPT-WC',match:'good',why:'XPT retail hot list includes grocery, clothing, hardware, florists, drug stores, jewelry and more'}]
+    wc:       [{key:'Nationwide',match:'great',why:'95% of BOP-eligible retail NAICS codes also eligible for WC — florists, hardware, clothing, sporting goods and more'},{key:'Summit',match:'great',why:'Retail is a named Summit class — RetailFirst carrier specifically targets retail WC'},{key:'MEMIC',match:'great',why:'Retail stores (not convenience stores) preferred industry'},{key:'AMERISAFE',match:'possible',why:'Retail not core — check class code'},{key:'Chubb-Middle',match:'good',why:'Workers comp available for retail'},{key:'XPT-WC',match:'good',why:'XPT retail hot list includes grocery, clothing, hardware, florists, drug stores, jewelry and more'}]
   },
   habitational: {
     property: [{key:'Distinguished',match:'great',why:'Community Associations Package — COAs, HOAs, PUDs, co-ops, townhouses. Up to $30M TIV, 125% extended replacement cost, crime included'},{key:'Tower-Hill',match:'great',why:'Apartments, HOAs, condos are core commercial residential appetite'},{key:'CNA',match:'great',why:'Habitational in portfolio (non-combustible apartments/condos)'},{key:'Luminor',match:'good',why:'Excess only for apartments — no primary hab. Min TIV $25M. Southeast wind-driven focus. Wholesale access only.'},{key:'Ascendant',match:'good',why:'Apartment buildings, condominiums, vacation rentals available'}],
@@ -3299,7 +3354,7 @@ var finderRules = {
   },
   contractor: {
     gl:       [{key:'Nationwide',match:'great',why:'Artisan contractors: electrical, plumbing, HVAC, painting, drywall, flooring, masonry, landscaping, janitorial — strong appetite'},{key:'USLI',match:'great',why:'Artisan/trade contractors a core product'},{key:'Berkley',match:'good',why:'Construction in top industries for Berkley Marketplace'},{key:'Ascendant',match:'good',why:'Extensive contractor and construction class list'},{key:'Bridge',match:'good',why:'GL and excess for roofing, scaffolding, crane rental, foundation repair, waterproofing, general/trade contractors — OCIP/CCIP wrap-up placements available'}],
-    wc:       [{key:'Nationwide',match:'great',why:'All GL-eligible contractor classes eligible for WC — target artisan contractors with $50K+ payroll'},{key:'AMERISAFE',match:'great',why:'Construction is a core hazardous industry — masonry, carpentry, plumbing, electrical'},{key:'Berkley',match:'good',why:'Workers comp available for contractors'},{key:'XPT-WC',match:'good',why:'XPT writes contractors — electricians, plumbers, painters, HVAC, landscapers all on hot list'}],
+    wc:       [{key:'Nationwide',match:'great',why:'All GL-eligible contractor classes eligible for WC — target artisan contractors with $50K+ payroll'},{key:'AMERISAFE',match:'great',why:'Construction is a core hazardous industry — masonry, carpentry, plumbing, electrical'},{key:'Summit',match:'great',why:'Construction and trades are a core Summit class — roofing, HVAC, landscaping, and general trades all in appetite'},{key:'Berkley',match:'good',why:'Workers comp available for contractors'},{key:'XPT-WC',match:'good',why:'XPT writes contractors — electricians, plumbers, painters, HVAC, landscapers all on hot list'}],
     property: [{key:'Starwind',match:'great',why:'Builders Risk for new construction — wood frame up to $25M, non-combustible up to $50M, instant quote/bind, premiums from $2K'},{key:'Nationwide',match:'good',why:'Commercial property up to $20M available for contractors'},{key:'Ascendant',match:'good',why:'Contractors equipment and construction classes'},{key:'USLI',match:'good',why:"Contractor's equipment monoline"}],
     auto:     [{key:'Ascendant-Auto',match:'great',why:'Commercial Auto built for artisan contractors and general contractors — no credit check, no CLUE, heavy trucks accepted, fleet friendly'}]
   },
@@ -3309,7 +3364,7 @@ var finderRules = {
     wc:       [{key:'Nationwide',match:'good',why:'Janitorial/cleaning services eligible for WC monoline or packaged'},{key:'XPT-WC',match:'good',why:'XPT Workers Comp covers cleaning and janitorial class codes — new ventures accepted'}]
   },
   manufacturing: {
-    wc:       [{key:'AMERISAFE',match:'great',why:'Manufacturing a core industry — machine shops, fabricated metals, wood products'},{key:'MEMIC',match:'great',why:'Manufacturing preferred — machine shops, electronics, food products, plastics, pharmaceuticals'}],
+    wc:       [{key:'AMERISAFE',match:'great',why:'Manufacturing a core industry — machine shops, fabricated metals, wood products'},{key:'MEMIC',match:'great',why:'Manufacturing preferred — machine shops, electronics, food products, plastics, pharmaceuticals'},{key:'Summit',match:'good',why:'Manufacturing in Summit appetite — in-house claims + loss prevention included'}],
     property: [{key:'CNA',match:'great',why:'HPR manufacturing core appetite — fabricated metals, electronics, industrial machinery, medical devices'},{key:'XPT',match:'good',why:'Light manufacturing in XPT target classes — wholesale access for difficult-to-place or high-TIV manufacturing property'},{key:'N2G',match:'good',why:'Manufacturing a preferred N2G class — ideal when insured has foreign operations (even a single overseas location qualifies)'},{key:'Berkley',match:'good',why:'Manufacturing a top industry for Berkley Marketplace'}],
     gl:       [{key:'Berkley',match:'good',why:'Manufacturing in Berkley top industries'},{key:'Ascendant',match:'good',why:'Manufacturing segment available'}],
     equipment_breakdown: [{key:'CNA',match:'great',why:'Equipment breakdown core appetite includes manufacturing and durable goods'}]
@@ -3322,7 +3377,7 @@ var finderRules = {
   },
   healthcare: {
     gl:       [{key:'Nationwide',match:'great',why:'Physicians, dentists, chiropractors, optometrists, physical therapists, urgent care — strong BOP appetite'},{key:'Chubb-Small',match:'great',why:'Medical & dentist offices strong appetite'},{key:'Authentic-Commercial',match:'good',why:'Medical offices in target classes'},{key:'Ascendant',match:'good',why:'Health care facilities, medical offices, home health care'},{key:'Beazley-MiscMed',match:'good',why:'Hard-to-place or complex healthcare — behavioral health, dialysis, ambulance, hospice, staffing, telemedicine, surgery centers and more'}],
-    wc:       [{key:'Nationwide',match:'great',why:'Health care services WC eligible — physicians, dentists, therapists, optometrists, urgent care'},{key:'MEMIC',match:'great',why:'Physicians offices and clinics, hospitals, CCRCs preferred'},{key:'AMERISAFE',match:'possible',why:'Check specific class code'}],
+    wc:       [{key:'Nationwide',match:'great',why:'Health care services WC eligible — physicians, dentists, therapists, optometrists, urgent care'},{key:'MEMIC',match:'great',why:'Physicians offices and clinics, hospitals, CCRCs preferred'},{key:'Summit',match:'good',why:'Healthcare in Summit appetite — hospitals, clinics, and medical offices eligible'},{key:'AMERISAFE',match:'possible',why:'Check specific class code'}],
     property: [{key:'XPT',match:'good',why:'XPT writes hospitals and nursing homes — ideal for large TIV or challenging healthcare property'},{key:'CNA',match:'great',why:'Healthcare in portfolio mix for large accounts'},{key:'Tower-Hill',match:'possible',why:'Check specific occupancy'},{key:'Ascendant',match:'good',why:'Healthcare segment available'}],
     professional: [{key:'Beazley-MiscMed',match:'great',why:'Healthcare Professional Liability — modular policy covers HPL, GL, sexual misconduct, PCO, clinical trials, E&O. Min premium $25K. 50+ eligible classes including hard-to-place.'}]
   },
@@ -3351,7 +3406,7 @@ var finderRules = {
     professional: [{key:'USLI-Worship',match:'great',why:'Pastoral Professional Liability and Abuse & Molestation bundled into the GL package — no separate application needed'}]
   },
   hospitality: {
-    wc:       [{key:'MEMIC',match:'great',why:'Hotels, restaurants, resorts, country clubs preferred hospitality segment'}],
+    wc:       [{key:'MEMIC',match:'great',why:'Hotels, restaurants, resorts, country clubs preferred hospitality segment'},{key:'Summit',match:'great',why:'Hotels and hospitality a named Summit class — in-house claims and Back2work RTW program included'}],
     gl:       [{key:'Distinguished',match:'great',why:'Hotels & Resorts program — limited service through luxury, boutique, casinos, franchised and independent. Hotel Primary GL + Cyber + Umbrella up to $140M'},{key:'Nationwide',match:'good',why:'Food services BOP appetite covers full/limited service restaurants'},{key:'Chubb-Small',match:'great',why:'Casual & fine dining, event planners strong appetite'},{key:'Ascendant',match:'good',why:'Restaurant & hospitality segment'},{key:'USLI',match:'good',why:'Restaurants in commercial appetite'},{key:'Beazley',match:'good',why:'DWP fills CGL gap for deadly weapon events — strong cross-sell for hotels, restaurants, entertainment venues'},{key:'Bridge',match:'good',why:'GL and excess for nightclubs, bars, hotels/motels, resorts, casinos, fast food chains, special events, catering halls — liquor liability included'}],
     property: [{key:'Distinguished',match:'great',why:'Hotel & Resort umbrella up to $140M — dedicated limits per client, A to A+ rated carriers, 1M+ hotel rooms covered'},{key:'CNA',match:'great',why:'Hospitality in portfolio mix'},{key:'N2G',match:'good',why:'Hospitality a preferred N2G class — good fit when hotel/resort group has any foreign locations'},{key:'Tower-Hill',match:'good',why:'Hotels (CP only) available'},{key:'Ascendant',match:'good',why:'Bed and breakfasts, caterers, event planners, restaurants available'}]
   },
@@ -3359,12 +3414,12 @@ var finderRules = {
     wc:       [{key:'MEMIC',match:'great',why:'Automobile dealerships is a named preferred industry'}]
   },
   trucking: {
-    wc:       [{key:'AMERISAFE',match:'great',why:'Trucking NOC (7219) is a top class code — 30+ years experience'}],
+    wc:       [{key:'AMERISAFE',match:'great',why:'Trucking NOC (7219) is a top class code — 30+ years experience'},{key:'Summit',match:'good',why:'Transportation in Summit appetite — check class code with your Summit underwriter'}],
     gl:       [{key:'USLI',match:'great',why:'Truckers general liability is a named product'},{key:'Berkley',match:'good',why:'Transportation a top industry'},{key:'Bridge',match:'good',why:'Transportation excess capacity available — trucking for hire, contractor fleets, waste haulers, sand & gravel haulers, moving & storage'}],
     auto:     [{key:'Ascendant-Auto',match:'great',why:'Commercial Auto for freight forwarders, delivery, heavy trucks, large fleets — no credit check, no CLUE, 13% commission'}]
   },
   agribusiness: {
-    wc:       [{key:'AMERISAFE',match:'great',why:'Agribusiness a core industry — farm/field crops, livestock, landscape gardening, tree pruning'},{key:'Method',match:'great',why:'Dedicated Agriculture WC program — berry farms, crop farming, dairy, floriculture, greenhouses, vineyards, aquaculture. Not available in ND, NY, OH, WA, WY.'},{key:'Nationwide',match:'possible',why:'Check specific class code for agricultural operations'}],
+    wc:       [{key:'AMERISAFE',match:'great',why:'Agribusiness a core industry — farm/field crops, livestock, landscape gardening, tree pruning'},{key:'Method',match:'great',why:'Dedicated Agriculture WC program — berry farms, crop farming, dairy, floriculture, greenhouses, vineyards, aquaculture. Not available in ND, NY, OH, WA, WY.'},{key:'Summit',match:'good',why:'Landscaping and agricultural operations in Summit appetite — check class code with underwriter'},{key:'Nationwide',match:'possible',why:'Check specific class code for agricultural operations'}],
     gl:       [{key:'Ascendant',match:'good',why:'Agricultural & farming segment available'}]
   },
   staffing: {
@@ -3724,6 +3779,7 @@ var carrierRatings = {
   'Nationwide':     {rating:'A+',  label:'A+ (Superior)',  source:'A.M. Best'},
   'Starwind-CA':    {rating:'A++', label:'A++ AM Best (USLI)',source:''},
   'Starwind':       {rating:'A',   label:'A-rated capacity (CRC Group)',source:''},
+  'Summit':         {rating:'A+/A-', label:'A+ (Superior) — Bridgefield companies; A- (Excellent) — RetailFirst / BusinessFirst / Retailers Casualty', source:'A.M. Best'},
   'Tower-Hill':     {rating:'A',   label:'A (Exceptional)',source:'Demotech'},
   'XPT':             {rating:'NR',  label:'Wholesale Broker — varies by market', source:''},
   'XPT':            {rating:'NR',  label:'Wholesale — varies by carrier', source:''},
@@ -3879,6 +3935,11 @@ var emailTemplates = {
     to: '',
     subject: 'Builders Risk Submission — [Project Name] — [Occupancy] — [State]',
     body: 'Hello Starwind Team,\n\nPlease find a new Builders Risk submission for your review.\n\nNamed Insured: [Name]\nProject Name: [Project Name]\nProject Address: [Address, City, State, ZIP]\nOccupancy: [e.g. Residential / Commercial / Institutional]\nType of Project: [e.g. Single Family / Condos / School]\nConstruction Classification: [e.g. Wood Frame / Joisted Masonry / Non-Combustible]\nConstruction Start Date: [Date]\nConstruction Expiration Date: [Date]\nGeneral Contractor: [Name] | Years in Business: [Number]\n\nValues:\nProject Hard Costs: $[Amount]\nProject Soft Costs: $[Amount]\nRental / Business Income: $[Amount]\nOwner Supplied Materials (FFE): $[Amount]\nTotal Insured Value: $[Amount]\n\nNumber of Stories: [Number] | Square Footage: [SF]\nNumber of Structures: [Number]\n\nOptional Coverages Requested:\n☐ Flood — Desired Limit: $[Amount] | FEMA Zone: [Zone]\n☐ Earth Movement — Desired Limit: $[Amount]\n☐ Delay in Completion — Soft Costs\n☐ Delay in Completion — Rental/Income\n☐ Permission to Occupy\n☐ TRIA\n\nAttached:\n☐ Starwind Builders Risk Worksheet (form 26-0534)\n☐ Itemization of hard costs, soft costs, rental/income values\n☐ Construction schedule\n☐ Site map\n☐ Geotechnical report\n\nPlease confirm receipt and anticipated turnaround.\n\nThank you,\n[Your Name]\nHUB International'
+  },
+  'Summit': {
+    to: '',
+    subject: 'Workers Comp Submission — [Client Name] — [Class Code] — [State]',
+    body: 'Hello Summit Team,\n\nPlease find a new workers comp submission to place with Summit.\n\nNamed Insured: [Client Name]\nBusiness Address: [Address, City, State, ZIP]\nDescription of Operations: [Brief description]\nClass Code(s): [Code — Description]\nState(s) of Operation: [States]\nEstimated Annual Payroll: $[Amount]\nEffective Date: [Date]\nPayment Plan Preference: [e.g. No money down installments / Pay-as-you-go]\n\nExperience Modification:\nCurrent Mod: [Mod] | Effective Date: [Date]\nPrior Mod: [Mod] | Effective Date: [Date]\n\nLoss History (most recent 3–5 years): [None / See attached]\n\nAttached:\n☐ ACORD 130\n☐ NCCI/WCIRB Experience Mod Worksheet (current + prior)\n☐ Currently valued loss runs (within 90 days of eff. date)\n☐ Supplemental application (if required)\n\nPlease confirm receipt and assign to the appropriate underwriter.\n\nThank you,\n[Your Name]\nHUB International'
   },
   'Starr': {
     to: 'jamie.mullarkey@starr.com',
