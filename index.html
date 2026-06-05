@@ -4506,11 +4506,21 @@ enhanceCards();
 renderContacts();
 filterCards();
 
+// Collapse all cards on initial load
+document.querySelectorAll('#carrier-grid .card').forEach(function(card) {
+  var body = card.querySelector('.card-body');
+  card.classList.add('is-collapsed');
+  if (body) body.classList.add('collapsed');
+});
+
 // Apply saved favorites to cards
 document.querySelectorAll('#carrier-grid .card').forEach(function(card) {
   var key = card.dataset.metakey;
   if (key && favorites[key]) card.classList.add('favorited');
 });
+
+// Scroll to top on load
+window.scrollTo(0, 0);
 </script>
 </body>
 </html>
