@@ -454,7 +454,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
           <option>Great American</option>
           <option>Chubb Middle Market</option>
           <option>Chubb Small Business</option><option>Chubb Technology</option><option>Gateway Specialty</option><option>Hartford</option><option>Hiscox NOW</option><option>Hull &amp; Company</option><option>Luminor Risk</option><option>MEMIC</option><option>Method Insurance</option><option>N2G</option><option>Normandy</option><option>Nationwide</option>
-          <option>Starr — Commercial Property</option><option>Starwind Community Associations</option><option>Starwind Specialty</option><option>Specialty Comp Insurance Solutions (SCIS)</option><option>Summit — Workers' Comp</option><option>Tokio Marine Highland</option><option>Tower Hill</option><option>US Assure</option><option>USLI</option><option>USLI Nonprofit Social Services</option><option>USLI Houses of Worship</option><option>XPT Specialty</option>
+          <option>Starr — Commercial Property</option><option>Starwind Community Associations</option><option>Starwind Specialty</option><option>Specialty Comp Insurance Solutions (SCIS)</option><option>Summit — Workers' Comp</option><option>Tokio Marine Highland</option><option>Tower Hill</option><option>US Assure</option><option>USLI</option><option>USLI Nonprofit Social Services</option><option>USLI Houses of Worship</option><option>RT Specialty — Office LRO Program</option><option>XPT Specialty</option>
         </select>
         <input type="date" id="cl-date-input">
       </div>
@@ -2282,6 +2282,52 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
       </div>
     </div>
 
+    <!-- RT SPECIALTY - LRO PROGRAM -->
+    <div class="card" data-types="property,liability" data-text="RT Specialty wholesale broker LRO lessor risk only office occupancy office buildings office only nationwide loss free building owner package property general liability GL Sandy Geist Boca Raton binding authority surplus lines E&S class code 61217 61212 ex-wind Florida wind excluded minimum premium submission rtspecialty.com">
+      <div class="card-header">
+        <div>
+          <div class="carrier-name">RT Specialty — Office LRO Program</div>
+          <div class="carrier-sub">Wholesale Broker | Office Occupancy Lessor's Risk | Nationwide | Jun 2026</div>
+        </div>
+        <span class="carrier-badge badge-property">LRO</span>
+        <span class="carrier-badge badge-liability">GL</span>
+      </div>
+      <div class="card-body">
+
+        <div class="section-lbl">Program Overview</div>
+        <div class="tags">
+          <span class="tag strong">Office occupancies only — no retail, no residential, no mixed-use</span>
+          <span class="tag strong">Loss-free accounts required</span>
+          <span class="tag strong">Minimum 65% building occupancy required</span>
+          <span class="tag strong">Nationwide availability (see property notes for FL wind)</span>
+          <span class="tag limited">Not a carrier — RT Specialty is a wholesale broker; underlying carrier subject to program approval</span>
+        </div>
+
+        <div class="section-lbl">General Liability</div>
+        <div class="tags">
+          <span class="tag strong">Eligible Class Codes: 61217 or 61212</span>
+          <span class="tag strong">Minimum rate: $75 per $1,000 of area</span>
+          <span class="tag strong">Strong GL pricing flexibility</span>
+        </div>
+
+        <div class="section-lbl">Property</div>
+        <div class="tags">
+          <span class="tag strong">Limits up to $100M per policy · $25M max per building</span>
+          <span class="tag strong">Can be packaged with GL nationwide</span>
+          <span class="tag strong">Complete building updates within the past 30 years required</span>
+          <span class="tag qualified">Florida: Ex-wind only (wind options outside this program)</span>
+          <span class="tag qualified">Wind availability in other states subject to carrier approval</span>
+        </div>
+
+        <div class="divider"></div>
+        <div class="note"><strong>RT Specialty is a wholesale broker</strong> — not the risk-bearing carrier. Contact Sandy Geist, Binding Office President, to discuss submissions or accounts. Underlying carrier is subject to program placement.</div>
+        <div class="portals">
+          <a class="portal-link" href="mailto:Sandy.geist@rtspecialty.com">✉ Sandy.geist@rtspecialty.com</a>
+          <a class="portal-link" href="https://AimeeHUB999.github.io/cl-carrier-dashboard/LRO_Program_Questionaire.pdf" target="_blank">📄 LRO Supplemental Application</a>
+        </div>
+      </div>
+    </div>
+
     <!-- SPECIALTY COMP INSURANCE SOLUTIONS -->
     <div class="card" data-types="wc" data-text="Specialty Comp Insurance Solutions SCIS MGA workers compensation hard to place complex nonstandard construction healthcare social services specialty staffing transportation manufacturing hospitality tough to place high hazard underwriting claims advocacy loss control audit advisory premium compliance class fit newbusiness@specialtycompins.com Jeremy Thompson specialtycompins.com">
       <div class="card-header">
@@ -2940,6 +2986,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
       <option value="USLI">USLI</option>
       <option value="XPT">XPT Specialty</option>
       <option value="Bridge Specialty">Bridge Specialty</option>
+      <option value="RT Specialty">RT Specialty</option>
       <option value="Other">Other</option>
     </select>
   </div>
@@ -2990,6 +3037,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
       <option value="USLI">USLI</option>
         <option value="XPT">XPT Specialty</option>
         <option value="Bridge Specialty">Bridge Specialty</option>
+        <option value="RT Specialty">RT Specialty</option>
         <option value="Other">Other</option>
       </select>
     </div>
@@ -3173,6 +3221,23 @@ var cardMeta = {
     checklist: ['Quote online at normandyins.com or submit to applications@normandyins.com', 'WC (in-house carrier): ACORD 130, loss runs, experience mod worksheet', 'WC (wholesale): ACORD 130, loss runs for all risks with prior coverage, resume if no prior', 'BOP / GL: ACORD application, loss runs', 'Commercial Property: ACORD application, SOV, loss runs, year built, construction type, roof age', 'Allied Health: ACORD application, revenue, description of operations, loss runs', 'Builders Risk: project details, construction type, TIV, start/completion dates', 'Cannabis: full ACORD application, description of operations, state license', 'D&O / E&O: completed application, bylaws, list of directors/officers, loss runs', 'EPLI: ACORD application, employee count, description of HR practices', 'Excess: current underlying dec pages, loss runs', 'Inland Marine / Yacht: equipment schedule or vessel details, survey if required'],
     note: 'Two divisions: Normandy Insurance Company (in-house admitted WC carrier — FL included, instant online quotes) and Normandy Wholesale Brokerage (dozens of carriers for all other lines). Quote online or submit to applications@normandyins.com. Not available in ND, WI, WY for most lines; WC carrier writes 20 specific states.'
   },
+  'RT-LRO': {
+    updated: '2026-06-11',
+    checklist: [
+      'Completed ACORD applications',
+      'Completed LRO supplemental application (other carrier apps acceptable)',
+      'Current tenant list',
+      '3 years currently valued loss runs',
+      'Target premium',
+      'Confirm office occupancy only (no retail/residential)',
+      'Confirm minimum 65% building occupancy',
+      'Confirm loss-free history',
+      'Building square footage',
+      'Confirm complete building updates within past 30 years',
+      'If FL: confirm ex-wind structure; explore wind options outside this program'
+    ],
+    note: 'RT Specialty is a wholesale broker, not the risk-bearing carrier. Office LRO only — loss-free, 65%+ occupied. GL class codes 61217 or 61212. Min rate $75/$1K of area. Property up to $100M per policy / $25M per building. FL ex-wind only. Contact: Sandy Geist, Binding Office President — Sandy.geist@rtspecialty.com | D: 754-255-7415 | C: 954-592-9956 | 2225 Glades Rd, Suite 100-E, Boca Raton FL 33431'
+  },
   'Nationwide': {
     updated: '2026-03-01',
     checklist: ['Quote via ClearQuote or Policy Center using NAICS code', 'ACORD application', 'Loss runs (3 years)', 'WC: payroll breakdown by class code', 'Food services: confirm gross receipts meet minimums', 'Auto services: confirm GVW under 20,000 lbs and min $250K sales'],
@@ -3337,6 +3402,7 @@ function getMetaKey(card) {
   if (t.includes('Starr') && t.includes('Commercial Property')) return 'Starr';
   if (t.includes('Middle Market')) return 'Chubb-Middle';
   if (t.includes('Chubb Small')) return 'Chubb-Small';
+  if (t.includes('RT Specialty') && t.includes('LRO')) return 'RT-LRO';
   if (t.includes('Specialty Comp')) return 'SCIS';
   if (t.includes('Normandy')) return 'Normandy';
   if (t.includes('N2G')) return 'N2G';
@@ -3747,8 +3813,8 @@ var finderRules = {
     property: [{key:'Bass',match:'great',why:'Hard-to-place with silent A&B, A&M and firearm coverage available'}]
   },
   lro: {
-    gl:       [{key:'Authentic-LRO',match:'great',why:'Purpose-built LRO program, all 50 states, shopping centers through food processors'},{key:'Distinguished',match:'good',why:'Real Estate program covers commercial condos, strip shopping, mixed-use LRO, office, retail — umbrella up to $125M'},{key:'USLI',match:'good',why:'Land leased to others available'},{key:'Ascendant',match:'good',why:'LRO occupancies in property segment'}],
-    property: [{key:'Tower-Hill',match:'great',why:'Lessor risk exposures core to commercial property appetite'},{key:'Distinguished',match:'good',why:'Real Estate umbrella up to $125M for commercial real estate owners'},{key:'Ascendant',match:'good',why:'Property package available with LRO occupancy'}]
+    gl:       [{key:'RT-LRO',match:'great',why:'Office-only LRO program — GL + property package, nationwide, strong pricing flexibility, loss-free accounts, class codes 61217/61212'},{key:'Authentic-LRO',match:'great',why:'Purpose-built LRO program, all 50 states, shopping centers through food processors'},{key:'Distinguished',match:'good',why:'Real Estate program covers commercial condos, strip shopping, mixed-use LRO, office, retail — umbrella up to $125M'},{key:'USLI',match:'good',why:'Land leased to others available'},{key:'Ascendant',match:'good',why:'LRO occupancies in property segment'}],
+    property: [{key:'RT-LRO',match:'great',why:'Office LRO property up to $100M per policy / $25M per building, packageable with GL, nationwide (FL ex-wind)'},{key:'Tower-Hill',match:'great',why:'Lessor risk exposures core to commercial property appetite'},{key:'Distinguished',match:'good',why:'Real Estate umbrella up to $125M for commercial real estate owners'},{key:'Ascendant',match:'good',why:'Property package available with LRO occupancy'}]
   },
   contractor: {
     gl:       [{key:'Nationwide',match:'great',why:'Artisan contractors: electrical, plumbing, HVAC, painting, drywall, flooring, masonry, landscaping, janitorial — strong appetite'},{key:'USLI',match:'great',why:'Artisan/trade contractors a core product'},{key:'Berkley',match:'good',why:'Construction in top industries for Berkley Marketplace'},{key:'Ascendant',match:'good',why:'Extensive contractor and construction class list'},{key:'Bridge',match:'good',why:'GL and excess for roofing, scaffolding, crane rental, foundation repair, waterproofing, general/trade contractors — OCIP/CCIP wrap-up placements available'}],
@@ -4016,11 +4082,12 @@ var defaultContacts = [
   {id:72,name:'Cara Macdonald',role:'Specialty Programs Account Manager',carrier:'Method',email:'staffing@methodinsurance.com',phone:'402-609-7982',notes:'Method Insurance Services | Staffing Program | 888-981-1702'},
   {id:76,name:'Jeremy A. Thompson, CPCU',role:'AVP, Business Development',carrier:'SCIS',email:'newbusiness@specialtycompins.com',phone:'404-640-2278',notes:'Specialty Comp Insurance Solutions | WC MGA | Mountain Time Zone | 2611 Internet Blvd, Suite 124, Frisco TX 75034 | specialtycompins.com'},
   {id:77,name:'Robert Atkins',role:'Fleet Transportation Broker',carrier:'Bridge Specialty',email:'ratkins@bridgespecialty.com',phone:'(402) 216-6680',notes:'Bridge Specialty Insurance Brokerage | Fleet Transportation specialty — commercial auto, trucking (long haul to local), NEMT, towing, hazmat, contractor fleets, distressed/non-renewed | Peachtree Special Risk Brokers, LLC | 11405 N Community House Rd, Suite 100, Charlotte, NC 28277 | BridgeSpecialtyGroup.com'},
-  {id:78,name:'Eric Taylor',role:'Transportation Inside Broker',carrier:'Bridge Specialty',email:'etaylor@bridgespecialty.com',phone:'(312) 622-3264',notes:'Bridge Specialty Insurance Brokerage | Fleet Transportation — inside broker supporting Robert Atkins | BridgeSpecialtyGroup.com'}
+  {id:78,name:'Eric Taylor',role:'Transportation Inside Broker',carrier:'Bridge Specialty',email:'etaylor@bridgespecialty.com',phone:'(312) 622-3264',notes:'Bridge Specialty Insurance Brokerage | Fleet Transportation — inside broker supporting Robert Atkins | BridgeSpecialtyGroup.com'},
+  {id:79,name:'Sandy Geist',role:'Binding Office President',carrier:'RT Specialty',email:'Sandy.geist@rtspecialty.com',phone:'D: 754-255-7415 | C: 954-592-9956',notes:'RT Specialty | Office LRO Program | 2225 Glades Rd, Suite 100-E, Boca Raton FL 33431 | Wholesale broker — office occupancy LRO only, loss-free, nationwide'}
 ];
 
 var contacts = JSON.parse(JSON.stringify(defaultContacts));
-var nextId = 79;
+var nextId = 80;
 
 function initials(name) { return name.split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2); }
 function avatarColor(id) { return colorClasses[id % colorClasses.length]; }
@@ -4171,6 +4238,7 @@ var carrierRatings = {
   'Distinguished':  {rating:'A+',  label:'A to A+ Rated Carriers', source:'A.M. Best'},
   'GreatAmerican':  {rating:'A+',  label:'A+ (Superior)', source:'A.M. Best'},
   'Gateway':        {rating:'NR',  label:'Not Rated',      source:''},
+  'RT-LRO':         {rating:'NR',  label:'Not Rated — Wholesale Broker', source:''},
   'CNA':            {rating:'A',   label:'A (Excellent)',  source:'A.M. Best'},
   'Chubb-Cyber':    {rating:'A++', label:'A++ (Superior)', source:'A.M. Best'},
   'Chubb-Tech':     {rating:'A++', label:'A++ (Superior)', source:'A.M. Best'},
@@ -4309,6 +4377,11 @@ var emailTemplates = {
     updated: '2026-01-01',
     checklist: ['Quote online at normandyins.com or submit to applications@normandyins.com', 'WC (in-house carrier): ACORD 130, loss runs, experience mod worksheet', 'WC (wholesale): ACORD 130, loss runs for all risks with prior coverage, resume if no prior', 'BOP / GL: ACORD application, loss runs', 'Commercial Property: ACORD application, SOV, loss runs, year built, construction type, roof age', 'Allied Health: ACORD application, revenue, description of operations, loss runs', 'Builders Risk: project details, construction type, TIV, start/completion dates', 'Cannabis: full ACORD application, description of operations, state license', 'D&O / E&O: completed application, bylaws, list of directors/officers, loss runs', 'EPLI: ACORD application, employee count, description of HR practices', 'Excess: current underlying dec pages, loss runs', 'Inland Marine / Yacht: equipment schedule or vessel details, survey if required'],
     note: 'Two divisions: Normandy Insurance Company (in-house admitted WC carrier — FL included, instant online quotes) and Normandy Wholesale Brokerage (dozens of carriers for all other lines). Quote online or submit to applications@normandyins.com. Not available in ND, WI, WY for most lines; WC carrier writes 20 specific states.'
+  },
+  'RT-LRO': {
+    to: 'Sandy.geist@rtspecialty.com',
+    subject: 'LRO Office Program Submission — [Client Name] — [State] — [Sq Ft] SF',
+    body: 'Hi Sandy,\n\nPlease find a new submission for your Office LRO program.\n\nClient: [Client Name]\nBuilding Address: [Address, City, State, ZIP]\nBuilding Square Footage: [Sq Ft]\nNumber of Stories: [Number]\nCurrent Occupancy %: [%]\nTenant Types: [All office — list tenants or attach list]\nAny tenants open past 12am or late-night entertainment: Yes / No\nBuilding Year Built / Last Major Update: [Year]\nGL Class Code: 61217 or 61212\nProperty Limit Requested: $[Amount]\nGL Limit Requested: $[Amount]\nTarget Premium: $[Amount]\nEffective Date: [Date]\n\nAttached:\n☐ Completed ACORD applications\n☐ Completed LRO supplemental application\n☐ Current tenant list\n☐ 3 years currently valued loss runs\n\nNote: Loss-free account confirmed. Building occupancy 65%+ confirmed. FL ex-wind only (if applicable).\n\nPlease let me know if you need anything additional.\n\nThank you,\n[Your Name]\nHUB International South Florida'
   },
   'Hiscox': {
     to: '',
