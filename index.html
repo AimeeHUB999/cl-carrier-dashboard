@@ -452,7 +452,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
           <option value="">— Carrier —</option>
           <option>AmRisc</option><option>Aon — Attorneys Advantage</option><option>AMERISAFE</option><option>Ascendant CPP</option><option>Ascendant Commercial Auto</option><option>Ascendant Misc E&O</option><option>Ascendant Garage</option><option>Amwins</option><option>Amwins</option><option>Allianz Commercial</option><option>Authentic</option>
           <option>Bass Underwriters</option><option>Beazley DWP</option><option>Beazley MiscMed</option><option>Berkley Marketplace</option><option>Bridge Specialty Group</option><option>Bridge Specialty Group — Fleet Transportation</option>
-          <option>Church Mutual</option><option>CNA</option><option>Chubb Cyber</option><option>Chubb Life Sciences</option>
+          <option>Church Mutual</option><option>CNA</option><option>Chubb Cyber</option><option>Chubb Construction</option><option>Chubb Life Sciences</option>
           <option>Distinguished Programs</option>
           <option>Great American</option>
           <option>Chubb Middle Market</option>
@@ -1388,6 +1388,29 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
         <strong>Dennis Legnante</strong> — Director, Northeast · <a href="mailto:Dennis.Legnante@cna.com">Dennis.Legnante@cna.com</a> · 516-565-7303<br>
         <strong>Matt Lively</strong> — AVP, Midwest · <a href="mailto:Matt.Lively@cna.com">Matt.Lively@cna.com</a> · 847-946-7396<br>
         <strong>Bryan Angley</strong> — Director, West · <a href="mailto:Bryan.Angley@cna.com">Bryan.Angley@cna.com</a> · 323-896-6486</div>
+      </div>
+    </div>
+
+    <!-- CHUBB CONSTRUCTION -->
+    <div class="card" data-types="wc,liability,property,auto,bop" data-text="chubb construction small lower midmarket commercial general contractors trade contractors site development excavation grading workers comp general liability bop commercial auto property inland marine excess casualty builders risk environmental professional liability cyber railroad protective lmm crystal monroe alpharetta">
+      <div class="card-header">
+        <div>
+          <div class="carrier-name">Chubb &mdash; Construction Industry Practice</div>
+          <div class="carrier-sub">Small &amp; Lower Midmarket | LMM Construction Underwriters</div>
+        </div>
+        <span class="carrier-badge badge-commercial">Commercial</span>
+      </div>
+      <div class="card-body">
+        <div class="section-lbl">Target Classes</div>
+        <div class="tags">
+          <span class="tag strong">Commercial General Contractors</span><span class="tag strong">Office / Retail / Industrial Build-Out</span><span class="tag strong">Warehouse &amp; Logistics Construction</span><span class="tag strong">Interior Carpentry</span><span class="tag strong">Electrical Contractors</span><span class="tag strong">Floor Installation</span><span class="tag strong">Landscapers</span><span class="tag strong">Painting Contractors</span><span class="tag strong">Furniture &amp; Fixtures Installation</span><span class="tag strong">Residential Remodeling / Service / Repair</span><span class="tag strong">Excavation &amp; Grading</span><span class="tag strong">Commercial Site Development</span><span class="tag strong">Water &amp; Sewer Line Installation</span>
+        </div>
+        <div class="divider"></div>
+        <div class="note"><strong>Core Coverages:</strong> Workers Compensation, General Liability, BOP, Commercial Auto, Property &amp; Inland Marine, Excess Casualty. <strong>Complementary:</strong> Builders Risk, Environmental CPL &amp; PPL, Professional Liability, Railroad Protective Liability (via Westchester), Cyber Liability. All-lines account solutions for small and lower midmarket contractors. Strong sub/risk transfer protocols and safety culture preferred. Over $1.6B GWP across multiple lines.</div>
+        <div class="portals">
+          <a class="portal-link" href="https://AimeeHUB999.github.io/cl-carrier-dashboard/Sell_Sheet.pdf" target="_blank">&#x1F4C4; Construction Sell Sheet</a>
+        </div>
+        <div class="note" style="margin-top:8px;"><strong>Contact:</strong> Crystal M. Monroe (Executive Underwriter, LMM Construction, 404-354-3090)</div>
       </div>
     </div>
 
@@ -3769,6 +3792,10 @@ var cardMeta = {
     checklist: ['Statement of values / TIV schedule', 'Loss runs (5 years preferred)', 'Expiring program details / current coverage', 'Engineering / inspection reports if available', 'Contact regional underwriter first to pre-qualify'],
     note: 'CNA is actively looking to grow with HUB. Call Josh Schlachter (SE/Mid-Atl) or Tripp Lemieux (SE Structured Risk) to discuss appetite before submitting.'
   },
+  'Chubb-Construction': {
+    updated: '2026-06-25',
+    checklist: ['ACORD application (GL, WC, Auto, Property as applicable)', 'Subcontractor agreement / risk transfer protocols (required — strong sub controls preferred)', 'Loss runs (5 years)', 'Experience mod worksheet (WC)', 'Description of operations and project types', 'Revenue breakdown (own work vs. subcontracted)', 'OSHA safety program / site safety documentation', 'Schedule of equipment (if Inland Marine needed)', 'Builders Risk: project details, construction type, TIV, start/completion dates']
+  },
   'Chubb-Cyber': {
     updated: '2024-01-01',
     checklist: ['ACORD application or online via Cyber Central / Marketplace', 'Revenue confirmation (under $100M)', 'Industry / class code', 'Batch upload available for 10+ accounts'],
@@ -4128,6 +4155,7 @@ function getMetaKey(card) {
   if (t.includes('Gateway')) return 'Gateway';
   if (t.includes('Church Mutual')) return 'ChurchMutual';
   if (t.includes('CNA')) return 'CNA';
+  if (t.includes('Construction Industry')) return 'Chubb-Construction';
   if (t.includes('Chubb Cyber')) return 'Chubb-Cyber';
   if (t.includes('Technology Segment')) return 'Chubb-Tech';
   if (t.includes('Life Sciences Industry')) return 'Chubb-LifeSci';
@@ -4553,7 +4581,7 @@ var finderRules = {
     property: [{key:'Bass',match:'great',why:'Hard-to-place with silent A&B, A&M and firearm coverage available'}]
   },
   lro: {
-    gl:       [{key:'PHLY-ES',match:'great',why:'PHLY E&S Primary Casualty — Commercial Lessors Risk in target classes; also vacant/pre-lease CRE in appetite'},{key:'RT-LRO',match:'great',why:'Office-only LRO program — GL + property package, nationwide, strong pricing flexibility, loss-free accounts, class codes 61217/61212'},{key:'Authentic-LRO',match:'great',why:'Purpose-built LRO program, all 50 states, shopping centers through food processors'},{key:'Distinguished',match:'good',why:'Real Estate program covers commercial condos, strip shopping, mixed-use LRO, office, retail — umbrella up to $125M'},{key:'USLI',match:'good',why:'Land leased to others available'},{key:'Ascendant',match:'good',why:'LRO occupancies in property segment'}],
+    gl:       [{key:'Chubb-Construction',match:'great',why:'Dedicated LMM Construction Practice — GCs, trade contractors, site development, residential remodel/repair; all-lines solution'},{key:'PHLY-ES',match:'great',why:'PHLY E&S Primary Casualty — Commercial Lessors Risk in target classes; also vacant/pre-lease CRE in appetite'},{key:'RT-LRO',match:'great',why:'Office-only LRO program — GL + property package, nationwide, strong pricing flexibility, loss-free accounts, class codes 61217/61212'},{key:'Authentic-LRO',match:'great',why:'Purpose-built LRO program, all 50 states, shopping centers through food processors'},{key:'Distinguished',match:'good',why:'Real Estate program covers commercial condos, strip shopping, mixed-use LRO, office, retail — umbrella up to $125M'},{key:'USLI',match:'good',why:'Land leased to others available'},{key:'Ascendant',match:'good',why:'LRO occupancies in property segment'}],
     property: [{key:'RT-LRO',match:'great',why:'Office LRO property up to $100M per policy / $25M per building, packageable with GL, nationwide (FL ex-wind)'},{key:'Tower-Hill',match:'great',why:'Lessor risk exposures core to commercial property appetite'},{key:'Distinguished',match:'good',why:'Real Estate umbrella up to $125M for commercial real estate owners'},{key:'Ascendant',match:'good',why:'Property package available with LRO occupancy'}]
   },
   contractor: {
@@ -4768,6 +4796,7 @@ var defaultContacts = [
   {id:3,name:'Jason Angilan',role:'VP, Equipment Breakdown National Territory Leader',carrier:'CNA',email:'Jason.Angilan@cna.com',phone:'913-991-3227',notes:'CNA National Accounts Property'},
   {id:4,name:'Bryan Angley',role:'Director, Western Territory — Structured Risk',carrier:'CNA',email:'Bryan.Angley@cna.com',phone:'323-896-6486',notes:'CNA NAP Structured Risk | Retail 100% Ground-Up & Quota-Share'},
   {id:5,name:'Lisa Banks',role:'Commercial Underwriter — Southeast / South Central / Northeast',carrier:'US Assure',email:'lisa.banks@usassure.com',phone:'(904) 435-3804',notes:'US Assure | Commercial Underwriter | Southeast, South Central & Northeast Regions | usassure.com'},
+  {id:95,name:'Crystal M. Monroe',role:'Executive Underwriter — LMM Construction',carrier:'Chubb',email:'Crystal.Monroe@chubb.com',phone:'404-354-3090',notes:'11575 Great Oaks Way, Alpharetta, GA 30022 | LMM Construction Industry Practice'},
   {id:6,name:'Aaron Beattie',role:'Lower Middle Market Underwriter — Marine',carrier:'Chubb',email:'aaron.beattie@chubb.com',phone:'945-364-6839',notes:'Lower Middle Market | Marine specialty'},
   {id:7,name:'Tina Bentley',role:'VP, Eastern Territory Leader — Structured Risk',carrier:'CNA',email:'Christina.Bentley@cna.com',phone:'248-225-3512',notes:'CNA NAP Structured Risk | Retail 100% Ground-Up & Quota-Share'},
   {id:8,name:'Kevin Brown',role:'Underwriter / Sales Contact',carrier:'AMERISAFE',email:'kevbrown@amerisafe.com',phone:'601.942.7551',notes:'Arborist & Hazardous Classes'},
@@ -5017,6 +5046,7 @@ var carrierRatings = {
     'RT-LRO':         {rating:'NR',  label:'Not Rated — Wholesale Broker', source:''},
   'CNA':            {rating:'A',   label:'A (Excellent)',  source:'A.M. Best'},
   'Chubb-Cyber':    {rating:'A++', label:'A++ (Superior)', source:'A.M. Best'},
+  'Chubb-Construction': {rating:'A++', label:'A++ (Superior)', source:'A.M. Best'},
   'Chubb-Tech':     {rating:'A++', label:'A++ (Superior)', source:'A.M. Best'},
   'Chubb-LifeSci':  {rating:'A++', label:'A++ (Superior)', source:'A.M. Best'},
   'Chubb-Middle':   {rating:'A++', label:'A++ (Superior)', source:'A.M. Best'},
@@ -5147,6 +5177,11 @@ var emailTemplates = {
     to: 'commerciallinessubmissions@chubb.com',
     subject: 'Middle Market Submission — [Client Name] — [Industry]',
     body: 'Hello,\n\nPlease find attached a Middle Market submission for your review.\n\nClient: [Client Name]\nIndustry: [Industry]\nRevenue: $[Amount]\nEmployee Count: [Number]\nState(s): [States]\nCoverages Requested: [Lines]\nEffective Date: [Date]\n\nAttached:\n☐ ACORD application\n☐ Loss runs (3–5 years)\n☐ Financial statements (if required)\n\nPlease assign to the appropriate underwriter and confirm receipt.\n\nThank you,\n[Your Name]\nHUB International'
+  },
+  'Chubb-Construction': {
+    to: 'Crystal.Monroe@chubb.com',
+    subject: 'LMM Construction Submission — [Client Name] — [Class / Trade]',
+    body: 'Hi Crystal,\n\nPlease find a new LMM Construction submission for your review.\n\nClient: [Client Name]\nContractor Type: [e.g. General Contractor / Trade Contractor / Site Development]\nTrade / Class: [e.g. Interior Carpentry / Electrical / Excavation]\nRevenue: $[Amount]\nSubcontracted Revenue: $[Amount]\nNumber of Employees: [Number]\nState(s) of Operation: [States]\nExperience Mod: [X.XX]\nCoverages Requested: [e.g. WC, GL, Auto, Property, Inland Marine, Excess, Builders Risk]\nLimits Requested: $[Amount]\nEffective Date: [Date]\n\nAttached:\n\u2610 ACORD application(s)\n\u2610 Loss runs (5 years)\n\u2610 Experience mod worksheet\n\u2610 Subcontractor agreement / risk transfer protocol\n\u2610 Description of operations\n\u2610 OSHA safety program or site safety documentation\n\nPlease confirm receipt and let me know if you need anything additional.\n\nThank you,\n[Your Name]\nHUB International'
   },
   'Chubb-Cyber': {
     to: 'NBSERMSubmissions@Chubb.com',
