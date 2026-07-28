@@ -450,6 +450,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
       <div class="cl-selects">
         <select id="cl-carrier-sel">
           <option value="">— Carrier —</option>
+          <option>American Union Risk Associates (AURA) — National Real Estate Umbrella</option>
           <option>AmRisc</option><option>Aon — Affinity Healthcare Programs</option><option>Aon — Attorneys Advantage</option><option>AMERISAFE</option><option>Ascendant CPP</option><option>Ascendant Commercial Auto</option><option>Ascendant Misc E&O</option><option>Ascendant Garage</option><option>Amwins</option><option>Amwins</option><option>Allianz Commercial</option><option>Authentic</option>
           <option>Bass Underwriters</option><option>Beazley DWP</option><option>Beazley MiscMed</option><option>Berkley Marketplace</option><option>Bridge Specialty Group</option><option>Bridge Specialty Group — Fleet Transportation</option><option>Brown &amp; Riding</option>
           <option>Church Mutual</option><option>CNA</option><option>Chubb Cyber</option><option>Chubb Construction</option><option>Chubb Life Sciences</option>
@@ -517,6 +518,34 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
     <button class="collapse-all-btn" id="collapse-all-btn" onclick="toggleAllCards(this)">⊟ Collapse All</button>
   </div>
   <div class="carrier-grid" id="carrier-grid">
+
+    <!-- AMERICAN UNION RISK ASSOCIATES (AURA) - NATIONAL REAL ESTATE UMBRELLA -->
+    <div class="card" data-types="liability,umbrella" data-text="american union risk associates aura national real estate umbrella program purchasing group apartments community associations condos co-ops master associations hoas commercial lro office retail light industrial warehouse hotels limited service nationally franchised excess umbrella 5m 10m 15m 25m 35m million admitted non-admitted a.m. best a- viii jgs insurance">
+      <div class="card-header">
+        <div>
+          <div class="carrier-name">American Union Risk Associates (AURA) &mdash; National Real Estate Umbrella</div>
+          <div class="carrier-sub">Purchasing Group Program | Limits to $35M | Participating Carriers A.M. Best A- VIII or Better</div>
+        </div>
+        <span class="carrier-badge badge-liability">Umbrella / Excess</span>
+      </div>
+      <div class="card-body">
+        <div class="section-lbl">Eligible Classes</div>
+        <div class="tags">
+          <span class="tag strong">Apartments</span><span class="tag strong">Community Associations (Condos, Co-ops, Master Associations, HOAs)</span><span class="tag strong">Commercial LRO (Office, Retail, Light Industrial, Warehouse)</span><span class="tag contact">Hotels &mdash; Limited Service, Nationally Franchised Only</span>
+        </div>
+        <div class="section-lbl">Limit Options</div>
+        <div class="tags">
+          <span class="tag strong">$5M</span><span class="tag strong">$10M</span><span class="tag strong">$15M</span><span class="tag strong">$25M</span><span class="tag strong">$35M</span>
+        </div>
+        <div class="divider"></div>
+        <div class="note"><strong>Admitted/Non-Admitted:</strong> Admitted in all states except CA, FL, HI, NY and WA, where the program is written non-admitted. All participating carriers rated A.M. Best A- VIII or better. Available for new business and renewals. <strong>Ineligible:</strong> any risk located in Georgia; apartments built prior to 2005; NYC Commercial LRO properties built prior to 2000. All new business must be submitted through the online portal below.</div>
+        <div class="portals">
+          <a class="portal-link" href="https://www.jgsinsuranceonline.com/AuraQuotes/" target="_blank">&#128279; Online Submission Portal</a>
+          <a class="portal-link" href="https://www.aurains.com/" target="_blank">&#128279; AURA Website</a>
+        </div>
+        <div class="note" style="margin-top:6px;"><strong>Contact:</strong> American Union Risk Associates &middot; (877) 506-1430 &middot; <a href="https://www.aurains.com/" target="_blank">aurains.com</a> &middot; Loss runs: <a href="mailto:LossRuns@aurains.com">LossRuns@aurains.com</a> &middot; 100 North Federal Highway, Suite 300, Hallandale, FL 33009</div>
+      </div>
+    </div>
 
     <!-- AMRISC GROUP -->
     <div class="card" data-types="property" data-text="AmRisc Group MGA catastrophe CAT property largest CAT focused managing general agent real estate apartments condo associations retail lessor risk LRO public entity schools municipalities offices manufacturing warehousing metal plastics food textile chemical electrical builders risk commercial residential public buildings Florida condo admitted California earthquake wind deductible buyback non-CAT Florida X-Wind Waypoint Chronos AmRisc Online Lloyd's of London Everest Indian Harbor Fireman's Fund quota share surplus lines wholesale high TIV large account coastal wind hurricane">
@@ -4397,6 +4426,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
     <input type="text" id="contact-search" placeholder="Search contacts..." oninput="filterContacts()">
     <select id="contact-carrier-filter" onchange="filterContacts()">
       <option value="">All Carriers</option>
+      <option value="AURA-Umbrella">American Union Risk Associates (AURA) — National Real Estate Umbrella</option>
       <option value="AmRisc">AmRisc</option>
       <option value="AMERISAFE">AMERISAFE</option>
       <option value="Aon">Aon — Affinity Healthcare / Attorneys Advantage</option>
@@ -4463,6 +4493,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
     <div class="form-group"><label>Role / Title</label><input type="text" id="f-role" placeholder="e.g. Underwriter, BDM"></div>
     <div class="form-group"><label>Carrier</label>
       <select id="f-carrier">
+        <option value="AURA-Umbrella">American Union Risk Associates (AURA) — National Real Estate Umbrella</option>
         <option value="AmRisc">AmRisc</option>
       <option value="AMERISAFE">AMERISAFE</option>
         <option value="Aon">Aon — Affinity Healthcare / Attorneys Advantage</option>
@@ -4532,6 +4563,11 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
 // DATA: Card metadata (updated dates, checklists, initial notes)
 // ─────────────────────────────────────────────────────────────
 var cardMeta = {
+  'AURA-Umbrella': {
+    updated: '2026-07-28',
+    checklist: ['All new business submitted via online portal (not email)', 'Confirm property type eligibility (Apartments / Community Association / Commercial LRO / Hotel — limited service, nationally franchised only)', 'Confirm state: non-admitted in CA, FL, HI, NY, WA; admitted elsewhere', 'Confirm no Georgia exposure', 'Apartments: confirm year built 2005 or later', 'NYC Commercial LRO: confirm year built 2000 or later', 'Desired limit: $5M / $10M / $15M / $25M / $35M'],
+    note: 'National Real Estate Umbrella purchasing group program. All participating carriers A.M. Best A- VIII or better. New business must go through the online portal at jgsinsuranceonline.com/AuraQuotes. Loss runs requests go to LossRuns@aurains.com, not the submission portal.'
+  },
   'Amwins': {
     updated: '2026-06-12',
     checklist: ['ACORD 140 (property application)', 'Construction type (MNC vs JM)', 'Year built', 'TIV', 'Distance from coast', 'Flood zone', 'Loss runs (if any)', 'Target premium if applicable'],
@@ -5124,6 +5160,7 @@ function getMetaKey(card) {
   var name = card.querySelector('.carrier-name');
   if (!name) return null;
   var t = name.textContent.trim();
+  if (t.includes('American Union Risk Associates') || t.includes('AURA')) return 'AURA-Umbrella';
   if (t.includes('AmRisc')) return 'AmRisc';
   if (t.includes('Affinity Healthcare')) return 'Aon-Affinity-HC';
   if (t.includes('Attorneys Advantage')) return 'Aon-AA';
@@ -5581,7 +5618,7 @@ var finderRules = {
   habitational: {
     property: [{key:'Miller-MM',match:'good',why:'Miller Mid-Market product includes selective habitational appetite (loss-history dependent); TIV up to $1B, limit to $100M'},{key:'Distinguished',match:'great',why:'Community Associations Package — COAs, HOAs, PUDs, co-ops, townhouses. Up to $30M TIV, 125% extended replacement cost, crime included'},{key:'Tower-Hill',match:'great',why:'Apartments, HOAs, condos are core commercial residential appetite'},{key:'CNA',match:'great',why:'Habitational in portfolio (non-combustible apartments/condos)'},{key:'XPT-SME',match:'good',why:'XPT SME Property Program — habitational is a target class; TIV $5M-$7.5M per location, $25M max policy; min premium $15K; lower 48 states; earthquake, flood, Tier 1 wind excluded'},{key:'Luminor',match:'good',why:'Excess only for apartments — no primary hab. Min TIV $25M. Southeast wind-driven focus. Wholesale access only.'},{key:'Ascendant',match:'good',why:'Apartment buildings, condominiums, vacation rentals available'},{key:'TravelersSelect',match:'good',why:'Apartments, cooperatives & residential condos in CRE & Residential Property segment; TIV up to $75M/$10M'}],
     gl:       [{key:'PHLY-CP',match:'great',why:'PHLY Commercial Package — HOAs (8641), condominiums (8641), apartments (6513), affordable housing, mobile home parks (6515) are all named classes; top FL niche market'},{key:'Distinguished',match:'great',why:'Community Associations Package GL — covers COA/HOA/PUD common areas, blanket waiver of subrogation, defense for third-party breach of contract'},{key:'Authentic-LRO',match:'great',why:'LRO program covers building owners with retail/residential tenants'},{key:'XPT-HCH',match:'good',why:'XPT Hab / Contractors / Hospitality GL — FL condos ($50K min) and apartments ($75K min); Zinsco/FPE panels considered; can meet Fannie Mae/Freddie Mac requirements; A&B available; excess only in FL/GA (unsupported, max $3M); no NY'},{key:'USLI',match:'good',why:'1-4 family dwellings in appetite'},{key:'Ascendant',match:'good',why:'Apartment buildings in commercial/residential property segment'},{key:'PriceForbes',match:'good',why:'Active Assailant with Assault & Battery sublimit — no ideological motive required to trigger, strong cross-sell for habitational where CGL may be silent or exclude'}],
-    mgmt:     [{key:'GreatAmerican',match:'great',why:'Purpose-built Community Association D&O/EPLI + Crime — HOA, COA, POA, PUD, Cooperative. Open brokerage, all 50 states. Min premium $625. 17.5% commission.'},{key:'Distinguished',match:'great',why:'D&O, Crime and Umbrella all available to pair with Community Associations Package — up to $10M express umbrella'}]
+    mgmt:     [{key:'GreatAmerican',match:'great',why:'Purpose-built Community Association D&O/EPLI + Crime — HOA, COA, POA, PUD, Cooperative. Open brokerage, all 50 states. Min premium $625. 17.5% commission.'},{key:'Distinguished',match:'great',why:'D&O, Crime and Umbrella all available to pair with Community Associations Package — up to $10M express umbrella'},{key:'AURA-Umbrella',match:'good',why:'National Real Estate Umbrella purchasing group — apartments and community associations (condos, co-ops, master associations, HOAs), limits to $35M, admitted in most states'}]
   },
   habitational_hard: {
     gl:       [{key:'Bass',match:'great',why:'Specialty market for hard-to-place habitational — too many losses, stories, short-term rentals, student housing, 100% subsidized'}],
@@ -5589,7 +5626,8 @@ var finderRules = {
   },
   lro: {
     gl:       [{key:'Chubb-Construction',match:'great',why:'Dedicated LMM Construction Practice — GCs, trade contractors, site development, residential remodel/repair; all-lines solution'},{key:'PHLY-ES',match:'great',why:'PHLY E&S Primary Casualty — Commercial Lessors Risk in target classes; also vacant/pre-lease CRE in appetite'},{key:'RT-LRO',match:'great',why:'Office-only LRO program — GL + property package, nationwide, strong pricing flexibility, loss-free accounts, class codes 61217/61212'},{key:'Authentic-LRO',match:'great',why:'Purpose-built LRO program, all 50 states, shopping centers through food processors'},{key:'Distinguished',match:'good',why:'Real Estate program covers commercial condos, strip shopping, mixed-use LRO, office, retail — umbrella up to $125M'},{key:'USLI',match:'good',why:'Land leased to others available'},{key:'Ascendant',match:'good',why:'LRO occupancies in property segment'},{key:'TravelersSelect',match:'good',why:'Lessors Risk (office/retail/shopping center) in CRE segment; TIV up to $50M/$10M'}],
-    property: [{key:'Miller-MM',match:'great',why:'HUB-exclusive London facility — large-TIV commercial real estate / LRO property up to $1B TIV, $100M limit, primary/excess/QS'},{key:'RT-LRO',match:'great',why:'Office LRO property up to $100M per policy / $25M per building, packageable with GL, nationwide (FL ex-wind)'},{key:'Tower-Hill',match:'great',why:'Lessor risk exposures core to commercial property appetite'},{key:'Distinguished',match:'good',why:'Real Estate umbrella up to $125M for commercial real estate owners'},{key:'XPT-SME',match:'good',why:'XPT SME Property Program — commercial real estate / LRO is a target class; TIV $5M-$7.5M per location, $25M max policy; min premium $15K; earthquake, flood, Tier 1 wind excluded'},{key:'Ascendant',match:'good',why:'Property package available with LRO occupancy'}]
+    property: [{key:'Miller-MM',match:'great',why:'HUB-exclusive London facility — large-TIV commercial real estate / LRO property up to $1B TIV, $100M limit, primary/excess/QS'},{key:'RT-LRO',match:'great',why:'Office LRO property up to $100M per policy / $25M per building, packageable with GL, nationwide (FL ex-wind)'},{key:'Tower-Hill',match:'great',why:'Lessor risk exposures core to commercial property appetite'},{key:'Distinguished',match:'good',why:'Real Estate umbrella up to $125M for commercial real estate owners'},{key:'XPT-SME',match:'good',why:'XPT SME Property Program — commercial real estate / LRO is a target class; TIV $5M-$7.5M per location, $25M max policy; min premium $15K; earthquake, flood, Tier 1 wind excluded'},{key:'Ascendant',match:'good',why:'Property package available with LRO occupancy'}],
+    mgmt:     [{key:'AURA-Umbrella',match:'good',why:'National Real Estate Umbrella purchasing group — Commercial LRO (office, retail, light industrial, warehouse), limits to $35M; NYC LRO must be built 2000 or later'}]
   },
   contractor: {
     gl:       [{key:'PHLY-ES',match:'great',why:'PHLY E&S Primary Casualty — commercial and artisan GC/trades up to $50M gross receipts; residential repair/remodel (no HOA); project-specific CGL; excess casualty also available'},{key:'Nationwide',match:'great',why:'Artisan contractors: electrical, plumbing, HVAC, painting, drywall, flooring, masonry, landscaping, janitorial — strong appetite'},{key:'USLI',match:'great',why:'Artisan/trade contractors a core product'},{key:'Berkley',match:'good',why:'Construction in top industries for Berkley Marketplace'},{key:'Ascendant',match:'good',why:'Extensive contractor and construction class list'},{key:'Bridge',match:'good',why:'GL and excess for roofing, scaffolding, crane rental, foundation repair, waterproofing, general/trade contractors — OCIP/CCIP wrap-up placements available'},{key:'XPT-HCH',match:'good',why:'XPT Hab/Contractors/Hospitality GL — GCs and artisan contractors eligible; no new tract work (25+ homes), no new condo/townhome, no project-specific/OCIP; no NY'},{key:'TravelersSelect',match:'good',why:'Interior carpenters, plumbers, electricians, HVAC, landscapers in appetite; exterior work above 3 stories excluded'}],
@@ -5650,7 +5688,7 @@ var finderRules = {
     wc:       [{key:'MEMIC',match:'great',why:'Hotels, restaurants, resorts, country clubs preferred hospitality segment'},{key:'Summit',match:'great',why:'Hotels and hospitality a named Summit class — in-house claims and Back2work RTW program included'},{key:'SCIS',match:'good',why:'Hospitality is a named SCIS industry — restaurants, bars, hotels, resorts, and country clubs in appetite'},{key:'Zenith',match:'good',why:'FL monoline WC — hotels (full &amp; limited service), restaurants, bars/taverns named in Middle Market appetite; STP list includes 9052 Hotels, 9082 Restaurants, 9084 Bars &amp; Taverns'}],
     gl:       [{key:'TravelersSelect',match:'good',why:'Hotels, B&Bs, boarding houses (Definitely Maybe) in CRE segment; banquet/reception facilities in Food Service segment'}],
     gl:       [{key:'PHLY-ES',match:'great',why:'PHLY E&S Primary Casualty — restaurants, hotels, catering halls, comedy clubs; E&S excess casualty available for bars/taverns, beer gardens, microbreweries, microdistilleries'},{key:'Distinguished',match:'great',why:'Hotels & Resorts program — limited service through luxury, boutique, casinos, franchised and independent. Hotel Primary GL + Cyber + Umbrella up to $140M'},{key:'Nationwide',match:'good',why:'Food services BOP appetite covers full/limited service restaurants'},{key:'Chubb-Small',match:'great',why:'Casual & fine dining, event planners strong appetite'},{key:'Ascendant',match:'good',why:'Restaurant & hospitality segment'},{key:'USLI-Hosp',match:'great',why:'Dedicated hospitality & liquor product — bars, nightclubs, breweries, event venues, entertainment, special events, new ventures welcomed'},{key:'USLI',match:'good',why:'Restaurants in commercial appetite'},{key:'Beazley',match:'good',why:'DWP fills CGL gap for deadly weapon events — strong cross-sell for hotels, restaurants, entertainment venues'},{key:'Bridge',match:'good',why:'GL and excess for nightclubs, bars, hotels/motels, resorts, casinos, fast food chains, special events, catering halls — liquor liability included'}],
-    property: [{key:'Distinguished',match:'great',why:'Hotel & Resort umbrella up to $140M — dedicated limits per client, A to A+ rated carriers, 1M+ hotel rooms covered'},{key:'CNA',match:'great',why:'Hospitality in portfolio mix'},{key:'N2G',match:'good',why:'Hospitality a preferred N2G class — good fit when hotel/resort group has any foreign locations'},{key:'Tower-Hill',match:'good',why:'Hotels (CP only) available'},{key:'Ascendant',match:'good',why:'Bed and breakfasts, caterers, event planners, restaurants available'}]
+    property: [{key:'Distinguished',match:'great',why:'Hotel & Resort umbrella up to $140M — dedicated limits per client, A to A+ rated carriers, 1M+ hotel rooms covered'},{key:'AURA-Umbrella',match:'good',why:'National Real Estate Umbrella program — limited service, nationally franchised hotels only, limits to $35M'},{key:'CNA',match:'great',why:'Hospitality in portfolio mix'},{key:'N2G',match:'good',why:'Hospitality a preferred N2G class — good fit when hotel/resort group has any foreign locations'},{key:'Tower-Hill',match:'good',why:'Hotels (CP only) available'},{key:'Ascendant',match:'good',why:'Bed and breakfasts, caterers, event planners, restaurants available'}]
   },
   auto_dealer: {
     wc:       [{key:'MEMIC',match:'great',why:'Automobile dealerships is a named preferred industry'}],
@@ -5803,6 +5841,8 @@ function filterCards() {
 // ─────────────────────────────────────────────────────────────
 var colorClasses = ['av-blue','av-green','av-purple','av-amber','av-rose','av-teal'];
 var defaultContacts = [
+  {id:115,name:'American Union Risk Associates',role:'Submissions / Loss Runs',carrier:'AURA-Umbrella',email:'LossRuns@aurains.com',phone:'877-506-1430',notes:'National Real Estate Umbrella Program — no named underwriter provided; company-level submission and loss runs contact only.'},
+  {id:116,name:'Nathan Masse',role:'Underwriter',carrier:'Summit',email:'Nathan.masse@summitholdings.com',phone:'863-606-7105',notes:''},
   {id:99,name:'Brendan Connolly',role:'Regional Sales Director — Aon Programs, Affinity Healthcare',carrier:'Aon',email:'brendan.connolly@aon.com',phone:'267-884-9085',notes:'New RSD as of June 2026 (territory realignment) | CA License #4135576 | Covers NSO/HPSO, Dentist\'s Advantage, O&P/HMED, Senior Living, NEMT, Social Services Connect | Copy on all submissions'},
   {id:96,name:'Nicholas Dale',role:'Miller Contact — HUB-Miller Mid-Market Facility',carrier:'Miller',email:'',phone:'',notes:'London wholesale broker | Process contact — sends submission to all lead markets; email pending'},
   {id:97,name:'Poppy Gedney',role:'Miller Contact — HUB-Miller Mid-Market Facility',carrier:'Miller',email:'',phone:'',notes:'London wholesale broker | Email pending'},
@@ -6057,6 +6097,7 @@ document.getElementById('modal').addEventListener('click', function(e){ if(e.tar
 // AM BEST RATINGS
 // ─────────────────────────────────────────────────────────────
 var carrierRatings = {
+  'AURA-Umbrella': {rating:'NR',  label:'NR — Program Administrator/Wholesaler; participating carriers A- VIII or better', source:'A.M. Best'},
   'Aon-Affinity-HC': {rating:'A',  label:'A (Excellent) — CNA (American Casualty) and Arch, varies by program', source:'A.M. Best'},
   'Aon-AA':         {rating:'A',   label:'A (Excellent) XV — National Union Fire Ins. Co. of Pittsburgh, Pa. (AIG)', source:'A.M. Best'},
   'AMERISAFE':      {rating:'A',  label:'A (Excellent)',   source:'A.M. Best'},
@@ -6142,6 +6183,11 @@ function addRatingBadge(card, key) {
 // EMAIL TEMPLATES
 // ─────────────────────────────────────────────────────────────
 var emailTemplates = {
+  'AURA-Umbrella': {
+    to: 'LossRuns@aurains.com',
+    subject: 'Loss Runs Request \u2014 [Client Name] \u2014 AURA National Real Estate Umbrella',
+    body: 'Hi AURA Team,\n\nRequesting loss runs for the following account under the National Real Estate Umbrella Program.\n\nClient: [Client Name]\nPolicy/Reference #: [If known]\nProperty Type: [Apartments / Community Association / Commercial LRO / Hotel]\nAddress: [Address, City, State, ZIP]\n\nNote: New business submissions for this program must be completed via the online portal, not by email.\n\nThank you,\n[Your Name]\nHUB International'
+  },
   'AmRisc': {
     updated: '2026-01-01',
     checklist: ['Access via Waypoint (wholesale), Chronos (retail), or AmRisc Online (up to $10M TIV)', 'ACORD property application', 'Statement of values / property schedule', 'Loss runs (5 years preferred)', 'Construction type, year built, occupancy details, number of stories', 'Current flood zone and FEMA map panel', 'For FL condo admitted: confirm garden/mid-rise/high-rise, number of units, TIV', 'For Builders Risk: project description, hard cost breakdown, start/completion dates', 'For Technical Risks: process description, protection class, fire suppression details', 'For CA Earthquake: confirm TIV range $5M–$250M, occupancy, soil type if known', 'For Wind Deductible Buyback: single location only, TIV $7.5M–$50M, current wind deductible %'],
