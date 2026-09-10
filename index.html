@@ -44,6 +44,9 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
 
 /* ── Carrier grid ── */
 .carrier-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px;}
+.card-group{grid-column:1/-1;background:#F9FAFB;border:1px solid #E5E7EB;border-radius:12px;padding:14px;}
+.card-group-header{font-size:12px;font-weight:700;color:#6B7280;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:10px;padding:0 2px;}
+.card-group-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px;}
 .card{background:#fff;border:1px solid #E5E7EB;border-radius:12px;overflow:visible;transition:box-shadow 0.15s;position:relative;align-self:start;}
 .card:hover{box-shadow:0 4px 16px rgba(0,0,0,0.1);}
 .card.favorited{border-color:#F59E0B;box-shadow:0 0 0 2px rgba(245,158,11,0.15);}
@@ -305,6 +308,8 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
   .nav-btn{font-size:11px;padding:4px 9px;}
   .main{padding:12px;}
   .carrier-grid{grid-template-columns:1fr!important;gap:10px;}
+  .card-group-grid{grid-template-columns:1fr!important;gap:10px;}
+  .card-group{padding:10px;}
   .filter-row{gap:5px;}
   .chip{font-size:11px;padding:4px 10px;}
   .collapse-all-btn{font-size:11px;padding:4px 10px;}
@@ -322,6 +327,8 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
   .card-body.collapsed{display:block!important;}
   .main{padding:8px!important;}
   .carrier-grid{grid-template-columns:repeat(2,1fr)!important;gap:8px!important;}
+  .card-group-grid{grid-template-columns:repeat(2,1fr)!important;gap:8px!important;}
+  .card-group{border:1px solid #ccc!important;}
   body{background:#fff!important;}
   .print-hidden{display:none!important;}
 }
@@ -912,6 +919,10 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
       </div>
     </div>
 
+    <!-- AON GROUP (2 programs, visually consolidated) -->
+    <div class="card-group">
+      <div class="card-group-header">Aon — Programs by Line</div>
+      <div class="card-group-grid">
     <!-- AON AFFINITY HEALTHCARE PROGRAMS -->
     <div class="card" data-types="liability,property,auto,mgmt" data-text="aon affinity healthcare programs professional liability allied healthcare nso hpso dentists advantage senior living orthotics prosthetics home medical equipment dealers hmed nemt non emergency medical transportation social services connect nonprofit brendan connolly regional sales director arch cna home health hospice nurses physicians pas crnas pharmacies dental oral surgeons dso group homes rcfe counseling firms optometry therapy centers vocational">
       <div class="card-header">
@@ -1001,7 +1012,14 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
         <div class="note" style="margin-top:8px;"><strong>Submissions &amp; Bind Requests:</strong> <a href="mailto:Affinitylawyersadmin@aon.com">Affinitylawyersadmin@aon.com</a> · Use subject line "Request to Bind" for bind requests · <strong>UW Director:</strong> Erin Curley · <a href="mailto:erin.curley@aon.com">erin.curley@aon.com</a> · 215.293.1142 · <strong>Broker Relations:</strong> Peter Reimann · <a href="mailto:Peter.Reimann@aon.com">Peter.Reimann@aon.com</a> · 312.381.2717</div>
       </div>
     </div>
+      </div>
+    </div>
+    <!-- /AON GROUP -->
 
+    <!-- ASCENDANT GROUP (4 programs, visually consolidated) -->
+    <div class="card-group">
+      <div class="card-group-header">Ascendant — Programs by Line</div>
+      <div class="card-group-grid">
     <!-- ASCENDANT COMMERCIAL AUTO -->
     <div class="card" data-types="liability,auto,transportation" data-text="ascendant commercial auto commercial vehicles delivery amazon food delivery artisan contractors courier freight forwarders furniture cable installers service repair general contractors frozen food distributors home appliance retailers mobile mechanics heavy trucks fleet small medium businesses no credit check no clue report MVR fees 13% commission incentive rewards assist program cross-sell">
       <div class="card-header">
@@ -1181,7 +1199,14 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
         </div>
       </div>
     </div>
+      </div>
+    </div>
+    <!-- /ASCENDANT GROUP -->
 
+    <!-- AUTHENTIC GROUP (6 programs, visually consolidated) -->
+    <div class="card-group">
+      <div class="card-group-header">Authentic Insurance — Programs by Line</div>
+      <div class="card-group-grid">
     <!-- AUTHENTIC COMMERCIAL -->
     <div class="card" data-types="bop,liability" data-text="authentic commercial general liability professional liability property bop restaurants fitness retail medical offices professional services barber florist funeral pet liquor liability hnoa full service fine dining fast casual quick service nightclub hookah bars">
       <div class="card-header">
@@ -1350,6 +1375,9 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
         </div>
       </div>
     </div>
+      </div>
+    </div>
+    <!-- /AUTHENTIC GROUP -->
 
     <!-- BASS UNDERWRITERS - Hard to Place Habitational -->
     <div class="card" data-types="liability" data-text="bass underwriters hard to place habitational gl general liability silent a&b assault battery a&m assault manslaughter firearms student housing short term rentals under construction subsidized multifamily">
@@ -1384,6 +1412,10 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
       </div>
     </div>
 
+    <!-- BEAZLEY GROUP (2 programs, visually consolidated) -->
+    <div class="card-group">
+      <div class="card-group-header">Beazley — Programs by Line</div>
+      <div class="card-group-grid">
     <!-- BEAZLEY DWP -->
     <div class="card" data-types="liability" data-text="beazley deadly weapons protection dwp active shooter workplace violence brandished weapon counselling services property damage business interruption circumstance additional security medical funeral expenses memorialisation accidental death extra expense responder expenses surplus lines lloyd's affirmative coverage gap analysis">
       <div class="card-header">
@@ -1450,6 +1482,9 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
         </div>
       </div>
     </div>
+      </div>
+    </div>
+    <!-- /BEAZLEY GROUP -->
 
     <!-- BERKLEY MARKETPLACE -->
     <div class="card" data-types="bop,wc,liability,property,auto,transportation" data-text="berkley marketplace construction manufacturing transportation hospitality wholesale life sciences general liability inland marine workers compensation business auto environmental excess management liability product recall professional liability">
@@ -1725,6 +1760,10 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
       </div>
     </div>
 
+    <!-- CHUBB GROUP (6 programs, visually consolidated) -->
+    <div class="card-group">
+      <div class="card-group-header">Chubb — Programs by Line</div>
+      <div class="card-group-grid">
     <!-- CHUBB CYBER -->
     <div class="card" data-types="cyber" data-text="chubb cyber erm digitech erm technology errors omissions cyber crime first party third party liability cyber central marketplace commission 20.5%">
       <div class="card-header">
@@ -1935,6 +1974,9 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
         <div class="note" style="margin-top:4px;">Submissions: <a href="mailto:commerciallinessubmissions@chubb.com">commerciallinessubmissions@chubb.com</a></div>
       </div>
     </div>
+      </div>
+    </div>
+    <!-- /CHUBB GROUP -->
 
     <!-- CHURCH MUTUAL INSURANCE -->
     <div class="card" data-types="bop,liability,property,wc,auto,mgmt,education" data-text="church mutual insurance company CM Regent schools education K-12 private independent religious Montessori Waldorf performing arts military special needs boarding tutoring language immersion international baccalaureate community college private university vocational adult training seminary curriculum development nonprofit accredited learning institutions general liability abusive behavior sexual misconduct molestation educators professional liability law enforcement professional property crime inland marine commercial auto workers compensation umbrella excess Sem Karetny Christine West education center of excellence">
@@ -2705,6 +2747,10 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
       </div>
     </div>
 
+    <!-- HARTFORD GROUP (4 programs, visually consolidated) -->
+    <div class="card-group">
+      <div class="card-group-header">Hartford — Programs by Line</div>
+      <div class="card-group-grid">
     <!-- HARTFORD EDUCATION / PRIVATE SCHOOLS -->
     <div class="card" data-types="property,liability,mgmt,commercial,education" data-text="Hartford education private schools K-12 colleges universities charter trade vocational religiously affiliated Educators Professional Choice EPC directors officers D&O errors omissions E&O employment practices liability EPL sexual abuse molestation LLSAM wrongfully accused defense reimbursement law enforcement liability campus police general liability educators endorsement incidental medical malpractice crisis event property choice fine arts athletic equipment musical instruments fundraising outdoor trees turf multinational choice business travel accident BTA Yale College 1825">
       <div class="card-header">
@@ -3005,6 +3051,9 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
         </div>
       </div>
     </div>
+      </div>
+    </div>
+    <!-- /HARTFORD GROUP -->
 
     <!-- HISCOX NOW -->
     <div class="card" data-types="liability,professional,cyber,bop" data-text="Hiscox NOW small business admitted professional liability general liability GL BOP business owner policy cyber security E&O errors omissions allied health architect engineering consulting creative financial services landscape janitorial legal marketing real estate restaurant retail technology contractors small business same day binding instant quote self service portal">
