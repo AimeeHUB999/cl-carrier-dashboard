@@ -66,6 +66,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
 .badge-eo{background:#CCFBF1;color:#0F766E;}
 .badge-mgmt{background:#FEE2E2;color:#991B1B;}
 .badge-education{background:#E0E7FF;color:#3730A3;}
+.badge-partner{background:#E7E5E4;color:#44403C;border:1px solid #D6D3D1;}
 .updated-badge{font-size:10px;color:#9CA3AF;white-space:nowrap;}
 .updated-badge.stale{color:#F59E0B;font-weight:500;}
 .fav-btn{background:none;border:none;cursor:pointer;font-size:16px;line-height:1;padding:0;color:#D1D5DB;transition:color 0.15s;}
@@ -341,9 +342,10 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
   <div class="nav-tabs">
     <button class="nav-tab active" onclick="showTab('markets',this)">Markets</button>
     <button class="nav-tab" onclick="showTab('contacts',this)">Contacts</button>
+    <button class="nav-tab" onclick="showTab('partners',this)">Partners</button>
   </div>
   <div class="nav-actions">
-    <div class="search-bar"><input type="text" id="global-search" placeholder="Search carriers, classes..." oninput="filterCards();toggleSearchClear()"><button class="search-clear" id="search-clear" onclick="clearSearch()" title="Clear search">&#x2715;</button></div>
+    <div class="search-bar"><input type="text" id="global-search" placeholder="Search carriers, classes..." oninput="filterCards();filterPartners();toggleSearchClear()"><button class="search-clear" id="search-clear" onclick="clearSearch()" title="Clear search">&#x2715;</button></div>
     <button class="nav-btn finder-btn" onclick="openFinder()">🔍 Best Fit</button>
     <button class="nav-btn" onclick="toggleFavFilter(this)">⭐ Favorites</button>
     <button class="nav-btn" onclick="openChangelog()">📋 Changelog</button>
@@ -3828,31 +3830,25 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
     </div>
 
     <!-- NATIONWIDE MANUFACTURING (CLEARQUOTE) -->
-    <div class="card" data-types="bop" data-text="nationwide manufacturing 220 classes clearquote referred to underwriting printing publishing signs advertising furniture manufacturing sporting goods packaging apparel textiles office supplies partial list donna johnson territory manager small commercial">
+    <div class="card" data-types="bop" data-text="nationwide manufacturing 220 classes clearquote referred to underwriting printing publishing signs advertising furniture manufacturing sporting goods packaging apparel textiles office supplies donna johnson territory manager small commercial">
       <div class="card-header">
         <div>
           <div class="carrier-name">Nationwide — Manufacturing (ClearQuote)</div>
-          <div class="carrier-sub">220 Manufacturing NAICS Classes | Refer-to-Underwriting | Source: Nationwide flyer, no date printed</div>
+          <div class="carrier-sub">220 Manufacturing NAICS Classes | Refer-to-Underwriting</div>
         </div>
         <span class="carrier-badge badge-bop">Referral</span>
       </div>
       <div class="card-body">
-        <div class="section-lbl">How It Works</div>
+        <div class="section-lbl">Manufacturing Categories</div>
         <div class="tags">
-          <span class="tag strong">Step 1 — Start the quote in ClearQuote</span><span class="tag strong">Step 2 — Click to refer to underwriting</span><span class="tag qualified">Step 3 — All manufacturing submissions are referred to underwriting for review (no instant bind)</span>
+          <span class="tag strong">Printing &amp; Publishing</span><span class="tag strong">Signs &amp; Advertising</span><span class="tag strong">Furniture Manufacturing</span><span class="tag strong">Sporting Goods</span><span class="tag strong">Packaging</span><span class="tag strong">Apparel &amp; Textiles</span><span class="tag strong">Office Supplies</span><span class="tag strong">And Many More</span>
         </div>
-        <div class="section-lbl">Example Categories — Partial List Only</div>
-        <div class="tags">
-          <span class="tag strong">Printing &amp; Publishing</span><span class="tag strong">Signs &amp; Advertising</span><span class="tag strong">Furniture Manufacturing</span><span class="tag strong">Sporting Goods</span><span class="tag strong">Packaging</span><span class="tag strong">Apparel &amp; Textiles</span><span class="tag strong">Office Supplies</span><span class="tag qualified">+ many more — full 220-class NAICS list not yet obtained</span>
-        </div>
-        <div class="note"><strong>Unconfirmed:</strong> the source flyer names only 8 example categories out of 220 total classes and carries no printed effective date. The full NAICS code list has not been sourced — confirm specific class-code eligibility with your Territory Manager before submitting. This expansion is not listed as a segment in the Small Commercial Appetite Guide (see the <em>Nationwide — Small Commercial</em> card, which covers Professional/Financial, Auto, Personal, Pet Care, Contractors, Retail, Health Care, Food, and Real Estate) — treat manufacturing as a separate, newer appetite expansion layered on the same ClearQuote platform.</div>
-        <div class="section-lbl">Key Notes</div>
-        <div class="note">All manufacturing submissions route to underwriting for review regardless of class — there is no instant-bind path for this segment. Confirm with your underwriter whether the account also needs to meet the general Small Commercial eligibility parameters (revenue, TIV, employee count) listed on the Nationwide — Small Commercial card.</div>
+        <div class="note">All manufacturing submissions are referred to underwriting for review. Quote via ClearQuote using the account's NAICS code.</div>
         <div class="divider"></div>
         <div class="portals">
           <a class="portal-link" href="https://nationwide.com/business" target="_blank">🔗 nationwide.com</a>
         </div>
-        <div class="note" style="margin-top:6px;">Contact your Territory Manager to confirm the full 220-class list and effective date before submitting.</div>
+        <div class="note" style="margin-top:6px;">Contact your Territory Manager for class-specific eligibility details.</div>
       </div>
     </div>
 
@@ -5641,6 +5637,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
     <select id="contact-carrier-filter" onchange="filterContacts()">
       <option value="">All Carriers</option>
       <option value="HUB-MM-UXS-Panel">HUB U.S. Middle Market Umbrella &amp; Excess Liability Panel</option>
+      <option value="DRS-MVP">DRS — Managed Vendor Partner (MVP) Program</option>
       <option value="AURA-Umbrella">American Union Risk Associates (AURA) — National Real Estate Umbrella</option>
       <option value="AmRisc">AmRisc</option>
       <option value="AMERISAFE">AMERISAFE</option>
@@ -5714,6 +5711,50 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
   <div class="no-results" id="no-results-contacts">No contacts found.</div>
 </div>
 
+<!-- PARTNERS TAB -->
+<div class="tab-panel" id="tab-partners">
+  <div class="filter-row">
+    <span class="filter-count" id="filter-count-partners"></span>
+  </div>
+  <div class="carrier-grid" id="partners-grid">
+
+    <!-- DRS MVP PROGRAM -->
+    <div class="card" data-text="drs delivering results and solutions managed vendor partner mvp program hub property client benefit no cost no obligation disaster recovery mitigation restoration construction roofing salvage contents equipment hvac weather monitoring schedule of values sov one call total response reporting a loss cory brandt jason trahan director of business development commercial insurance claims practice leader drsconsults.com welcome guide program overview pdf">
+      <div class="card-header">
+        <div>
+          <div class="carrier-name">DRS Managed Vendor Partner (MVP) Program</div>
+          <div class="carrier-sub">HUB International Benefit · Powered by DRS · No-Cost Property Loss Response</div>
+        </div>
+        <span class="carrier-badge badge-partner">HUB Partner</span>
+      </div>
+      <div class="card-body">
+        <div class="note">As a HUB Property client, clients automatically have access to DRS' Managed Vendor Partner (MVP) Program, a no-cost, no-obligation service that prepositions critical vendors for a faster, coordinated response to a property loss. DRS also integrates a client's Schedule of Values (SOV) into a weather monitoring system for automated alerts ahead of potential events.</div>
+        <div class="section-lbl">What DRS Covers</div>
+        <div class="tags">
+          <span class="tag strong">Mitigation &amp; Restoration</span><span class="tag strong">Construction &amp; Roofing</span><span class="tag strong">Equipment &amp; HVAC</span><span class="tag strong">Salvage &amp; Contents</span>
+        </div>
+        <div class="note">DRS manages the process start to finish and coordinates with the client, broker, MVP vendor, and insurance carrier to align scope, pricing, and execution. MVP partners pay DRS — there is no cost to the client for coordination. MVPs are subject to the insurance adjustment process, so insurers validate scope and cost for restoration and repairs.</div>
+        <div class="section-lbl">Reporting a Loss</div>
+        <div class="tags">
+          <span class="tag strong">Step 1 — Reach the DRS team (contacts below)</span><span class="tag strong">Step 2 — Provide POC, address, damage type/description, photos if available</span><span class="tag qualified">Step 3 — DRS connects POCs, creates a shared distribution, and coordinates on-site inspection</span>
+        </div>
+        <div class="divider"></div>
+        <div class="section-lbl">Contacts</div>
+        <div class="tags">
+          <span class="tag contact">Cory Brandt — Director of Business Development — 949-244-1338 — cbrandt@drsconsults.com</span><span class="tag contact">Jason Trahan — Commercial Insurance Claims Practice Leader — 214-563-7957 — jtrahan@drsconsults.com</span><span class="tag contact">24/7 Help Line — 833-377-4357 — contactus@drsconsults.com</span>
+        </div>
+        <div class="portals">
+          <a class="portal-link" href="https://drsconsults.com" target="_blank">🔗 drsconsults.com</a>
+          <a class="portal-link" href="https://AimeeHUB999.github.io/cl-carrier-dashboard/DRS_MVPProgramWelcome_08_27_26.pdf" target="_blank">📄 Welcome Guide (PDF)</a>
+          <a class="portal-link" href="https://AimeeHUB999.github.io/cl-carrier-dashboard/DRS_MVPProgramOverview_09_01_26.pdf" target="_blank">📄 Program Overview (PDF)</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="no-results" id="no-results-partners" style="display:none;">No partners match your search.</div>
+</div>
+
 </div><!-- /main -->
 
 <!-- ADD CONTACT MODAL -->
@@ -5725,6 +5766,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F2F5;color:#1A1A2
     <div class="form-group"><label>Carrier</label>
       <select id="f-carrier">
         <option value="HUB-MM-UXS-Panel">HUB U.S. Middle Market Umbrella &amp; Excess Liability Panel</option>
+        <option value="DRS-MVP">DRS — Managed Vendor Partner (MVP) Program</option>
         <option value="AURA-Umbrella">American Union Risk Associates (AURA) — National Real Estate Umbrella</option>
         <option value="AmRisc">AmRisc</option>
       <option value="AMERISAFE">AMERISAFE</option>
@@ -6235,8 +6277,8 @@ HUB International South Florida`
   },
   'Nationwide-Manufacturing': {
     updated: '2026-09-14',
-    checklist: ['Quote via ClearQuote using NAICS code (same platform as Nationwide — Small Commercial)', 'Confirm the account\'s manufacturing NAICS code is on Nationwide\'s full 220-class list before submitting — only 8 example categories confirmed from the source flyer', 'All manufacturing submissions are automatically referred to underwriting for review, regardless of class', 'ACORD application', 'Loss runs (3 years)'],
-    note: 'Source: Nationwide "Big News — Quote 220 Manufacturing Classes in ClearQuote" flyer (no date printed on source material). ClearQuote is the same quoting platform used for Nationwide — Small Commercial; every manufacturing submission routes to underwriting for review, no instant bind. Example categories named on the flyer: printing & publishing, signs & advertising, furniture manufacturing, sporting goods, packaging, apparel & textiles, office supplies, plus unnamed others. Full 220-code NAICS list not yet obtained — confirm specific class eligibility with your Territory Manager before submitting. Not listed as a segment in the Small Commercial Appetite Guide (see Nationwide — Small Commercial card) — treat as a separate, newer appetite expansion on the same platform.'
+    checklist: ['Quote via ClearQuote using NAICS code (same platform as Nationwide — Small Commercial)', 'All manufacturing submissions are automatically referred to underwriting for review', 'ACORD application', 'Loss runs (3 years)'],
+    note: 'Source: Nationwide "Big News — Quote 220 Manufacturing Classes in ClearQuote" flyer. ClearQuote is the same quoting platform used for Nationwide — Small Commercial; every manufacturing submission routes to underwriting for review, no instant bind. Named categories include printing & publishing, signs & advertising, furniture manufacturing, sporting goods, packaging, apparel & textiles, office supplies, and more. Not listed as a segment in the Small Commercial Appetite Guide — treat as a separate appetite expansion on the same platform.'
   },
   'Hartford': {
     updated: '2025-10-01',
@@ -7192,6 +7234,22 @@ function clearSearch() {
   var btn = document.getElementById('search-clear');
   if (btn) btn.style.display = 'none';
   filterCards();
+  filterPartners();
+}
+
+function filterPartners() {
+  var q = (document.getElementById('global-search').value || '').toLowerCase().trim();
+  var cards = document.querySelectorAll('#partners-grid .card');
+  var visible = 0;
+  cards.forEach(function(c) {
+    var textMatch = !q || (c.dataset.text||'').indexOf(q) > -1 || c.innerText.toLowerCase().indexOf(q) > -1;
+    if (textMatch) { c.style.display = ''; visible++; }
+    else { c.style.display = 'none'; }
+  });
+  var countEl = document.getElementById('filter-count-partners');
+  if (countEl) countEl.textContent = visible + ' partner' + (visible !== 1 ? 's' : '');
+  var noRes = document.getElementById('no-results-partners');
+  if (noRes) noRes.style.display = visible === 0 ? 'block' : 'none';
 }
 
 function filterCards() {
@@ -7396,6 +7454,9 @@ var defaultContacts = [
   {id:140,name:'Maria Simpson',role:'Policy Services Supervisor / Sr. Underwriter',carrier:'FHM-LUBA',email:'msimpson@fhmic.com',phone:'407-205-3291 (c)',notes:'FHM Insurance Company / LUBA Workers\' Comp'},
   {id:141,name:'Jacob Smith',role:'Small Business Underwriter',carrier:'FHM-LUBA',email:'jsmith@fhmic.com',phone:'904-854-2767 (w)',notes:'FHM Insurance Company / LUBA Workers\' Comp'},
   {id:175,name:'Donna Johnson',role:'Territory Manager, Small Commercial',carrier:'Nationwide',email:'donna.johnson@nationwide.com',phone:'515-508-3019',notes:'Nationwide Small Commercial Territory Manager. Contact for Small Commercial appetite/eligibility questions and for confirming the ClearQuote manufacturing expansion (220 classes, full list unconfirmed) and its effective date.'},
+  {id:176,name:'Cory Brandt',role:'Director of Business Development',carrier:'DRS-MVP',email:'cbrandt@drsconsults.com',phone:'949-244-1338',notes:'DRS (Delivering Results & Solutions) | Managed Vendor Partner (MVP) Program | HUB International Benefit | drsconsults.com'},
+  {id:177,name:'Jason Trahan',role:'Commercial Insurance Claims Practice Leader',carrier:'DRS-MVP',email:'jtrahan@drsconsults.com',phone:'214-563-7957',notes:'DRS (Delivering Results & Solutions) | Managed Vendor Partner (MVP) Program | HUB International Benefit | drsconsults.com'},
+  {id:178,name:'DRS 24/7 Help Line',role:'Loss Reporting',carrier:'DRS-MVP',email:'contactus@drsconsults.com',phone:'833-377-4357',notes:'DRS (Delivering Results & Solutions) | Managed Vendor Partner (MVP) Program | Use to report a property loss and reach your DRS team after hours or nights/weekends'},
 ];
 
 var contacts = JSON.parse(JSON.stringify(defaultContacts));
@@ -8217,8 +8278,7 @@ loadChangelog();
 enhanceCards();
 renderContacts();
 filterCards();
-
-// Collapse all cards on initial load
+filterPartners();
 document.querySelectorAll('#carrier-grid .card').forEach(function(card) {
   var body = card.querySelector('.card-body');
   card.classList.add('is-collapsed');
